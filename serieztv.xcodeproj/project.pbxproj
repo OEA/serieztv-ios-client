@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */; };
-		76B767441DEAF56E0070E62F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* AppDelegate.swift */; };
-		76B767461DEAF56E0070E62F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767451DEAF56E0070E62F /* ViewController.swift */; };
+		76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* STAppDelegate.swift */; };
 		76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674A1DEAF56E0070E62F /* Assets.xcassets */; };
 		76B7674E1DEAF56E0070E62F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */; };
 		76B767591DEAF56E0070E62F /* serieztvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767581DEAF56E0070E62F /* serieztvTests.swift */; };
 		76B767641DEAF56E0070E62F /* serieztvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767631DEAF56E0070E62F /* serieztvUITests.swift */; };
+		76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767741DEAFA6F0070E62F /* STLoginViewController.swift */; };
+		76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767761DEAFA7C0070E62F /* STLoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +37,7 @@
 /* Begin PBXFileReference section */
 		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		76B767431DEAF56E0070E62F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76B767451DEAF56E0070E62F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		76B767431DEAF56E0070E62F /* STAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAppDelegate.swift; sourceTree = "<group>"; };
 		76B7674A1DEAF56E0070E62F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76B7674D1DEAF56E0070E62F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76B7674F1DEAF56E0070E62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		76B7675F1DEAF56E0070E62F /* serieztvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = serieztvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B767631DEAF56E0070E62F /* serieztvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serieztvUITests.swift; sourceTree = "<group>"; };
 		76B767651DEAF56E0070E62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76B767741DEAFA6F0070E62F /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
+		76B767761DEAFA7C0070E62F /* STLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginView.swift; sourceTree = "<group>"; };
 		909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.release.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.release.xcconfig"; sourceTree = "<group>"; };
 		EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,11 +104,12 @@
 		76B767421DEAF56E0070E62F /* serieztv */ = {
 			isa = PBXGroup;
 			children = (
-				76B767431DEAF56E0070E62F /* AppDelegate.swift */,
-				76B767451DEAF56E0070E62F /* ViewController.swift */,
+				76B767711DEAF96F0070E62F /* Views */,
+				76B767431DEAF56E0070E62F /* STAppDelegate.swift */,
 				76B7674A1DEAF56E0070E62F /* Assets.xcassets */,
 				76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */,
 				76B7674F1DEAF56E0070E62F /* Info.plist */,
+				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
 			);
 			path = serieztv;
 			sourceTree = "<group>";
@@ -127,6 +130,14 @@
 				76B767651DEAF56E0070E62F /* Info.plist */,
 			);
 			path = serieztvUITests;
+			sourceTree = "<group>";
+		};
+		76B767711DEAF96F0070E62F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76B767761DEAFA7C0070E62F /* STLoginView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		8FBD28186AD8B1ECE66C389C /* Frameworks */ = {
@@ -330,8 +341,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76B767461DEAF56E0070E62F /* ViewController.swift in Sources */,
-				76B767441DEAF56E0070E62F /* AppDelegate.swift in Sources */,
+				76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */,
+				76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */,
+				76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

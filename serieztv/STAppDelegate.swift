@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  STAppDelegate.swift
 //  serieztv
 //
 //  Created by Goktug on 27/11/2016.
@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class STAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = ViewController()
+        window?.rootViewController = STLoginViewController()
 
         return true
     }

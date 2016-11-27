@@ -19,18 +19,44 @@ class STLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpViews()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        UIApplication.shared.statusBarStyle = .lightContent
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if self.loginView.loginButton.frame.origin.y + loginView.loginButton.frame.size.height/2 == self.view.frame.height/2 {
+            UIView.animate(withDuration: 1.0, animations: {
+                self.loginView.emailField.frame.origin.y -= 40
+                self.loginView.passwordField.frame.origin.y -= 40
+                self.loginView.loginButton.frame.origin.y -= 40
+                self.loginView.logo.frame.origin.y -= 40
+            }, completion: nil)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if self.loginView.loginButton.frame.origin.y + loginView.loginButton.frame.size.height/2 != self.view.frame.height/2 {
+            UIView.animate(withDuration: 1.0, animations: {
+                self.loginView.emailField.frame.origin.y += 40
+                self.loginView.passwordField.frame.origin.y += 40
+                self.loginView.loginButton.frame.origin.y += 40
+                self.loginView.logo.frame.origin.y += 40
+            }, completion: nil)
+        }
+    }
+    
     func setUpViews() {
         
         self.view.addSubview(loginView)
-        
-        
+ 
         loginView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view.snp.top)
             make.bottom.equalTo(self.view.snp.bottom)
@@ -40,6 +66,7 @@ class STLoginViewController: UIViewController {
         
         loginView.loginButton.addTarget(self, action:#selector(self.login), for: .touchUpInside)
         loginView.registerNavigateButton.addTarget(self, action:#selector(self.navigateToRegister), for: .touchUpInside)
+        
     }
     
     func login() {

@@ -15,6 +15,8 @@
 		76B767641DEAF56E0070E62F /* serieztvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767631DEAF56E0070E62F /* serieztvUITests.swift */; };
 		76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767741DEAFA6F0070E62F /* STLoginViewController.swift */; };
 		76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767761DEAFA7C0070E62F /* STLoginView.swift */; };
+		76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767781DEAFCD50070E62F /* STRegisterView.swift */; };
+		76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		76B767651DEAF56E0070E62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76B767741DEAFA6F0070E62F /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
 		76B767761DEAFA7C0070E62F /* STLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginView.swift; sourceTree = "<group>"; };
+		76B767781DEAFCD50070E62F /* STRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRegisterView.swift; sourceTree = "<group>"; };
+		76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRegisterViewController.swift; sourceTree = "<group>"; };
 		909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.release.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.release.xcconfig"; sourceTree = "<group>"; };
 		EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,7 @@
 				76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */,
 				76B7674F1DEAF56E0070E62F /* Info.plist */,
 				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
+				76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */,
 			);
 			path = serieztv;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				76B767761DEAFA7C0070E62F /* STLoginView.swift */,
+				76B767781DEAFCD50070E62F /* STRegisterView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -342,7 +348,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */,
+				76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */,
 				76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */,
+				76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */,
 				76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

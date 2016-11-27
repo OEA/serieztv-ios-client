@@ -1,5 +1,5 @@
 //
-//  STLoginView.swift
+//  STRegisterView.swift
 //  serieztv
 //
 //  Created by Goktug on 27/11/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class STLoginView: UIView {
+class STRegisterView: UIView {
 
 
 }

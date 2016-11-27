@@ -20,7 +20,8 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = STLoginViewController()
+        let navController = UINavigationController(rootViewController: STLoginViewController())
+        window?.rootViewController = navController
 
         return true
     }

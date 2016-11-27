@@ -10,10 +10,15 @@ import UIKit
 
 class STLoginView: UIView {
     
+    let backgroundImageView: UIImageView = {
+        let backgroundImageView = UIImageView()
+        return backgroundImageView
+    }()
+    
     let logo: UILabel = {
         let logo = UILabel()
         logo.text = "SeriezTV"
-        logo.textColor = UIColor.black
+        logo.textColor = UIColor(colorLiteralRed: 100/255, green: 149/255, blue: 237/255, alpha: 1.0)
         logo.textAlignment = NSTextAlignment.center
         logo.adjustsFontSizeToFitWidth = true
         return logo
@@ -21,12 +26,15 @@ class STLoginView: UIView {
     
     let emailField: UITextField = {
         let emailField = UITextField()
-        emailField.placeholder = "Email"
+        emailField.textColor = UIColor.white
+        emailField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSForegroundColorAttributeName: UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0)])
+        emailField.keyboardAppearance = UIKeyboardAppearance.dark;
+        emailField.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 20/255, blue: 20/255, alpha: 1.0)
         emailField.font = UIFont.systemFont(ofSize: 15)
         emailField.borderStyle = UITextBorderStyle.roundedRect
         emailField.autocorrectionType = UITextAutocorrectionType.no
         emailField.keyboardType = UIKeyboardType.emailAddress
-        emailField.returnKeyType = UIReturnKeyType.done
+        emailField.returnKeyType = UIReturnKeyType.continue
         emailField.clearButtonMode = UITextFieldViewMode.whileEditing;
         emailField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
         return emailField
@@ -34,11 +42,14 @@ class STLoginView: UIView {
     
     let passwordField: UITextField = {
         let passwordField = UITextField()
-        passwordField.placeholder = "Password"
+        passwordField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSForegroundColorAttributeName: UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0)])
+        passwordField.textColor = UIColor.white
+        passwordField.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 20/255, blue: 20/255, alpha: 1.0)
         passwordField.font = UIFont.systemFont(ofSize: 15)
         passwordField.borderStyle = UITextBorderStyle.roundedRect
         passwordField.autocorrectionType = UITextAutocorrectionType.no
         passwordField.keyboardType = UIKeyboardType.default
+        passwordField.keyboardAppearance = UIKeyboardAppearance.dark;
         passwordField.returnKeyType = UIReturnKeyType.done
         passwordField.clearButtonMode = UITextFieldViewMode.whileEditing;
         passwordField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
@@ -48,20 +59,22 @@ class STLoginView: UIView {
     let loginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(UIColor.black, for: .normal)
+        loginButton.setTitleColor(UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0), for:.normal)
+        loginButton.backgroundColor = UIColor(colorLiteralRed: 100/255, green: 149/255, blue: 237/255, alpha: 1.0)
         return loginButton
     }()
     
     let registerNavigateButton: UIButton = {
         let registerNavigateButton = UIButton()
         registerNavigateButton.setTitle("Register", for: .normal)
-        registerNavigateButton.setTitleColor(UIColor.black, for: .normal)
+        registerNavigateButton.setTitleColor(UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0), for:.normal)
+        registerNavigateButton.backgroundColor = UIColor(colorLiteralRed: 100/255, green: 149/255, blue: 237/255, alpha: 1.0)
         return registerNavigateButton
     }()
     
     override init (frame : CGRect) {
         super.init(frame : frame)
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 20/255, blue: 20/255, alpha: 1.0)
         setupLoginView()
     }
     
@@ -70,11 +83,21 @@ class STLoginView: UIView {
     }
     
     func setupLoginView() {
+        self.addSubview(backgroundImageView)
         self.addSubview(logo)
         self.addSubview(emailField)
         self.addSubview(passwordField)
         self.addSubview(loginButton)
         self.addSubview(registerNavigateButton)
+        
+        
+        
+        backgroundImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top)
+            make.bottom.equalTo(self.snp.bottom)
+            make.leading.equalTo(self.snp.leading)
+            make.trailing.equalTo(self.snp.trailing)
+        }
         
         logo.snp.makeConstraints { (make) in
             make.leading.equalTo(20)
@@ -97,6 +120,8 @@ class STLoginView: UIView {
         loginButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.centerY.equalTo(self)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
             make.top.equalTo(passwordField.snp.bottom).offset(10)
             
         }
@@ -104,7 +129,8 @@ class STLoginView: UIView {
         registerNavigateButton.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-10)
             make.centerX.equalTo(self)
-            make.height.equalTo(20)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
         }
         
     }

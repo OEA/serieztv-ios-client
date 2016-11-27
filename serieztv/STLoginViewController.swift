@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  STLoginViewController.swift
 //  serieztv
 //
 //  Created by Goktug on 27/11/2016.
@@ -8,19 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class STLoginViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
-

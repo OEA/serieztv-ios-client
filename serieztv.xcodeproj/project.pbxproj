@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */; };
+		76B767441DEAF56E0070E62F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* AppDelegate.swift */; };
+		76B767461DEAF56E0070E62F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767451DEAF56E0070E62F /* ViewController.swift */; };
+		76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674A1DEAF56E0070E62F /* Assets.xcassets */; };
+		76B7674E1DEAF56E0070E62F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */; };
+		76B767591DEAF56E0070E62F /* serieztvTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767581DEAF56E0070E62F /* serieztvTests.swift */; };
+		76B767641DEAF56E0070E62F /* serieztvUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767631DEAF56E0070E62F /* serieztvUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		76B767551DEAF56E0070E62F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76B767381DEAF56E0070E62F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76B7673F1DEAF56E0070E62F;
+			remoteInfo = serieztv;
+		};
+		76B767601DEAF56E0070E62F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 76B767381DEAF56E0070E62F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 76B7673F1DEAF56E0070E62F;
+			remoteInfo = serieztv;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		76B767431DEAF56E0070E62F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		76B767451DEAF56E0070E62F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		76B7674A1DEAF56E0070E62F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		76B7674D1DEAF56E0070E62F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		76B7674F1DEAF56E0070E62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76B767541DEAF56E0070E62F /* serieztvTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = serieztvTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76B767581DEAF56E0070E62F /* serieztvTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serieztvTests.swift; sourceTree = "<group>"; };
+		76B7675A1DEAF56E0070E62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76B7675F1DEAF56E0070E62F /* serieztvUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = serieztvUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76B767631DEAF56E0070E62F /* serieztvUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serieztvUITests.swift; sourceTree = "<group>"; };
+		76B767651DEAF56E0070E62F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.release.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.release.xcconfig"; sourceTree = "<group>"; };
+		EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		76B7673D1DEAF56E0070E62F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B767511DEAF56E0070E62F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B7675C1DEAF56E0070E62F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		76B767371DEAF56E0070E62F = {
+			isa = PBXGroup;
+			children = (
+				76B767421DEAF56E0070E62F /* serieztv */,
+				76B767571DEAF56E0070E62F /* serieztvTests */,
+				76B767621DEAF56E0070E62F /* serieztvUITests */,
+				76B767411DEAF56E0070E62F /* Products */,
+				C5F20BCC4541AE7CC3EE683B /* Pods */,
+				8FBD28186AD8B1ECE66C389C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		76B767411DEAF56E0070E62F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76B767401DEAF56E0070E62F /* serieztv.app */,
+				76B767541DEAF56E0070E62F /* serieztvTests.xctest */,
+				76B7675F1DEAF56E0070E62F /* serieztvUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		76B767421DEAF56E0070E62F /* serieztv */ = {
+			isa = PBXGroup;
+			children = (
+				76B767431DEAF56E0070E62F /* AppDelegate.swift */,
+				76B767451DEAF56E0070E62F /* ViewController.swift */,
+				76B7674A1DEAF56E0070E62F /* Assets.xcassets */,
+				76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */,
+				76B7674F1DEAF56E0070E62F /* Info.plist */,
+			);
+			path = serieztv;
+			sourceTree = "<group>";
+		};
+		76B767571DEAF56E0070E62F /* serieztvTests */ = {
+			isa = PBXGroup;
+			children = (
+				76B767581DEAF56E0070E62F /* serieztvTests.swift */,
+				76B7675A1DEAF56E0070E62F /* Info.plist */,
+			);
+			path = serieztvTests;
+			sourceTree = "<group>";
+		};
+		76B767621DEAF56E0070E62F /* serieztvUITests */ = {
+			isa = PBXGroup;
+			children = (
+				76B767631DEAF56E0070E62F /* serieztvUITests.swift */,
+				76B767651DEAF56E0070E62F /* Info.plist */,
+			);
+			path = serieztvUITests;
+			sourceTree = "<group>";
+		};
+		8FBD28186AD8B1ECE66C389C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5F20BCC4541AE7CC3EE683B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */,
+				909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		76B7673F1DEAF56E0070E62F /* serieztv */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76B767681DEAF56E0070E62F /* Build configuration list for PBXNativeTarget "serieztv" */;
+			buildPhases = (
+				0FBBB6F0CFF770B852C302FC /* [CP] Check Pods Manifest.lock */,
+				76B7673C1DEAF56E0070E62F /* Sources */,
+				76B7673D1DEAF56E0070E62F /* Frameworks */,
+				76B7673E1DEAF56E0070E62F /* Resources */,
+				AB31178D2656E70B776D0576 /* [CP] Embed Pods Frameworks */,
+				D0620A540ADE8A65B50FC301 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = serieztv;
+			productName = serieztv;
+			productReference = 76B767401DEAF56E0070E62F /* serieztv.app */;
+			productType = "com.apple.product-type.application";
+		};
+		76B767531DEAF56E0070E62F /* serieztvTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76B7676B1DEAF56E0070E62F /* Build configuration list for PBXNativeTarget "serieztvTests" */;
+			buildPhases = (
+				76B767501DEAF56E0070E62F /* Sources */,
+				76B767511DEAF56E0070E62F /* Frameworks */,
+				76B767521DEAF56E0070E62F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76B767561DEAF56E0070E62F /* PBXTargetDependency */,
+			);
+			name = serieztvTests;
+			productName = serieztvTests;
+			productReference = 76B767541DEAF56E0070E62F /* serieztvTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		76B7675E1DEAF56E0070E62F /* serieztvUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76B7676E1DEAF56E0070E62F /* Build configuration list for PBXNativeTarget "serieztvUITests" */;
+			buildPhases = (
+				76B7675B1DEAF56E0070E62F /* Sources */,
+				76B7675C1DEAF56E0070E62F /* Frameworks */,
+				76B7675D1DEAF56E0070E62F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				76B767611DEAF56E0070E62F /* PBXTargetDependency */,
+			);
+			name = serieztvUITests;
+			productName = serieztvUITests;
+			productReference = 76B7675F1DEAF56E0070E62F /* serieztvUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		76B767381DEAF56E0070E62F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = serieztv;
+				TargetAttributes = {
+					76B7673F1DEAF56E0070E62F = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					76B767531DEAF56E0070E62F = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 76B7673F1DEAF56E0070E62F;
+					};
+					76B7675E1DEAF56E0070E62F = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 76B7673F1DEAF56E0070E62F;
+					};
+				};
+			};
+			buildConfigurationList = 76B7673B1DEAF56E0070E62F /* Build configuration list for PBXProject "serieztv" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 76B767371DEAF56E0070E62F;
+			productRefGroup = 76B767411DEAF56E0070E62F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				76B7673F1DEAF56E0070E62F /* serieztv */,
+				76B767531DEAF56E0070E62F /* serieztvTests */,
+				76B7675E1DEAF56E0070E62F /* serieztvUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		76B7673E1DEAF56E0070E62F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76B7674E1DEAF56E0070E62F /* LaunchScreen.storyboard in Resources */,
+				76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B767521DEAF56E0070E62F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B7675D1DEAF56E0070E62F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FBBB6F0CFF770B852C302FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AB31178D2656E70B776D0576 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-serieztv/Pods-serieztv-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0620A540ADE8A65B50FC301 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-serieztv/Pods-serieztv-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		76B7673C1DEAF56E0070E62F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76B767461DEAF56E0070E62F /* ViewController.swift in Sources */,
+				76B767441DEAF56E0070E62F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B767501DEAF56E0070E62F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76B767591DEAF56E0070E62F /* serieztvTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B7675B1DEAF56E0070E62F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76B767641DEAF56E0070E62F /* serieztvUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		76B767561DEAF56E0070E62F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76B7673F1DEAF56E0070E62F /* serieztv */;
+			targetProxy = 76B767551DEAF56E0070E62F /* PBXContainerItemProxy */;
+		};
+		76B767611DEAF56E0070E62F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 76B7673F1DEAF56E0070E62F /* serieztv */;
+			targetProxy = 76B767601DEAF56E0070E62F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76B7674D1DEAF56E0070E62F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		76B767661DEAF56E0070E62F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		76B767671DEAF56E0070E62F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		76B767691DEAF56E0070E62F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = serieztv/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		76B7676A1DEAF56E0070E62F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = serieztv/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztv;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		76B7676C1DEAF56E0070E62F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = serieztvTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztvTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/serieztv.app/serieztv";
+			};
+			name = Debug;
+		};
+		76B7676D1DEAF56E0070E62F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = serieztvTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztvTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/serieztv.app/serieztv";
+			};
+			name = Release;
+		};
+		76B7676F1DEAF56E0070E62F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = serieztvUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztvUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = serieztv;
+			};
+			name = Debug;
+		};
+		76B767701DEAF56E0070E62F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = serieztvUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztvUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = serieztv;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		76B7673B1DEAF56E0070E62F /* Build configuration list for PBXProject "serieztv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76B767661DEAF56E0070E62F /* Debug */,
+				76B767671DEAF56E0070E62F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76B767681DEAF56E0070E62F /* Build configuration list for PBXNativeTarget "serieztv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76B767691DEAF56E0070E62F /* Debug */,
+				76B7676A1DEAF56E0070E62F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76B7676B1DEAF56E0070E62F /* Build configuration list for PBXNativeTarget "serieztvTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76B7676C1DEAF56E0070E62F /* Debug */,
+				76B7676D1DEAF56E0070E62F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76B7676E1DEAF56E0070E62F /* Build configuration list for PBXNativeTarget "serieztvUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76B7676F1DEAF56E0070E62F /* Debug */,
+				76B767701DEAF56E0070E62F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 76B767381DEAF56E0070E62F /* Project object */;
+}

@@ -22,7 +22,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let navController = UINavigationController(rootViewController: STLoginViewController())
         window?.rootViewController = navController
-
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */; };
+		76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76784B6D1DEE2BA4006E8E9D /* STTextField.swift */; };
 		76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* STAppDelegate.swift */; };
 		76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674A1DEAF56E0070E62F /* Assets.xcassets */; };
 		76B7674E1DEAF56E0070E62F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76784B6D1DEE2BA4006E8E9D /* STTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTextField.swift; sourceTree = "<group>"; };
 		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B767431DEAF56E0070E62F /* STAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAppDelegate.swift; sourceTree = "<group>"; };
 		76B7674A1DEAF56E0070E62F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,8 +144,9 @@
 			children = (
 				76B767761DEAFA7C0070E62F /* STLoginView.swift */,
 				76B767781DEAFCD50070E62F /* STRegisterView.swift */,
+				76784B6D1DEE2BA4006E8E9D /* STTextField.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8FBD28186AD8B1ECE66C389C /* Frameworks */ = {
@@ -351,6 +354,7 @@
 				76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */,
 				76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */,
 				76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */,
+				76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */,
 				76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

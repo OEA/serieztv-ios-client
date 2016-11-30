@@ -84,5 +84,20 @@ class STLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        addBottomBorderToTextField(textField: self.loginView.emailField)
+        addBottomBorderToTextField(textField: self.loginView.passwordField)
+    }
+    
+    func addBottomBorderToTextField(textField: UITextField) {
+        let border = CALayer()
+        let width = CGFloat(0.5)
+        border.borderColor = UIColor(colorLiteralRed: 233/255, green: 228/255, blue: 222/255, alpha: 1.0).cgColor
+        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+        
+        border.borderWidth = width
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
+    }
     
 }

@@ -24,14 +24,8 @@ class STLoginView: UIView {
         return logo
     }()
     
-    let emailField: UITextField = {
-        let emailField = UITextField()
-        emailField.textColor = UIColor.white
-        emailField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSForegroundColorAttributeName: UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0)])
-        emailField.keyboardAppearance = UIKeyboardAppearance.dark;
-        emailField.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 20/255, blue: 20/255, alpha: 1.0)
-        emailField.font = UIFont.systemFont(ofSize: 15)
-        emailField.borderStyle = UITextBorderStyle.roundedRect
+    let emailField: STTextField = {
+        let emailField = STTextField(frame: CGRect.zero, placeholder: "Username", image: UIImage(named:"user")!)
         emailField.autocorrectionType = UITextAutocorrectionType.no
         emailField.keyboardType = UIKeyboardType.emailAddress
         emailField.returnKeyType = UIReturnKeyType.continue
@@ -41,15 +35,9 @@ class STLoginView: UIView {
     }()
     
     let passwordField: UITextField = {
-        let passwordField = UITextField()
-        passwordField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSForegroundColorAttributeName: UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0)])
-        passwordField.textColor = UIColor.white
-        passwordField.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 20/255, blue: 20/255, alpha: 1.0)
-        passwordField.font = UIFont.systemFont(ofSize: 15)
-        passwordField.borderStyle = UITextBorderStyle.roundedRect
+        let passwordField = STTextField(frame: CGRect.zero, placeholder: "Password", image: UIImage(named:"password")!)
         passwordField.autocorrectionType = UITextAutocorrectionType.no
         passwordField.keyboardType = UIKeyboardType.default
-        passwordField.keyboardAppearance = UIKeyboardAppearance.dark;
         passwordField.returnKeyType = UIReturnKeyType.done
         passwordField.clearButtonMode = UITextFieldViewMode.whileEditing;
         passwordField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
@@ -59,8 +47,10 @@ class STLoginView: UIView {
     let loginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0), for:.normal)
-        loginButton.backgroundColor = UIColor(colorLiteralRed: 100/255, green: 149/255, blue: 237/255, alpha: 1.0)
+        loginButton.setTitleColor(UIColor(colorLiteralRed: 251/255, green: 249/255, blue: 243/255, alpha: 1.0), for:.normal)
+        loginButton.backgroundColor = UIColor(colorLiteralRed: 238/255, green: 99/255, blue: 131/255, alpha: 1.0)
+        loginButton.layer.cornerRadius = 20
+        loginButton.layer.borderWidth = 1
         return loginButton
     }()
     
@@ -74,7 +64,7 @@ class STLoginView: UIView {
     
     override init (frame : CGRect) {
         super.init(frame : frame)
-        self.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 20/255, blue: 20/255, alpha: 1.0)
+        self.backgroundColor = UIColor.green
         setupLoginView()
     }
     
@@ -109,12 +99,14 @@ class STLoginView: UIView {
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
             make.top.equalTo(logo.snp.bottom).offset(15)
+            make.height.equalTo(40)
         }
         
         passwordField.snp.makeConstraints { (make) in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
-            make.top.equalTo(emailField.snp.bottom).offset(10)
+            make.top.equalTo(emailField.snp.bottom).offset(20)
+            make.height.equalTo(40)
         }
         
         loginButton.snp.makeConstraints { (make) in
@@ -134,4 +126,7 @@ class STLoginView: UIView {
         }
         
     }
+
+   
+    
 }

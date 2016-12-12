@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */; };
+		760325BF1DFD7B300015113D /* STMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325BE1DFD7B300015113D /* STMainView.swift */; };
+		760325C11DFD7B460015113D /* STMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C01DFD7B460015113D /* STMainViewController.swift */; };
+		760325C41DFDD3D20015113D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C31DFDD3D20015113D /* User.swift */; };
+		760325C61DFDD3DB0015113D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C51DFDD3DB0015113D /* Movie.swift */; };
+		760325C81DFDD3E70015113D /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C71DFDD3E70015113D /* Series.swift */; };
+		760325CA1DFDD3F50015113D /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C91DFDD3F50015113D /* Season.swift */; };
+		760325CC1DFDD4030015113D /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325CB1DFDD4030015113D /* Episode.swift */; };
+		760325CE1DFDD4200015113D /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325CD1DFDD4200015113D /* Crew.swift */; };
+		760325D01DFDD4290015113D /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325CF1DFDD4290015113D /* Star.swift */; };
+		760325D21DFDD4330015113D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D11DFDD4330015113D /* Character.swift */; };
+		760325D41DFDD44C0015113D /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D31DFDD44C0015113D /* Genre.swift */; };
+		760325D61DFDD4530015113D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D51DFDD4530015113D /* Comment.swift */; };
 		76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76784B6D1DEE2BA4006E8E9D /* STTextField.swift */; };
 		76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* STAppDelegate.swift */; };
 		76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674A1DEAF56E0070E62F /* Assets.xcassets */; };
@@ -39,6 +51,18 @@
 
 /* Begin PBXFileReference section */
 		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		760325BE1DFD7B300015113D /* STMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainView.swift; sourceTree = "<group>"; };
+		760325C01DFD7B460015113D /* STMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainViewController.swift; sourceTree = "<group>"; };
+		760325C31DFDD3D20015113D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		760325C51DFDD3DB0015113D /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		760325C71DFDD3E70015113D /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		760325C91DFDD3F50015113D /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		760325CB1DFDD4030015113D /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		760325CD1DFDD4200015113D /* Crew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
+		760325CF1DFDD4290015113D /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		760325D11DFDD4330015113D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		760325D31DFDD44C0015113D /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		760325D51DFDD4530015113D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		76784B6D1DEE2BA4006E8E9D /* STTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTextField.swift; sourceTree = "<group>"; };
 		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B767431DEAF56E0070E62F /* STAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +109,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		760325C21DFDD3AE0015113D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				760325C31DFDD3D20015113D /* User.swift */,
+				760325C51DFDD3DB0015113D /* Movie.swift */,
+				760325C71DFDD3E70015113D /* Series.swift */,
+				760325C91DFDD3F50015113D /* Season.swift */,
+				760325CB1DFDD4030015113D /* Episode.swift */,
+				760325CD1DFDD4200015113D /* Crew.swift */,
+				760325CF1DFDD4290015113D /* Star.swift */,
+				760325D11DFDD4330015113D /* Character.swift */,
+				760325D31DFDD44C0015113D /* Genre.swift */,
+				760325D51DFDD4530015113D /* Comment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		760325D71DFE01150015113D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
+				76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */,
+				760325C01DFD7B460015113D /* STMainViewController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		76B767371DEAF56E0070E62F = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +161,13 @@
 		76B767421DEAF56E0070E62F /* serieztv */ = {
 			isa = PBXGroup;
 			children = (
+				760325C21DFDD3AE0015113D /* Models */,
 				76B767711DEAF96F0070E62F /* Views */,
+				760325D71DFE01150015113D /* Classes */,
 				76B767431DEAF56E0070E62F /* STAppDelegate.swift */,
 				76B7674A1DEAF56E0070E62F /* Assets.xcassets */,
 				76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */,
 				76B7674F1DEAF56E0070E62F /* Info.plist */,
-				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
-				76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */,
 			);
 			path = serieztv;
 			sourceTree = "<group>";
@@ -145,6 +196,7 @@
 				76B767761DEAFA7C0070E62F /* STLoginView.swift */,
 				76B767781DEAFCD50070E62F /* STRegisterView.swift */,
 				76784B6D1DEE2BA4006E8E9D /* STTextField.swift */,
+				760325BE1DFD7B300015113D /* STMainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +289,7 @@
 				TargetAttributes = {
 					76B7673F1DEAF56E0070E62F = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 4Y6RWHYM34;
 						ProvisioningStyle = Automatic;
 					};
 					76B767531DEAF56E0070E62F = {
@@ -350,10 +403,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				760325C11DFD7B460015113D /* STMainViewController.swift in Sources */,
 				76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */,
+				760325BF1DFD7B300015113D /* STMainView.swift in Sources */,
+				760325D01DFDD4290015113D /* Star.swift in Sources */,
 				76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */,
+				760325CA1DFDD3F50015113D /* Season.swift in Sources */,
+				760325C61DFDD3DB0015113D /* Movie.swift in Sources */,
+				760325D61DFDD4530015113D /* Comment.swift in Sources */,
+				760325D21DFDD4330015113D /* Character.swift in Sources */,
 				76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */,
+				760325CC1DFDD4030015113D /* Episode.swift in Sources */,
+				760325D41DFDD44C0015113D /* Genre.swift in Sources */,
+				760325C41DFDD3D20015113D /* User.swift in Sources */,
 				76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */,
+				760325CE1DFDD4200015113D /* Crew.swift in Sources */,
+				760325C81DFDD3E70015113D /* Series.swift in Sources */,
 				76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */,
 				76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */,
 			);
@@ -423,6 +488,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -472,6 +538,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -498,7 +565,10 @@
 			baseConfigurationReference = EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4Y6RWHYM34;
 				INFOPLIST_FILE = serieztv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,7 +581,10 @@
 			baseConfigurationReference = 909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4Y6RWHYM34;
 				INFOPLIST_FILE = serieztv/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.serieztv.serieztv;
 				PRODUCT_NAME = "$(TARGET_NAME)";

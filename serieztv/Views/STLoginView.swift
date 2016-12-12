@@ -15,23 +15,31 @@ class STLoginView: UIView {
         return backgroundImageView
     }()
     
+    let backButton: UIButton = {
+        let backButton = UIButton()
+        backButton.setBackgroundImage(UIImage(named: "back"), for: .normal)
+        return backButton
+    }()
+    
     let logo: UILabel = {
         let logo = UILabel()
-        logo.text = "SeriezTV"
-        logo.textColor = UIColor(colorLiteralRed: 100/255, green: 149/255, blue: 237/255, alpha: 1.0)
+        logo.text = "seriezTV"
+        logo.textColor = UIColor.white
         logo.textAlignment = NSTextAlignment.center
+        logo.font = UIFont.systemFont(ofSize: 50)
         logo.adjustsFontSizeToFitWidth = true
         return logo
     }()
     
-    let emailField: STTextField = {
-        let emailField = STTextField(frame: CGRect.zero, placeholder: "Username", image: UIImage(named:"user")!)
-        emailField.autocorrectionType = UITextAutocorrectionType.no
-        emailField.keyboardType = UIKeyboardType.emailAddress
-        emailField.returnKeyType = UIReturnKeyType.continue
-        emailField.clearButtonMode = UITextFieldViewMode.whileEditing;
-        emailField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
-        return emailField
+    let usernameField: STTextField = {
+        let usernameField = STTextField(frame: CGRect.zero, placeholder: "Username", image: UIImage(named:"user")!)
+        usernameField.autocorrectionType = UITextAutocorrectionType.no
+        usernameField.keyboardType = UIKeyboardType.emailAddress
+        usernameField.returnKeyType = UIReturnKeyType.continue
+        usernameField.clearButtonMode = UITextFieldViewMode.whileEditing;
+        usernameField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        usernameField.tag = 0
+        return usernameField
     }()
     
     let passwordField: UITextField = {
@@ -41,12 +49,13 @@ class STLoginView: UIView {
         passwordField.returnKeyType = UIReturnKeyType.done
         passwordField.clearButtonMode = UITextFieldViewMode.whileEditing;
         passwordField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        passwordField.tag = 1
         return passwordField
     }()
     
     let loginButton: UIButton = {
         let loginButton = UIButton()
-        loginButton.setTitle("Login", for: .normal)
+        loginButton.setTitle("Sign In", for: .normal)
         loginButton.setTitleColor(UIColor(colorLiteralRed: 251/255, green: 249/255, blue: 243/255, alpha: 1.0), for:.normal)
         loginButton.backgroundColor = UIColor(colorLiteralRed: 238/255, green: 99/255, blue: 131/255, alpha: 1.0)
         loginButton.layer.cornerRadius = 20
@@ -56,16 +65,25 @@ class STLoginView: UIView {
     
     let registerNavigateButton: UIButton = {
         let registerNavigateButton = UIButton()
-        registerNavigateButton.setTitle("Register", for: .normal)
-        registerNavigateButton.setTitleColor(UIColor(colorLiteralRed: 236/255, green: 235/255, blue: 232/255, alpha: 1.0), for:.normal)
-        registerNavigateButton.backgroundColor = UIColor(colorLiteralRed: 100/255, green: 149/255, blue: 237/255, alpha: 1.0)
+        var mainPart = "Don't have an account? Sign up"
+        var main = "Don't have an account? "
+        var signUp = "Sign up"
+        var mainRange = (mainPart as NSString).range(of: main)
+        var signUpRange = (mainPart as NSString).range(of: signUp)
+        var attributedString = NSMutableAttributedString(string:mainPart)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor(colorLiteralRed: 251/255, green: 249/255, blue: 243/255, alpha: 1.0) , range: signUpRange)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor(colorLiteralRed: 172/255, green: 172/255, blue: 172/255, alpha: 1.0) , range: mainRange)
+        registerNavigateButton.setAttributedTitle(attributedString, for: .normal)
+        registerNavigateButton.backgroundColor = UIColor.clear
         return registerNavigateButton
     }()
     
     override init (frame : CGRect) {
         super.init(frame : frame)
-        self.backgroundColor = UIColor.green
+        self.backgroundColor = UIColor.black
         setupLoginView()
+        self.backgroundImageView.image = UIImage(named: "hoc.jpg")
+        self.backgroundImageView.alpha = 0.5
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -74,14 +92,13 @@ class STLoginView: UIView {
     
     func setupLoginView() {
         self.addSubview(backgroundImageView)
+        self.addSubview(backButton)
         self.addSubview(logo)
-        self.addSubview(emailField)
+        self.addSubview(usernameField)
         self.addSubview(passwordField)
         self.addSubview(loginButton)
         self.addSubview(registerNavigateButton)
-        
-        
-        
+    
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top)
             make.bottom.equalTo(self.snp.bottom)
@@ -89,37 +106,41 @@ class STLoginView: UIView {
             make.trailing.equalTo(self.snp.trailing)
         }
         
+        backButton.snp.makeConstraints { (make) in
+            make.top.equalTo(40)
+            make.leading.equalTo(20)
+        }
+        
         logo.snp.makeConstraints { (make) in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
-            make.height.equalTo(20)
+            make.top.equalTo(100)
         }
         
-        emailField.snp.makeConstraints { (make) in
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
-            make.top.equalTo(logo.snp.bottom).offset(15)
+        usernameField.snp.makeConstraints { (make) in
+            make.leading.equalTo(30)
+            make.trailing.equalTo(-30)
+            make.bottom.equalTo(passwordField.snp.top).offset(-15)
             make.height.equalTo(40)
         }
         
         passwordField.snp.makeConstraints { (make) in
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
-            make.top.equalTo(emailField.snp.bottom).offset(20)
+            make.leading.equalTo(30)
+            make.trailing.equalTo(-30)
+            make.bottom.equalTo(loginButton.snp.top).offset(-30)
             make.height.equalTo(40)
         }
         
         loginButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.centerY.equalTo(self)
-            make.leading.equalTo(20)
-            make.trailing.equalTo(-20)
-            make.top.equalTo(passwordField.snp.bottom).offset(10)
-            
+            make.leading.equalTo(30)
+            make.trailing.equalTo(-30)
+            make.height.equalTo(50)
+            make.bottom.equalTo(registerNavigateButton.snp.top).offset(-30)
         }
         
         registerNavigateButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self).offset(-10)
+            make.bottom.equalTo(self).offset(-20)
             make.centerX.equalTo(self)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
@@ -127,6 +148,23 @@ class STLoginView: UIView {
         
     }
 
-   
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.loginButton.layer.shadowColor = UIColor.black.cgColor
+        self.loginButton.layer.shadowOpacity = 1
+        self.loginButton.layer.shadowOffset = CGSize.zero
+        self.loginButton.layer.shadowRadius = 20
+        
+        self.registerNavigateButton.layer.shadowColor = UIColor.white.cgColor
+        self.registerNavigateButton.layer.shadowOpacity = 1
+        self.registerNavigateButton.layer.shadowOffset = CGSize.zero
+        self.registerNavigateButton.layer.shadowRadius = 5
+        
+        registerNavigateButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(7 * self.frame.height / 8)
+            make.centerX.equalTo(self)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+        }
+    }
 }

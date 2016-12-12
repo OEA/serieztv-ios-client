@@ -102,9 +102,9 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if self.loginView.loginButton.frame.origin.y + loginView.loginButton.frame.size.height + self.loginView.registerNavigateButton.frame.size.height/2 + 30 == 7 * self.view.frame.height/8 {
-            let info = notification.userInfo!
-            let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if self.loginView.loginButton.frame.origin.y + self.loginView.loginButton.frame.height >= self.view.frame.height - keyboardFrame.height {
             UIView.animate(withDuration: 1.0, animations: {
                 self.loginView.usernameField.frame.origin.y -= keyboardFrame.height / 3
                 self.loginView.passwordField.frame.origin.y -= keyboardFrame.height / 3
@@ -114,9 +114,9 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if self.loginView.loginButton.frame.origin.y + loginView.loginButton.frame.size.height + self.loginView.registerNavigateButton.frame.size.height/2 + 30 != 7 * self.view.frame.height/8 {
-            let info = notification.userInfo!
-            let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        if self.loginView.loginButton.frame.origin.y + self.loginView.loginButton.frame.height < self.view.frame.height - keyboardFrame.height {
             UIView.animate(withDuration: 1.0, animations: {
                 self.loginView.usernameField.frame.origin.y += keyboardFrame.height / 3
                 self.loginView.passwordField.frame.origin.y += keyboardFrame.height / 3

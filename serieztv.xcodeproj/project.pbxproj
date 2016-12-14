@@ -20,6 +20,8 @@
 		760325D21DFDD4330015113D /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D11DFDD4330015113D /* Character.swift */; };
 		760325D41DFDD44C0015113D /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D31DFDD44C0015113D /* Genre.swift */; };
 		760325D61DFDD4530015113D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D51DFDD4530015113D /* Comment.swift */; };
+		7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */; };
+		7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */; };
 		76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76784B6D1DEE2BA4006E8E9D /* STTextField.swift */; };
 		76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* STAppDelegate.swift */; };
 		76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674A1DEAF56E0070E62F /* Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		760325D11DFDD4330015113D /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		760325D31DFDD44C0015113D /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		760325D51DFDD4530015113D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewController.swift; sourceTree = "<group>"; };
+		7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		76784B6D1DEE2BA4006E8E9D /* STTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTextField.swift; sourceTree = "<group>"; };
 		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B767431DEAF56E0070E62F /* STAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
 				76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */,
 				760325C01DFD7B460015113D /* STMainViewController.swift */,
+				7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				76B767781DEAFCD50070E62F /* STRegisterView.swift */,
 				76784B6D1DEE2BA4006E8E9D /* STTextField.swift */,
 				760325BE1DFD7B300015113D /* STMainView.swift */,
+				7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,11 +418,13 @@
 				760325C61DFDD3DB0015113D /* Movie.swift in Sources */,
 				760325D61DFDD4530015113D /* Comment.swift in Sources */,
 				760325D21DFDD4330015113D /* Character.swift in Sources */,
+				7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */,
 				76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */,
 				760325CC1DFDD4030015113D /* Episode.swift in Sources */,
 				760325D41DFDD44C0015113D /* Genre.swift in Sources */,
 				760325C41DFDD3D20015113D /* User.swift in Sources */,
 				76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */,
+				7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */,
 				760325CE1DFDD4200015113D /* Crew.swift in Sources */,
 				760325C81DFDD3E70015113D /* Series.swift in Sources */,
 				76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */,

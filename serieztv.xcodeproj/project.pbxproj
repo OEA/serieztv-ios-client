@@ -23,6 +23,7 @@
 		7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */; };
 		7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */; };
 		76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76784B6D1DEE2BA4006E8E9D /* STTextField.swift */; };
+		76ACC1D61E0289AC00E21D19 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACC1D51E0289AC00E21D19 /* AuthManager.swift */; };
 		76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* STAppDelegate.swift */; };
 		76B7674B1DEAF56E0070E62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674A1DEAF56E0070E62F /* Assets.xcassets */; };
 		76B7674E1DEAF56E0070E62F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B7674C1DEAF56E0070E62F /* LaunchScreen.storyboard */; };
@@ -68,6 +69,7 @@
 		7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewController.swift; sourceTree = "<group>"; };
 		7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		76784B6D1DEE2BA4006E8E9D /* STTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTextField.swift; sourceTree = "<group>"; };
+		76ACC1D51E0289AC00E21D19 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B767431DEAF56E0070E62F /* STAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAppDelegate.swift; sourceTree = "<group>"; };
 		76B7674A1DEAF56E0070E62F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		76ACC1D41E02776000E21D19 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				76ACC1D51E0289AC00E21D19 /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		76B767371DEAF56E0070E62F = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		76B767421DEAF56E0070E62F /* serieztv */ = {
 			isa = PBXGroup;
 			children = (
+				76ACC1D41E02776000E21D19 /* Managers */,
 				760325C21DFDD3AE0015113D /* Models */,
 				76B767711DEAF96F0070E62F /* Views */,
 				760325D71DFE01150015113D /* Classes */,
@@ -410,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				760325C11DFD7B460015113D /* STMainViewController.swift in Sources */,
+				76ACC1D61E0289AC00E21D19 /* AuthManager.swift in Sources */,
 				76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */,
 				760325BF1DFD7B300015113D /* STMainView.swift in Sources */,
 				760325D01DFDD4290015113D /* Star.swift in Sources */,

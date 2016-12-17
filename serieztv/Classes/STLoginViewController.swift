@@ -84,6 +84,13 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     
     func login() {
         NSLog("%@", "login")
+        let flow = UICollectionViewFlowLayout()
+        flow.itemSize = CGSize(width: self.view.frame.width, height: 100)
+        flow.scrollDirection = .vertical
+
+        let home: STHomeCollectionViewController = STHomeCollectionViewController(collectionViewLayout: flow)
+        self.present(home, animated: false, completion: nil)
+        
     }
     
     func navigateToRegister() {

@@ -40,6 +40,13 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpViews()
+        self.mainView.loginButton.alpha = 0.0
+        self.mainView.registerButton.alpha = 0.0
+        self.mainView.connectionOptionsLabel.alpha = 0.0
+        self.mainView.connectWithFacebookButton.alpha = 0.0
+        self.mainView.connectWithGoogleButton.alpha = 0.0
+        self.mainView.connectWithTwitterButton.alpha = 0.0
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +59,22 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
             userInfo: nil,
             repeats: true)
         RunLoop.main.add(timer, forMode: RunLoopMode.commonModes)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        UIView.animate(withDuration: 0.75, delay: 0, options: .curveLinear, animations: {
+            // this will change Y position of your imageView center
+            // by 1 every time you press button
+            self.mainView.logo.center.y = 100 + self.mainView.logo.frame.height/2
+        }, completion: { (finished: Bool) -> Void in
+            self.mainView.loginButton.alpha = 1.0
+            self.mainView.registerButton.alpha = 1.0
+            self.mainView.connectionOptionsLabel.alpha = 1.0
+            self.mainView.connectWithFacebookButton.alpha = 1.0
+            self.mainView.connectWithGoogleButton.alpha = 1.0
+            self.mainView.connectWithTwitterButton.alpha = 1.0
+        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {

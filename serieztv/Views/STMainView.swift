@@ -108,19 +108,22 @@ class STMainView: UIView {
         logo.snp.makeConstraints { (make) in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
-            make.top.equalTo(100)
+            //make.top.equalTo(100)
+            make.centerY.equalTo(self)
         }
         
         loginButton.snp.makeConstraints { (make) in
             make.centerY.equalTo(self).offset(50)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
+            make.height.equalTo(50)
         }
         
         registerButton.snp.makeConstraints { (make) in
             make.top.equalTo(self.loginButton.snp.bottom).offset(20)
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
+            make.height.equalTo(50)
         }
         
         connectionOptionsLabel.snp.makeConstraints { (make) in

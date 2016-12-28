@@ -18,9 +18,7 @@ class AuthManager {
     
     private init() {}
     
-    
     private let shared = AuthManager()
-    
     
     func login(username: String, password: String, completion: (_ user: User) -> ()) {
         
@@ -29,6 +27,4 @@ class AuthManager {
     func register(email: String, username: String, password: String, completion: (_ user: User) -> ()) {
         
     }
-    
-    
 }

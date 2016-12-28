@@ -22,6 +22,8 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         let navController = UINavigationController(rootViewController: STMainViewController())
         window?.rootViewController = navController
         UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().barTintColor = UIColor.black
+        
         return true
     }
     

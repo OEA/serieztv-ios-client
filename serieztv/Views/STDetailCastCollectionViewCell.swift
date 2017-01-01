@@ -8,9 +8,12 @@
 
 import UIKit
 
+// CELL OF CAST WITH COLLECTION VIEW, IN MOVIE-SERIES DETAIL PAGE
+
 class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var navDelegate: NavigateToCrewDetailDelegate?
+    var starDetailDelegate: NavigateToStarDetailDelegate?
     
     let topTitleSeperator: UILabel = {
         let topSeperator = UILabel()
@@ -153,6 +156,12 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         cell.characterLabel.text = "Character"
         cell.starImageView.image = UIImage(named: "twd")
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected star")
+        let vc = STStarDetailViewController()
+        self.starDetailDelegate?.navigateToStar(vc: vc)
     }
     
 }

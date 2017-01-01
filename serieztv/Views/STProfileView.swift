@@ -9,10 +9,21 @@
 import UIKit
 
 class STProfileView: UIView {
+    
+    let topView: UIView = {
+        let topView = UIView(frame: CGRect.zero)
+        topView.backgroundColor = UIColor.lightGray
+        return topView
+    }()
+    
+    let tableView: UITableView = {
+        let tableView: UITableView = UITableView()
+        return tableView
+    }()
 
     let usernameLabel: UILabel = {
         let usernameLabel = UILabel()
-        usernameLabel.text = "Username: username"
+        usernameLabel.text = "username"
         usernameLabel.textColor = UIColor.white
         usernameLabel.textAlignment = NSTextAlignment.center
         usernameLabel.font = UIFont.systemFont(ofSize: 20)
@@ -22,32 +33,12 @@ class STProfileView: UIView {
     
     let emailLabel: UILabel = {
         let emailLabel = UILabel()
-        emailLabel.text = "Email: email"
+        emailLabel.text = "email"
         emailLabel.textColor = UIColor.white
         emailLabel.textAlignment = NSTextAlignment.center
-        emailLabel.font = UIFont.systemFont(ofSize: 20)
+        emailLabel.font = UIFont.systemFont(ofSize: 18)
         emailLabel.adjustsFontSizeToFitWidth = true
         return emailLabel
-    }()
-    
-    let changePasswordButton: UIButton = {
-        let changePasswordButton = UIButton()
-        changePasswordButton.setTitle("Change Password", for: .normal)
-        changePasswordButton.setTitleColor(UIColor(colorLiteralRed: 251/255, green: 249/255, blue: 243/255, alpha: 1.0), for:.normal)
-        changePasswordButton.backgroundColor = UIColor(colorLiteralRed: 238/255, green: 99/255, blue: 131/255, alpha: 1.0)
-        changePasswordButton.layer.cornerRadius = 20
-        changePasswordButton.layer.borderWidth = 1
-        return changePasswordButton
-    }()
-    
-    let logoutButton: UIButton = {
-        let logoutButton = UIButton()
-        logoutButton.setTitle("Logout", for: .normal)
-        logoutButton.setTitleColor(UIColor(colorLiteralRed: 251/255, green: 249/255, blue: 243/255, alpha: 1.0), for:.normal)
-        logoutButton.backgroundColor = UIColor(colorLiteralRed: 238/255, green: 99/255, blue: 131/255, alpha: 1.0)
-        logoutButton.layer.cornerRadius = 20
-        logoutButton.layer.borderWidth = 1
-        return logoutButton
     }()
     
     override init(frame: CGRect) {
@@ -56,14 +47,20 @@ class STProfileView: UIView {
     }
     
     func setupProfileView() {
-        self.backgroundColor = UIColor.black
-        self.addSubview(usernameLabel)
-        self.addSubview(emailLabel)
-        self.addSubview(changePasswordButton)
-        self.addSubview(logoutButton)
+        self.backgroundColor = UIColor.white
+        self.addSubview(topView)
+        topView.addSubview(usernameLabel)
+        topView.addSubview(emailLabel)
+        self.addSubview(tableView)
+        
+        self.topView.snp.makeConstraints { (make) in
+            make.top.equalTo(0)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+        }
         
         self.usernameLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(20)
+            make.top.equalTo(10)
             make.centerX.equalTo(self)
         }
         
@@ -71,19 +68,21 @@ class STProfileView: UIView {
             make.top.equalTo(self.usernameLabel.snp.bottom).offset(10)
             make.centerX.equalTo(self)
         }
-        
-        self.changePasswordButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.emailLabel.snp.bottom).offset(20)
-            make.leading.equalTo(30)
-            make.trailing.equalTo(-30)
-            make.height.equalTo(50)
+    }
+    
+    override func layoutSubviews() {
+        self.topView.snp.makeConstraints { (make) in
+            make.top.equalTo(0)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.height.equalTo(self.frame.height / 4)
         }
         
-        self.logoutButton.snp.makeConstraints { (make) in
-            make.top.equalTo(self.changePasswordButton.snp.bottom).offset(20)
-            make.leading.equalTo(30)
-            make.trailing.equalTo(-30)
-            make.height.equalTo(50)
+        self.tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.topView.snp.bottom)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.height.equalTo(3 * self.frame.height / 4)
         }
     }
     

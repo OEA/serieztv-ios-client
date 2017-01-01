@@ -1,18 +1,26 @@
 //
-//  STDetailViewController.swift
+//  STAboutViewController.swift
 //  serieztv
 //
-//  Created by Goktug on 27/12/2016.
+//  Created by Goktug on 31/12/2016.
 //  Copyright © 2016 serieztv. All rights reserved.
 //
 
 import UIKit
 
-class STDetailViewController: UIViewController {
+class STAboutViewController: UIViewController {
+    
+    let aboutView: STAboutView = {
+        let aboutView = STAboutView()
+        return aboutView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.addSubview(aboutView)
+        aboutView.snp.makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalTo(0)
+        }
         // Do any additional setup after loading the view.
     }
 

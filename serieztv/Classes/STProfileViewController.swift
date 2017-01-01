@@ -22,6 +22,9 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         self.view.addSubview(profileView)
         self.profileView.tableView.delegate = self
         self.profileView.tableView.dataSource = self
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.topItem?.title = "SeriezTV"
         self.profileView.tableView.register(STProfileTableViewCell.self, forCellReuseIdentifier: "ProfileCell")
         profileView.snp.makeConstraints { (make) in
             make.leading.equalTo(0)
@@ -30,7 +33,6 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             make.bottom.equalTo(0)
         }
         self.profileView.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        
         // Do any additional setup after loading the view.
     }
 
@@ -60,7 +62,7 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             let changePasswordVC = STChangePasswordViewController()
             self.navigationController?.pushViewController(changePasswordVC, animated: true)
         } else if (indexPath.row == 4) {
-            self.dismiss(animated: true, completion: nil)
+            self.present(STMainViewController(), animated: true, completion: nil)
         }
     }
     
@@ -75,16 +77,7 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+

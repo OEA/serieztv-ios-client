@@ -6,10 +6,15 @@
 //  Copyright © 2016 serieztv. All rights reserved.
 //
 
+
+// MAIN COLLECTION VIEW OF HOME
+
 import UIKit
 
 private let reuseIdentifier = "HomeCell"
 
+
+// PROTOCOL TO NAVIGATE DETAIL OF A MOVIE/SERIES FROM CELL COLLECTION VIEW
 protocol NavigateToDetailDelegate {
     func goToDetail(vc: STDetailViewController)
 }
@@ -20,6 +25,16 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
     internal func goToDetail(vc: STDetailViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    let searchButton: UIButton = {
+        let searchButton = UIButton(type: .custom)
+        searchButton.setImage(UIImage(named: "Search"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        return searchButton
+    }()
+    
+    
+
 
     let titleArray = ["Movies", "Series", "Top Rated Movies", "Top Rated Series", "Genres", "Stars"]
     
@@ -38,15 +53,17 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.topItem?.title = "SeriezTV"
+        
+        searchButton.addTarget(self, action: #selector(self.search), for: .touchUpInside)
+        let navigationBarSearchItem = UIBarButtonItem(customView: searchButton)
+        
+        
+        self.navigationItem.setRightBarButtonItems([navigationBarSearchItem], animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        self.collectionView?.performBatchUpdates({
-//            self.collectionView?.reloadData()
-//        }, completion: nil)
-        
+    func search() {
+        let searchVC = STSearchViewController()
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
 
     // MARK: UICollectionViewDataSource

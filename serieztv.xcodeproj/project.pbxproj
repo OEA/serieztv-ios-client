@@ -37,7 +37,7 @@
 		7625FAD91E187884000FEFCC /* STCrewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625FAD81E187884000FEFCC /* STCrewDetailView.swift */; };
 		762E92371E12B34500916ADB /* STHomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E92361E12B34500916ADB /* STHomeDetailCell.swift */; };
 		762E923B1E12C8B700916ADB /* STDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E923A1E12C8B700916ADB /* STDetailViewController.swift */; };
-		762E923D1E12F43400916ADB /* STStarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E923C1E12F43400916ADB /* STStarDetailView.swift */; };
+		762E923D1E12F43400916ADB /* STStarDetailTopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E923C1E12F43400916ADB /* STStarDetailTopViewCell.swift */; };
 		764BDF001E1402CA0095B4F4 /* STHomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BDEFF1E1402CA0095B4F4 /* STHomeTabBarViewController.swift */; };
 		764BDF021E1409580095B4F4 /* STProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BDF011E1409580095B4F4 /* STProfileViewController.swift */; };
 		764BDF041E1410C80095B4F4 /* STProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BDF031E1410C80095B4F4 /* STProfileView.swift */; };
@@ -54,6 +54,8 @@
 		76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767761DEAFA7C0070E62F /* STLoginView.swift */; };
 		76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767781DEAFCD50070E62F /* STRegisterView.swift */; };
 		76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */; };
+		76C55BED1E192C6D00EC0706 /* STStarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C55BEC1E192C6D00EC0706 /* STStarDetailViewController.swift */; };
+		76C55BF01E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C55BEF1E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +106,7 @@
 		7625FAD81E187884000FEFCC /* STCrewDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCrewDetailView.swift; sourceTree = "<group>"; };
 		762E92361E12B34500916ADB /* STHomeDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeDetailCell.swift; sourceTree = "<group>"; };
 		762E923A1E12C8B700916ADB /* STDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDetailViewController.swift; sourceTree = "<group>"; };
-		762E923C1E12F43400916ADB /* STStarDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStarDetailView.swift; sourceTree = "<group>"; };
+		762E923C1E12F43400916ADB /* STStarDetailTopViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStarDetailTopViewCell.swift; sourceTree = "<group>"; };
 		764BDEFF1E1402CA0095B4F4 /* STHomeTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeTabBarViewController.swift; sourceTree = "<group>"; };
 		764BDF011E1409580095B4F4 /* STProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STProfileViewController.swift; sourceTree = "<group>"; };
 		764BDF031E1410C80095B4F4 /* STProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STProfileView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,8 @@
 		76B767761DEAFA7C0070E62F /* STLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginView.swift; sourceTree = "<group>"; };
 		76B767781DEAFCD50070E62F /* STRegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRegisterView.swift; sourceTree = "<group>"; };
 		76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STRegisterViewController.swift; sourceTree = "<group>"; };
+		76C55BEC1E192C6D00EC0706 /* STStarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStarDetailViewController.swift; sourceTree = "<group>"; };
+		76C55BEF1E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStarDetailMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.release.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.release.xcconfig"; sourceTree = "<group>"; };
 		EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,11 +181,12 @@
 		760325D71DFE01150015113D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
-				76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */,
 				760325C01DFD7B460015113D /* STMainViewController.swift */,
+				76B7677A1DEAFCF00070E62F /* STRegisterViewController.swift */,
+				76B767741DEAFA6F0070E62F /* STLoginViewController.swift */,
 				7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */,
 				762E923A1E12C8B700916ADB /* STDetailViewController.swift */,
+				76C55BEC1E192C6D00EC0706 /* STStarDetailViewController.swift */,
 				764BDEFF1E1402CA0095B4F4 /* STHomeTabBarViewController.swift */,
 				764BDF011E1409580095B4F4 /* STProfileViewController.swift */,
 				7625FAC81E17B520000FEFCC /* STSearchViewController.swift */,
@@ -265,7 +270,7 @@
 				760325BE1DFD7B300015113D /* STMainView.swift */,
 				7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */,
 				762E92361E12B34500916ADB /* STHomeDetailCell.swift */,
-				762E923C1E12F43400916ADB /* STStarDetailView.swift */,
+				762E923C1E12F43400916ADB /* STStarDetailTopViewCell.swift */,
 				7625FAD81E187884000FEFCC /* STCrewDetailView.swift */,
 				764BDF031E1410C80095B4F4 /* STProfileView.swift */,
 				760CE9C61E15A86500E7A2DC /* STGenreCollectionViewCell.swift */,
@@ -277,6 +282,7 @@
 				7625FACA1E17E52E000FEFCC /* STSearchResultTableViewCell.swift */,
 				7625FACC1E1822CE000FEFCC /* STAboutView.swift */,
 				7625FACE1E1822E8000FEFCC /* STChangePasswordView.swift */,
+				76C55BEF1E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -487,11 +493,12 @@
 				7625FAC91E17B520000FEFCC /* STSearchViewController.swift in Sources */,
 				76ACC1D61E0289AC00E21D19 /* AuthManager.swift in Sources */,
 				76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */,
-				762E923D1E12F43400916ADB /* STStarDetailView.swift in Sources */,
+				762E923D1E12F43400916ADB /* STStarDetailTopViewCell.swift in Sources */,
 				760CE9C71E15A86500E7A2DC /* STGenreCollectionViewCell.swift in Sources */,
 				761F073B1E168BA100862BAC /* STStarCollectionViewCell.swift in Sources */,
 				760325BF1DFD7B300015113D /* STMainView.swift in Sources */,
 				760325D01DFDD4290015113D /* Star.swift in Sources */,
+				76C55BED1E192C6D00EC0706 /* STStarDetailViewController.swift in Sources */,
 				76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */,
 				761F07371E165EF700862BAC /* STDetailInformationCollectionViewCell.swift in Sources */,
 				760325CA1DFDD3F50015113D /* Season.swift in Sources */,
@@ -513,6 +520,7 @@
 				7625FAC71E17A7C9000FEFCC /* STTopDetailCollectionViewCell.swift in Sources */,
 				762E923B1E12C8B700916ADB /* STDetailViewController.swift in Sources */,
 				76B767791DEAFCD50070E62F /* STRegisterView.swift in Sources */,
+				76C55BF01E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift in Sources */,
 				7625FAD31E182F5C000FEFCC /* STChangePasswordViewController.swift in Sources */,
 				764BDF001E1402CA0095B4F4 /* STHomeTabBarViewController.swift in Sources */,
 				7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */,

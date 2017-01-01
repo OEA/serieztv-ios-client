@@ -15,7 +15,7 @@ protocol MainViewBackgroundImageDelegate {
 
 class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
 
-    let bgImages = [UIImage(named: "got.jpg"),UIImage(named: "twd.jpg"), UIImage(named: "sw"), UIImage(named: "avg.jpg"), UIImage(named: "hp"), UIImage(named: "bb"), UIImage(named: "hoc.jpg")]
+    let bgImages = [UIImage(named: "sq.png"), UIImage(named: "got.jpg"),UIImage(named: "twd.jpg"), UIImage(named: "sw"), UIImage(named: "avg.jpg"), UIImage(named: "hp"), UIImage(named: "bb"), UIImage(named: "hoc.jpg")]
     var imageIndex: Int = 0
     var timer = Timer()
     
@@ -28,8 +28,12 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
     internal func updateBackgroundImage(index: Int) {
         if index >= 0 {
             self.mainView.backgroundImageView.image = self.bgImages[index]
+            let image = self.mainView.backgroundImageView.image?.resize(image: self.mainView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+            self.mainView.backgroundImageView.image = image
         } else {
             self.mainView.backgroundImageView.image = self.bgImages[0]
+            let image = self.mainView.backgroundImageView.image?.resize(image: self.mainView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+            self.mainView.backgroundImageView.image = image
         }
     }
     
@@ -141,10 +145,14 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
                 if self.imageIndex <  self.bgImages.count {
                     print("main \(self.imageIndex) ")
                     self.mainView.backgroundImageView.image = self.bgImages[self.imageIndex]
+                    let image = self.mainView.backgroundImageView.image?.resize(image: self.mainView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+                    self.mainView.backgroundImageView.image = image
                     self.imageIndex += 1
                 } else  if self.imageIndex == self.bgImages.count {
                     self.imageIndex = 0
                     self.mainView.backgroundImageView.image = self.bgImages[self.imageIndex]
+                    let image = self.mainView.backgroundImageView.image?.resize(image: self.mainView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+                    self.mainView.backgroundImageView.image = image
                 }
             }, completion:nil)
         })

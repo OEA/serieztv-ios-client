@@ -8,6 +8,9 @@
 
 import UIKit
 
+// MOVIE - SERIES DETAILED INFORMATION CELL
+
+
 class STDetailInformationCollectionViewCell: UICollectionViewCell {
     
     
@@ -97,7 +100,6 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
             make.width.equalTo(70)
         }
         
-        
         self.overviewText.snp.makeConstraints { (make) in
             make.leading.equalTo(self.detailImageView.snp.trailing).offset(10)
             make.trailing.equalTo(-10)
@@ -146,18 +148,7 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
             make.trailing.equalTo(0)
             make.bottom.equalTo(-0.5)
         }
-
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-
-
-        
-    }
-    
-
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

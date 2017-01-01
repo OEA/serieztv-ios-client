@@ -145,7 +145,6 @@ class STLoginView: UIView {
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
         }
-        
     }
 
     override func layoutSubviews() {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// GENRE CELL IN HOME VIEW
+
 class STGenreCollectionViewCell: UICollectionViewCell {
     
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]

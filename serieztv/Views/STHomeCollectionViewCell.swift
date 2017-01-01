@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// HOME VIEW MAIN CELLS
 
 class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -23,6 +23,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
         return collectionView
     }()
     
@@ -37,20 +39,12 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         return titleLabel
     }()
     
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         if detailCellViewIdentifier == "GenreDetailCell" {
-                
             return genres.count
         }
         return 10
@@ -64,8 +58,6 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         if self.detailCellViewIdentifier == "DetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as! STHomeDetailCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
-            // Configure the cell
-            
             return cell
         } else if self.detailCellViewIdentifier == "GenreDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreDetailCell", for: indexPath) as! STGenreCollectionViewCell
@@ -74,16 +66,12 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             cell.genreViewFirstLetterLabel.text = "\((cell.nameLabel.text?.characters.first)!)"
             let random: Int = Int(arc4random_uniform(UInt32(cell.colorArray.count)))
             cell.genreView.backgroundColor = cell.colorArray[random]
-            // Configure the cell
-            
             return cell
 
         } else if self.detailCellViewIdentifier == "StarDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailCell", for: indexPath) as! STStarCollectionViewCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
             cell.starImageView.image = UIImage(named: "hoc")
-            // Configure the cell
-            
             return cell
         } else {
             return UICollectionViewCell()
@@ -96,9 +84,6 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if self.detailCellViewIdentifier == "GenreDetailCell" {
-//            return CGSize(width: 120, height: frame.height - 50)
-//        }
         return CGSize(width: 100, height: frame.height - 50)
     }
     

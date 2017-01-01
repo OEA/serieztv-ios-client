@@ -10,6 +10,7 @@ import UIKit
 
 class STTextField: UITextField, UITextFieldDelegate {
     
+    let padding = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 5);
     
     let fieldImageView: UIImageView = {
         let fieldImageView = UIImageView(frame: CGRect(x:0, y:0, width:10, height:10))
@@ -35,7 +36,6 @@ class STTextField: UITextField, UITextFieldDelegate {
         self.attributedPlaceholder = placeholderLabel.attributedText
         self.fieldImageView.image = image
         self.delegate = self;
-        
     }
     
     func setupTextView() {
@@ -64,8 +64,6 @@ class STTextField: UITextField, UITextFieldDelegate {
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-    
-    let padding = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 5);
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)

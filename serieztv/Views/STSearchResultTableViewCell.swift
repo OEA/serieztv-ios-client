@@ -54,8 +54,6 @@ class STSearchResultTableViewCell: UITableViewCell {
             make.leading.equalTo(self.titleLabel.snp.leading)
             make.trailing.equalTo(-20)
         }
-        
-
     }
     
     override func awakeFromNib() {

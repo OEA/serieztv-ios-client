@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TOP CELL OF MOVIE-SERIES DETAIL
+
 class STTopDetailCollectionViewCell: UICollectionViewCell {
     
     let posterImageView: UIImageView = {

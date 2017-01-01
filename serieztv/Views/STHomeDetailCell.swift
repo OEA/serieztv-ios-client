@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MOVIE - SERIES CELLS
+
 class STHomeDetailCell: UICollectionViewCell {
     
     let image: UIImageView = {

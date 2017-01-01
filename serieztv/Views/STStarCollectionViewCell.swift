@@ -8,6 +8,8 @@
 
 import UIKit
 
+// CELLS OF STARS
+
 class STStarCollectionViewCell: UICollectionViewCell {
     
     let starImageView: UIImageView = {
@@ -68,7 +70,6 @@ class STStarCollectionViewCell: UICollectionViewCell {
         }
         starImageView.layer.cornerRadius = starImageView.frame.size.width/2
         starImageView.clipsToBounds = true
-        print("star hayt: \(frame.height)")
     }
     
     required init?(coder aDecoder: NSCoder) {

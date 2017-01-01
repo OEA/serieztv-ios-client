@@ -43,7 +43,7 @@ class STRegisterView: UIView {
     }()
     
     let usernameField: STTextField = {
-        let usernameField = STTextField(frame: CGRect.zero, placeholder: "Username", image: UIImage(named:"user")!)
+        let usernameField = STTextField(frame: CGRect.zero, placeholder: "Username", image: UIImage(named:"userfield")!)
         usernameField.autocorrectionType = UITextAutocorrectionType.no
         usernameField.keyboardType = UIKeyboardType.default
         usernameField.returnKeyType = UIReturnKeyType.continue
@@ -149,7 +149,4 @@ class STRegisterView: UIView {
         self.registerButton.layer.shadowOffset = CGSize.zero
         self.registerButton.layer.shadowRadius = 20
     }
-
-
-
 }

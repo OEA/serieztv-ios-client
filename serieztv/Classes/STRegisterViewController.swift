@@ -122,10 +122,14 @@ class STRegisterViewController: UIViewController {
                 if self.imageIndex <  self.bgImages.count {
                     print("register \(self.imageIndex) ")
                     self.registerView.backgroundImageView.image = self.bgImages[self.imageIndex]
+                    let image = self.registerView.backgroundImageView.image?.resize(image: self.registerView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+                    self.registerView.backgroundImageView.image = image
                     self.imageIndex += 1
                 } else  if self.imageIndex == self.bgImages.count {
                     self.imageIndex = 0
                     self.registerView.backgroundImageView.image = self.bgImages[self.imageIndex]
+                    let image = self.registerView.backgroundImageView.image?.resize(image: self.registerView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+                    self.registerView.backgroundImageView.image = image
                 }
             }, completion:nil)
         })

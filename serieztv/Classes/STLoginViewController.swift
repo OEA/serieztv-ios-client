@@ -20,8 +20,12 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     internal func updateBackgroundImage(index: Int) {
         if index >= 0 {
             self.loginView.backgroundImageView.image = self.bgImages[index]
+            let image = self.loginView.backgroundImageView.image?.resize(image: self.loginView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+            self.loginView.backgroundImageView.image = image
         } else {
             self.loginView.backgroundImageView.image = self.bgImages[0]
+            let image = self.loginView.backgroundImageView.image?.resize(image: self.loginView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+            self.loginView.backgroundImageView.image = image
         }
     }
     
@@ -84,9 +88,7 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     
     func login() {
         NSLog("%@", "login")
-
-        let nvgController: UINavigationController = UINavigationController(rootViewController: STHomeTabBarViewController())
-        self.present(nvgController, animated: false, completion: nil)
+        self.present(STHomeTabBarViewController(), animated: false, completion: nil)
         
     }
     
@@ -142,10 +144,14 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
                 if self.imageIndex <  self.bgImages.count {
                     print("login \(self.imageIndex) ")
                     self.loginView.backgroundImageView.image = self.bgImages[self.imageIndex]
+                    let image = self.loginView.backgroundImageView.image?.resize(image: self.loginView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+                    self.loginView.backgroundImageView.image = image
                     self.imageIndex += 1
                 } else  if self.imageIndex == self.bgImages.count {
                     self.imageIndex = 0
                     self.loginView.backgroundImageView.image = self.bgImages[self.imageIndex]
+                    let image = self.loginView.backgroundImageView.image?.resize(image: self.loginView.backgroundImageView.image!, to: CGSize(width: self.view.frame.width/2, height: self.view.frame.height/2))
+                    self.loginView.backgroundImageView.image = image
                 }
             }, completion:nil)
         })

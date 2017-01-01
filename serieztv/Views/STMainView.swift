@@ -13,6 +13,7 @@ class STMainView: UIView {
     let backgroundImageView: UIImageView = {
         let backgroundImageView = UIImageView()
         backgroundImageView.contentMode = .scaleToFill
+        backgroundImageView.image = UIImage(named: "hoc.jpg")
         return backgroundImageView
     }()
     
@@ -81,6 +82,8 @@ class STMainView: UIView {
         self.backgroundColor = UIColor.black
         setupMainView()
         self.backgroundImageView.image = UIImage(named: "hoc.jpg")
+        let image = self.backgroundImageView.image?.resize(image: self.backgroundImageView.image!, to: CGSize(width: self.frame.width/2, height: self.frame.height/2))
+        self.backgroundImageView.image = image
         self.backgroundImageView.alpha = 0.5
     }
     
@@ -108,7 +111,6 @@ class STMainView: UIView {
         logo.snp.makeConstraints { (make) in
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
-            //make.top.equalTo(100)
             make.centerY.equalTo(self)
         }
         
@@ -163,6 +165,43 @@ class STMainView: UIView {
         self.registerButton.layer.shadowOpacity = 1
         self.registerButton.layer.shadowOffset = CGSize.zero
         self.registerButton.layer.shadowRadius = 20
-        
     }
 }
+
+extension UIImage {
+    
+    func resize(image: UIImage, to size: CGSize) -> UIImage {
+        
+        var newCropWidth: CGFloat!
+        var newCropHeight: CGFloat!
+        
+        if(image.size.width < image.size.height){
+            if (image.size.width < size.width) {
+                newCropWidth = size.width
+            }
+            else {
+                newCropWidth = image.size.width;
+            }
+            newCropHeight = (newCropWidth * size.height)/size.width
+        } else {
+            if (image.size.height < size.height) {
+                newCropHeight = size.height
+            }
+            else {
+                newCropHeight = image.size.height
+            }
+            newCropWidth = (newCropHeight * size.width)/size.height
+        }
+
+        let x = image.size.width/2.0 - newCropWidth/2.0
+        let y = image.size.height/2.0 - newCropHeight/2.0
+        
+        let cropRect: CGRect = CGRect(x:x, y:y, width:newCropWidth, height:newCropHeight)
+        let imageRef: CGImage = image.cgImage!.cropping(to: cropRect)!
+        
+        let cropped: UIImage = UIImage(cgImage:imageRef)
+        
+        return cropped;
+    }
+}
+

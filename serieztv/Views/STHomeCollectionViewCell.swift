@@ -47,10 +47,6 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         return 1
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         if detailCellViewIdentifier == "GenreDetailCell" {
@@ -65,15 +61,13 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("tag: \(self.tag)")
-        if self.tag == 0 {
+        if self.detailCellViewIdentifier == "DetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as! STHomeDetailCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
             // Configure the cell
             
             return cell
-        }
-        if self.tag == 1 {
+        } else if self.detailCellViewIdentifier == "GenreDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreDetailCell", for: indexPath) as! STGenreCollectionViewCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
             cell.nameLabel.text = self.genres[indexPath.row]
@@ -83,16 +77,18 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             // Configure the cell
             
             return cell
-        }
-        if self.tag == 2{
+
+        } else if self.detailCellViewIdentifier == "StarDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailCell", for: indexPath) as! STStarCollectionViewCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
             cell.starImageView.image = UIImage(named: "hoc")
             // Configure the cell
             
             return cell
+        } else {
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

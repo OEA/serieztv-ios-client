@@ -43,9 +43,9 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.collectionView?.performBatchUpdates({
-            self.collectionView?.reloadData()
-        }, completion: nil)
+//        self.collectionView?.performBatchUpdates({
+//            self.collectionView?.reloadData()
+//        }, completion: nil)
         
     }
 
@@ -67,7 +67,6 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         cell.titleLabel.text = self.titleArray[indexPath.item]
         cell.navDelegate = self
         
-        print(self.titleArray[indexPath.item])
         if indexPath.item % 2 == 0 {
             cell.contentView.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
             cell.collectionView.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
@@ -81,15 +80,15 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         
         if indexPath.item < 4 {
             cell.detailCellViewIdentifier = "DetailCell"
-            cell.tag = 0
+            cell.collectionView.reloadData()
             return cell
         } else  if indexPath.item == 4 {
             cell.detailCellViewIdentifier = "GenreDetailCell"
-            cell.tag = 1
+            cell.collectionView.reloadData()
             return cell
         } else {
             cell.detailCellViewIdentifier = "StarDetailCell"
-            cell.tag = 2
+            cell.collectionView.reloadData()
             return cell
         }
         

@@ -8,11 +8,16 @@
 
 import UIKit
 
+// PROTOCOL TO NAVIGATE DETAIL OF CREW FROM CELL COLLECTION VIEW
 protocol NavigateToCrewDetailDelegate {
     func navigateToCrew(vc: STCrewListTableViewController)
 }
+// PROTOCOL TO NAVIGATE DETAIL OF A STAR FROM CELL COLLECTION VIEW
+protocol NavigateToStarDetailDelegate {
+    func navigateToStar(vc: STStarDetailViewController)
+}
 
-class STDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToCrewDetailDelegate {
+class STDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToCrewDetailDelegate, NavigateToStarDetailDelegate {
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -82,20 +87,22 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else if indexPath.row == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCastCell", for: indexPath) as! STDetailCastCollectionViewCell
             cell.navDelegate = self
+            cell.starDetailDelegate = self
             return cell
         }
         return UICollectionViewCell()
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
             return CGSize(width: self.view.frame.width, height: 255)
         } else if indexPath.row == 1 {
-            return CGSize(width: self.view.frame.width, height: self.view.frame.height/4 + 10)
+            return CGSize(width: self.view.frame.width, height: 160)
         }
         else if indexPath.row == 2 {
             print("cell dis hayt: \(self.view.frame.height/2)")
-            return CGSize(width: self.view.frame.width, height: self.view.frame.height/3)
+            return CGSize(width: self.view.frame.width, height: 225)
         }
         return CGSize(width: self.view.frame.width, height: self.view.frame.height/2)
         
@@ -103,6 +110,10 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     internal func navigateToCrew(vc: STCrewListTableViewController) {
         
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    internal func navigateToStar(vc: STStarDetailViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

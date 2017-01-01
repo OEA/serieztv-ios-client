@@ -12,6 +12,8 @@ class STHomeDetailCell: UICollectionViewCell {
     
     let image: UIImageView = {
         let image = UIImageView()
+        image.layer.cornerRadius = 5
+        image.layer.masksToBounds = true
         return image
     }()
 
@@ -20,14 +22,14 @@ class STHomeDetailCell: UICollectionViewCell {
         name.text = "name"
         name.textColor = UIColor.white
         name.textAlignment = NSTextAlignment.center
-        name.font = UIFont.systemFont(ofSize: 14)
+        name.font = UIFont.boldSystemFont(ofSize: 14)
         return name
     }()
     
     let detailLabel: UILabel = {
         let detailLabel = UILabel()
         detailLabel.text = "detail"
-        detailLabel.textColor = UIColor.white
+        detailLabel.textColor = UIColor.lightGray
         detailLabel.textAlignment = NSTextAlignment.center
         detailLabel.font = UIFont.systemFont(ofSize: 9)
         return detailLabel
@@ -35,19 +37,29 @@ class STHomeDetailCell: UICollectionViewCell {
     
     let rateLabel: UILabel = {
         let rateLabel = UILabel()
-        rateLabel.text = "8/10"
+        rateLabel.text = "8.0"
         rateLabel.textColor = UIColor.white
         rateLabel.textAlignment = NSTextAlignment.center
-        rateLabel.font = UIFont.systemFont(ofSize: 12)
+        rateLabel.font = UIFont.boldSystemFont(ofSize: 12)
         return rateLabel
     }()
     
+    let rateScaleLabel: UILabel = {
+        let rateScaleLabel = UILabel()
+        rateScaleLabel.text = "/10"
+        rateScaleLabel.textColor = UIColor.lightGray
+        rateScaleLabel.textAlignment = NSTextAlignment.center
+        rateScaleLabel.font = UIFont.systemFont(ofSize: 10)
+        return rateScaleLabel
+    }()
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(image)
         self.addSubview(nameLabel)
         self.addSubview(detailLabel)
         self.addSubview(rateLabel)
+        self.addSubview(rateScaleLabel)
         self.image.image = UIImage(named: "twd")
         
         self.image.snp.makeConstraints { (make) in
@@ -68,8 +80,13 @@ class STHomeDetailCell: UICollectionViewCell {
         }
         
         self.rateLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(self)
-            make.top.equalTo(detailLabel.snp.bottom).offset(3)
+            make.centerX.equalTo(self).offset(-6)
+            make.top.equalTo(detailLabel.snp.bottom).offset(12)
+        }
+        
+        self.rateScaleLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self.rateLabel)
+            make.leading.equalTo(rateLabel.snp.trailing).offset(1)
         }
     }
     
@@ -77,3 +94,5 @@ class STHomeDetailCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+

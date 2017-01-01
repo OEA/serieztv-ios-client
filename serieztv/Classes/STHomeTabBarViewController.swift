@@ -20,6 +20,9 @@ class STHomeTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButton.addTarget(self, action: #selector(self.search), for: .touchUpInside)
+        self.tabBar.backgroundColor = UIColor.white
+        self.tabBar.isTranslucent = false
+        self.tabBar.tintColor = UIColor.black
         let navigationBarSearchItem = UIBarButtonItem(customView: searchButton)
         
         
@@ -33,7 +36,8 @@ class STHomeTabBarViewController: UITabBarController {
     }
     
     func search() {
-        
+        let searchVC = STSearchViewController()
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +47,7 @@ class STHomeTabBarViewController: UITabBarController {
         let profile: STProfileViewController = STProfileViewController()
         
         let icon1 = UITabBarItem(title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+        
         let icon2 = UITabBarItem(title: "Profile", image: UIImage(named: "user"), selectedImage: UIImage(named: "user"))
         home.tabBarItem = icon1
         profile.tabBarItem = icon2

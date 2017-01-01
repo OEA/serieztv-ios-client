@@ -18,7 +18,10 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     }()
 
     let searchController = UISearchController(searchResultsController: nil)
-    
+    var backgroundImageView: UIImageView = {
+        let backgroundImageView = UIImageView()
+        return backgroundImageView
+    }()
     var isAvailable: Bool = false
 
     override func viewDidLoad() {
@@ -37,15 +40,25 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
         
         backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
         self.navigationController?.navigationBar.isTranslucent = false
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         
         self.tableView.register(STSearchResultTableViewCell.self, forCellReuseIdentifier: "SearchResultCell")
         
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         self.tableView.separatorColor = UIColor.lightGray
-        // Do any additional setup after loading the view.
-    }
         
+        backgroundImageView.image = UIImage(named: "Search")
+        
+        self.tableView.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { (make) in
+            make.height.equalTo(115)
+            make.width.equalTo(130)
+            make.centerX.equalTo(self.tableView)
+            make.centerY.equalTo(self.tableView)
+        }
+    }
+    
     func navigateBack() {
         let navController = self.navigationController
         _ = navController?.popViewController(animated: true)
@@ -57,6 +70,15 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if !self.isAvailable {
+            self.backgroundImageView.alpha = 0.15
+            self.tableView.separatorStyle = .none
+            self.tableView.tableFooterView?.isHidden = true
+        } else {
+            self.backgroundImageView.alpha = 0
+            self.tableView.separatorStyle = .singleLine
+            self.tableView.tableFooterView?.isHidden = false
+        }
         return 1
     }
     
@@ -129,15 +151,4 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
         }
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

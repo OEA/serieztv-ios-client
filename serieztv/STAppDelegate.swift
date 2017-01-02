@@ -24,7 +24,44 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().barTintColor = UIColor.black
         
-        AuthManager.sharedInstance.login(username: "test", password: "test", completion: nil)
+        AuthManager.sharedInstance.login(username: "gbu", password: "password", completion: nil, errorCompletion: nil)
+        AuthManager.sharedInstance.register(email: "tester1@gmail", username: "tester1", password: "testp", name: "tester", completion: nil, errorCompletion: nil)
+        MovieManager.sharedInstance.getTopMovies(completion: { (movies) in
+//            print(movies.count)
+//            print(movies[0].name)
+//            print(movies[0].characters[0].name)
+//            print(movies[0].characters[0].star.name)
+//            print(movies[0].genres[0].name)
+        }, errorCompletion: nil)
+        
+        MovieManager.sharedInstance.getMoviesFrom(url: MovieManager.sharedInstance.listUrl, withLimit: nil, completion: { (movies) in
+            print("List")
+            print(movies.count)
+            print(movies[0].name)
+        }, errorCompletion: nil)
+        MovieManager.sharedInstance.getMoviesFrom(url: MovieManager.sharedInstance.topUrl, withLimit: nil, completion: { (movies) in
+            print("Top Without Limit")
+            print(movies.count)
+            print(movies[0].name)
+        }, errorCompletion: nil)
+        
+        MovieManager.sharedInstance.getMoviesFrom(url: MovieManager.sharedInstance.topUrl, withLimit: "3", completion: { (movies) in
+            print("Top With Limit")
+            print(movies.count)
+            print(movies[0].name)
+        }, errorCompletion: nil)
+        
+        MovieManager.sharedInstance.getMoviesFrom(url: MovieManager.sharedInstance.recentUrl, withLimit: "3", completion: { (movies) in
+            print("Recent With Limit")
+            print(movies.count)
+            print(movies[0].name)
+        }, errorCompletion: nil)
+        
+        MovieManager.sharedInstance.getMoviesFrom(url: MovieManager.sharedInstance.recentUrl, withLimit: nil, completion: { (movies) in
+            print("Recent Without Limit")
+            print(movies.count)
+            print(movies[0].name)
+        }, errorCompletion: nil)
         
         return true
     }

@@ -11,7 +11,7 @@ import UIKit
 // HOME VIEW MAIN CELLS
 
 class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+    var movies = [Movie]()
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]
     let genres = ["Action", "Drama", "Romantic", "Fantastic", "Sports", "Science Fiction", "Horror", "Thriller", "Adventure", "Crime", "History", "War", "Western", "Musical", "Animation"]
     var navDelegate: NavigateToDetailDelegate?
@@ -46,6 +46,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if detailCellViewIdentifier == "GenreDetailCell" {
             return genres.count
+        } else if detailCellViewIdentifier == "DetailCell" {
+            return movies.count
         }
         return 10
     }
@@ -58,6 +60,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         if self.detailCellViewIdentifier == "DetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as! STHomeDetailCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
+            cell.nameLabel.text = movies[indexPath.row].name
+            cell.rateLabel.text = "\(movies[indexPath.row].imdbRating!)"
             return cell
         } else if self.detailCellViewIdentifier == "GenreDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreDetailCell", for: indexPath) as! STGenreCollectionViewCell

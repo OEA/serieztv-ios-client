@@ -88,7 +88,11 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     
     func login() {
         NSLog("%@", "login")
-        self.present(STHomeTabBarViewController(), animated: false, completion: nil)
+        MovieManager.sharedInstance.getMoviesFrom(url: MovieManager.sharedInstance.topUrl, withLimit: nil, completion: { (movies) in
+            let vc = STHomeTabBarViewController()
+            vc.movies = movies
+            self.present(vc, animated: false, completion: nil)
+        }, errorCompletion: nil)
         
     }
     

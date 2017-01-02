@@ -21,7 +21,7 @@ protocol NavigateToDetailDelegate {
 
 
 class STHomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NavigateToDetailDelegate {
-    
+    var movies = [Movie]()
     internal func goToDetail(vc: STDetailViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -97,6 +97,7 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         
         if indexPath.item < 4 {
             cell.detailCellViewIdentifier = "DetailCell"
+            cell.movies = self.movies
             cell.collectionView.reloadData()
             return cell
         } else  if indexPath.item == 4 {

@@ -10,7 +10,7 @@ import UIKit
 
 class STHomeTabBarViewController: UITabBarController {
 
-
+    var movies = [Movie]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.backgroundColor = UIColor.white
@@ -33,7 +33,7 @@ class STHomeTabBarViewController: UITabBarController {
         
         let home: STHomeCollectionViewController = STHomeCollectionViewController(collectionViewLayout: flow)
         let profile: STProfileViewController = STProfileViewController()
-        
+        home.movies = self.movies
         let homeVC: UINavigationController = UINavigationController(rootViewController: home)
         let profileVC: UINavigationController = UINavigationController(rootViewController: profile)
         

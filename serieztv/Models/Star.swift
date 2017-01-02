@@ -9,22 +9,15 @@
 import Foundation
 
 class Star: NSObject {
-    var name: String
-    var image: String
-    var birthday: Date
-    var createdAt: Date
-    var updatedAt: Date
-    var active: Bool
-    var apiID: String
+    var name: String!
+    var image: String!
+    var birthday: String!
+    var createdAt: String!
+    var updatedAt: String!
+    var active: Bool!
+    var apiID: String!
     
-    init(name: String, image: String, birthday: Date, createdAt: Date, updatedAt: Date, active: Bool, apiID: String) {
-        self.name = name
-        self.image = image
-        self.birthday = birthday
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-        self.active = active
-        self.apiID = apiID
+    override init() {
     }
     
 }

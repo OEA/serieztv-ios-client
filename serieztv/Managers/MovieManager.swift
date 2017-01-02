@@ -12,25 +12,25 @@ import SwiftyJSON
 
 class MovieManager: NSObject {
     
-    var baseURL: String {
+    private var baseURL: String {
         get {
             return "http://localhost:3000/v1/movie"
         }
     }
     
-    var listUrl: String {
+    private var listUrl: String {
         get {
             return "\(baseURL)/list"
         }
     }
     
-    var topUrl: String {
+    private var topUrl: String {
         get {
             return "\(baseURL)/top"
         }
     }
     
-    var recentUrl: String {
+    private var recentUrl: String {
         get {
             return "\(baseURL)/recent"
         }
@@ -57,6 +57,69 @@ class MovieManager: NSObject {
         return Static.instance
     }
     
+    func findMovieWith(id: String, completion: ((_ movie: Movie) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        Alamofire.request("\(self.findUrl)/\(id)", method: .get, parameters: nil)
+            .responseJSON { response in
+                if response.result.value != nil {
+                    let json = JSON(response.result.value!)
+                    if ( json["error"].string == nil) {
+                        let jsonMovie = json
+                        let movie: Movie = self.parseMovie(data: jsonMovie)
+                        completion?(movie)
+                    } else {
+                        errorCompletion?(json["error"].string!)
+                    }
+                } else {
+                    errorCompletion?("Api is temporarly down")
+                }
+        }
+    }
+    
+    func searchForMovie(genre: String?, name: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        var newUrl: String!
+        if (name == nil && genre == nil) {
+            newUrl = self.searchUrl
+        } else if (name == nil && genre != nil){
+            newUrl = "\(self.searchUrl)?genre=\(genre!)"
+        } else if (name != nil && genre == nil) {
+            newUrl = "\(self.searchUrl)?name=\(name!)"
+        } else {
+            newUrl = "\(self.searchUrl)?name=\(name!)&genre=\(genre!)"
+        }
+        Alamofire.request(newUrl!, method: .get, parameters: nil)
+            .responseJSON { response in
+                if response.result.value != nil {
+                    let json = JSON(response.result.value!)
+                    if ( json["error"].string == nil) {
+                        var movieList = [Movie]()
+                        let jsonArray = json.arrayValue
+                        for data in jsonArray {
+                            let movie: Movie = self.parseMovie(data: data)
+                            movieList.append(movie)
+                        }
+                        completion?(movieList)
+                    } else {
+                        errorCompletion?(json["error"].string!)
+                    }
+                } else {
+                    errorCompletion?("Api is temporarly down")
+                }
+        }
+        
+    }
+    
+    func getRecentMovies(withLimit: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getMoviesFrom(url: self.recentUrl, withLimit: withLimit, completion: completion, errorCompletion: errorCompletion)
+    }
+    
+    func getAllMovies(completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getMoviesFrom(url: self.listUrl, withLimit: nil, completion: completion, errorCompletion: errorCompletion)
+    }
+    
+    func getTopMovies(withLimit: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getMoviesFrom(url: self.topUrl, withLimit: withLimit, completion: completion, errorCompletion: errorCompletion)
+    }
+    
     func getMoviesFrom(url: String, withLimit limit: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         var limitedUrl: String!
         if (limit == nil) {
@@ -72,131 +135,82 @@ class MovieManager: NSObject {
                         var movieList = [Movie]()
                         let jsonArray = json.arrayValue
                         for data in jsonArray {
-                            let movie: Movie = Movie()
-                            movie.name = data["name"].string!
-                            let charactersJSON = data["characters"].arrayValue
-                            var characterList = [Character]()
-                            for char in charactersJSON {
-                                let character = Character()
-                                character.name = char["characterName"].string!
-                                if char["characterImage"].string != nil {
-                                    character.image = char["characterImage"].string!
-                                }
-                                let star = Star()
-                                let characterStar = char["star"]
-                                star.name = characterStar["name"].string!
-                                if characterStar["image"].string != nil {
-                                    star.image = characterStar["image"].string!
-                                }
-                                character.star = star
-                                characterList.append(character)
-                            }
-                            movie.characters = characterList
-                            
-                            let genresJSON = data["genres"].arrayValue
-                            var genreList = [Genre]()
-                            
-                            for gen in genresJSON {
-                                let genre = Genre()
-                                genre.name = gen["name"].string!
-                                genre.apiID = gen["id"].string!
-                                genreList.append(genre)
-                            }
-                            movie.genres = genreList
-                            movie.poster = data["poster"].string!
-                            movie.image = data["image"].string!
-                            movie.overview = data["overview"].string!
-                            movie.status = data["status"].string!
-                            movie.imdbScore = data["imdbScore"].double!
-                            movie.imdbRating = data["imdbRating"].double!
-                            movie.runtime = data["runtime"].double!
-                            movie.airDate = data["airDate"].string!
-                            movie.apiID = data["apiID"].string!
+                            let movie: Movie = self.parseMovie(data: data)
                             movieList.append(movie)
                         }
                         completion?(movieList)
-                        //                        var characters: [Character]!
-                        //                        var genres: [Genre]!
-                        //                        var createdAt: Date!
-                        //                        var updatedAt: Date!
                     } else {
                         errorCompletion?(json["error"].string!)
                     }
-                    
                 } else {
                     errorCompletion?("Api is temporarly down")
                 }
         }
     }
     
-    
-    
-    
-    func getTopMovies(completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
-        Alamofire.request(self.topUrl, method: .get, parameters: nil)
-            .responseJSON { response in
-                if response.result.value != nil {
-                    let json = JSON(response.result.value!)
-                    if ( json["error"].string == nil) {
-                        var movieList = [Movie]()
-                        let jsonArray = json.arrayValue
-                        for data in jsonArray {
-                            let movie: Movie = Movie()
-                            movie.name = data["name"].string!
-                            let charactersJSON = data["characters"].arrayValue
-                            var characterList = [Character]()
-                            for char in charactersJSON {
-                                let character = Character()
-                                character.name = char["characterName"].string!
-                                if char["characterImage"].string != nil {
-                                    character.image = char["characterImage"].string!
-                                }
-                                let star = Star()
-                                let characterStar = char["star"]
-                                star.name = characterStar["name"].string!
-                                if characterStar["image"].string != nil {
-                                    star.image = characterStar["image"].string!
-                                }
-                                character.star = star
-                                characterList.append(character)
-                            }
-                            movie.characters = characterList
-                            
-                            let genresJSON = data["genres"].arrayValue
-                            var genreList = [Genre]()
-                            
-                            for gen in genresJSON {
-                                let genre = Genre()
-                                genre.name = gen["name"].string!
-                                genre.apiID = gen["id"].string!
-                                genreList.append(genre)
-                            }
-                            movie.genres = genreList
-                            movie.poster = data["poster"].string!
-                            movie.image = data["image"].string!
-                            movie.overview = data["overview"].string!
-                            movie.status = data["status"].string!
-                            movie.imdbScore = data["imdbScore"].double!
-                            movie.imdbRating = data["imdbRating"].double!
-                            movie.runtime = data["runtime"].double!
-                            movie.airDate = data["airDate"].string!
-                            movie.apiID = data["apiID"].string!
-                            movieList.append(movie)
-                        }
-                        completion?(movieList)
-//                        var characters: [Character]!
-//                        var genres: [Genre]!
-//                        var createdAt: Date!
-//                        var updatedAt: Date!
-                    } else {
-                        errorCompletion?(json["error"].string!)
-                    }
-                    
-                } else {
-                    errorCompletion?("Api is temporarly down")
-                }
+    func parseMovie(data: JSON) -> Movie {
+        let movie: Movie = Movie()
+        movie.name = data["name"].string!
+        var characterList = [Character]()
+        let charactersJSON = data["characters"].arrayValue
+        for char in charactersJSON {
+            let character: Character = self.parseCharacter(data: char)
+            characterList.append(character)
         }
+        movie.characters = characterList
+        
+        let genresJSON = data["genres"].arrayValue
+        var genreList = [Genre]()
+        
+        for gen in genresJSON {
+            let genre = parseGenre(data: gen)
+            genreList.append(genre)
+        }
+        movie.genres = genreList
+        movie.poster = data["poster"].string!
+        movie.image = data["image"].string!
+        movie.overview = data["overview"].string!
+        movie.status = data["status"].string!
+        movie.imdbScore = data["imdbScore"].double!
+        movie.imdbRating = data["imdbRating"].double!
+        movie.runtime = data["runtime"].double!
+        movie.airDate = data["airDate"].string!
+        movie.apiID = data["apiID"].string!
+        movie.id = data["id"].string!
+        movie.imdbId = data["imdbID"].string!
+        //                        var createdAt: Date!
+        //                        var updatedAt: Date!
+        return movie
     }
     
-
+    func parseCharacter(data: JSON) -> Character {
+        let character = Character()
+        character.name = data["characterName"].string!
+        character.id = data["id"].string!
+        if data["characterImage"].string != nil {
+            character.image = data["characterImage"].string!
+        }
+        let characterStar = data["star"]
+        let star = parseStar(data: characterStar)
+        character.star = star
+        return character
+    }
+    
+    func parseStar(data: JSON) -> Star {
+        let star = Star()
+        star.name = data["name"].string!
+        star.id = data["id"].string!
+        if data["image"].string != nil {
+            star.image = data["image"].string!
+        }
+        star.active = data["active"].bool!
+        return star
+    }
+    
+    func parseGenre(data: JSON) -> Genre {
+        let genre = Genre()
+        genre.name = data["name"].string!
+        genre.id = data["id"].string!
+        return genre
+    }
 }

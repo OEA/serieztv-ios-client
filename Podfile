@@ -7,6 +7,7 @@ target ‘serieztv’ do
 
   pod 'SnapKit', '~> 3.0.2'
   pod 'Alamofire', '~> 4.0'
+  pod 'SwiftyJSON'
   # Pods for hesapkitap
   
   post_install do |installer|

@@ -24,6 +24,8 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().barTintColor = UIColor.black
         
+        AuthManager.sharedInstance.login(username: "test", password: "test", completion: nil)
+        
         return true
     }
     

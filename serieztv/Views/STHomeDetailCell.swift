@@ -64,7 +64,6 @@ class STHomeDetailCell: UICollectionViewCell {
         self.addSubview(detailLabel)
         self.addSubview(rateLabel)
         self.addSubview(rateScaleLabel)
-        self.image.image = UIImage(named: "twd")
         
         self.image.snp.makeConstraints { (make) in
             make.leading.equalTo(10)

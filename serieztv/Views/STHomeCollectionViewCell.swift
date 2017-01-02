@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 // HOME VIEW MAIN CELLS
 
@@ -61,7 +62,11 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as! STHomeDetailCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
             cell.nameLabel.text = movies[indexPath.row].name
+            
             cell.rateLabel.text = "\(movies[indexPath.row].imdbRating!)"
+                
+//            cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92\(movies[indexPath.row].image!)")! as URL, placeholderImage:UIImage(named:"twd"))
+        
             return cell
         } else if self.detailCellViewIdentifier == "GenreDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreDetailCell", for: indexPath) as! STGenreCollectionViewCell

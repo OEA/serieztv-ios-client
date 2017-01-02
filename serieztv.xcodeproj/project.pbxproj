@@ -22,6 +22,7 @@
 		760325D61DFDD4530015113D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325D51DFDD4530015113D /* Comment.swift */; };
 		760CE9C71E15A86500E7A2DC /* STGenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CE9C61E15A86500E7A2DC /* STGenreCollectionViewCell.swift */; };
 		760CE9C91E15CC8200E7A2DC /* STProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CE9C81E15CC8200E7A2DC /* STProfileTableViewCell.swift */; };
+		7614FBD31E1A976200800744 /* SeriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614FBD21E1A976200800744 /* SeriesManager.swift */; };
 		761F07371E165EF700862BAC /* STDetailInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F07361E165EF700862BAC /* STDetailInformationCollectionViewCell.swift */; };
 		761F07391E165F1000862BAC /* STDetailCastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F07381E165F1000862BAC /* STDetailCastCollectionViewCell.swift */; };
 		761F073B1E168BA100862BAC /* STStarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F073A1E168BA100862BAC /* STStarCollectionViewCell.swift */; };
@@ -92,6 +93,7 @@
 		760325D51DFDD4530015113D /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		760CE9C61E15A86500E7A2DC /* STGenreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STGenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		760CE9C81E15CC8200E7A2DC /* STProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STProfileTableViewCell.swift; sourceTree = "<group>"; };
+		7614FBD21E1A976200800744 /* SeriesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesManager.swift; sourceTree = "<group>"; };
 		761F07361E165EF700862BAC /* STDetailInformationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDetailInformationCollectionViewCell.swift; sourceTree = "<group>"; };
 		761F07381E165F1000862BAC /* STDetailCastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDetailCastCollectionViewCell.swift; sourceTree = "<group>"; };
 		761F073A1E168BA100862BAC /* STStarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				76ACC1D51E0289AC00E21D19 /* AuthManager.swift */,
 				766F1FDC1E1A7084000918B8 /* MovieManager.swift */,
+				7614FBD21E1A976200800744 /* SeriesManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				760325CA1DFDD3F50015113D /* Season.swift in Sources */,
 				760325C61DFDD3DB0015113D /* Movie.swift in Sources */,
 				760325D61DFDD4530015113D /* Comment.swift in Sources */,
+				7614FBD31E1A976200800744 /* SeriesManager.swift in Sources */,
 				7625FACF1E1822E8000FEFCC /* STChangePasswordView.swift in Sources */,
 				760325D21DFDD4330015113D /* Character.swift in Sources */,
 				7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */,

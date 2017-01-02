@@ -7,6 +7,7 @@ target ‘serieztv’ do
 
   pod 'SnapKit', '~> 3.0.2'
   pod 'Alamofire', '~> 4.0'
+  pod 'SDWebImage', '~>3.7'
   pod 'SwiftyJSON'
   # Pods for hesapkitap
   

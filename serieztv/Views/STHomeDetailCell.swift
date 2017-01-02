@@ -22,9 +22,11 @@ class STHomeDetailCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let name = UILabel()
         name.text = "name"
+        name.numberOfLines = 0
         name.textColor = UIColor.white
         name.textAlignment = NSTextAlignment.center
         name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.adjustsFontSizeToFitWidth = true
         return name
     }()
     
@@ -73,6 +75,8 @@ class STHomeDetailCell: UICollectionViewCell {
         
         self.nameLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
+            make.leading.equalTo(2)
+            make.trailing.equalTo(-2)
             make.top.equalTo(self.image.snp.bottom).offset(3)
         }
         

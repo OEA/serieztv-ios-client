@@ -43,6 +43,7 @@
 		764BDF041E1410C80095B4F4 /* STProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BDF031E1410C80095B4F4 /* STProfileView.swift */; };
 		7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */; };
 		7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */; };
+		766F1FDD1E1A7084000918B8 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F1FDC1E1A7084000918B8 /* MovieManager.swift */; };
 		76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76784B6D1DEE2BA4006E8E9D /* STTextField.swift */; };
 		76ACC1D61E0289AC00E21D19 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACC1D51E0289AC00E21D19 /* AuthManager.swift */; };
 		76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B767431DEAF56E0070E62F /* STAppDelegate.swift */; };
@@ -112,6 +113,7 @@
 		764BDF031E1410C80095B4F4 /* STProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STProfileView.swift; sourceTree = "<group>"; };
 		7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewController.swift; sourceTree = "<group>"; };
 		7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		766F1FDC1E1A7084000918B8 /* MovieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		76784B6D1DEE2BA4006E8E9D /* STTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTextField.swift; sourceTree = "<group>"; };
 		76ACC1D51E0289AC00E21D19 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		76B767401DEAF56E0070E62F /* serieztv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serieztv.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				76ACC1D51E0289AC00E21D19 /* AuthManager.swift */,
+				766F1FDC1E1A7084000918B8 /* MovieManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				762E923D1E12F43400916ADB /* STStarDetailTopViewCell.swift in Sources */,
 				760CE9C71E15A86500E7A2DC /* STGenreCollectionViewCell.swift in Sources */,
 				761F073B1E168BA100862BAC /* STStarCollectionViewCell.swift in Sources */,
+				766F1FDD1E1A7084000918B8 /* MovieManager.swift in Sources */,
 				760325BF1DFD7B300015113D /* STMainView.swift in Sources */,
 				760325D01DFDD4290015113D /* Star.swift in Sources */,
 				76C55BED1E192C6D00EC0706 /* STStarDetailViewController.swift in Sources */,

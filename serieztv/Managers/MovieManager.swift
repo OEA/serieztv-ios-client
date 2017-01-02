@@ -150,7 +150,7 @@ class MovieManager: NSObject {
     
     func parseMovie(data: JSON) -> Movie {
         let movie: Movie = Movie()
-        movie.name = data["name"].string!
+        movie.name = data["name"].string
         var characterList = [Character]()
         let charactersJSON = data["characters"].arrayValue
         for char in charactersJSON {
@@ -167,17 +167,17 @@ class MovieManager: NSObject {
             genreList.append(genre)
         }
         movie.genres = genreList
-        movie.poster = data["poster"].string!
-        movie.image = data["image"].string!
-        movie.overview = data["overview"].string!
-        movie.status = data["status"].string!
-        movie.imdbScore = data["imdbScore"].double!
-        movie.imdbRating = data["imdbRating"].double!
-        movie.runtime = data["runtime"].double!
-        movie.airDate = data["airDate"].string!
-        movie.apiID = data["apiID"].string!
-        movie.id = data["id"].string!
-        movie.imdbId = data["imdbID"].string!
+        movie.poster = data["poster"].string
+        movie.image = data["image"].string
+        movie.overview = data["overview"].string
+        movie.status = data["status"].string
+        movie.imdbScore = data["imdbScore"].double
+        movie.imdbRating = data["imdbRating"].double
+        movie.runtime = data["runtime"].double
+        movie.airDate = data["airDate"].string
+        movie.apiID = data["apiID"].string
+        movie.id = data["id"].string
+        movie.imdbId = data["imdbID"].string
         //                        var createdAt: Date!
         //                        var updatedAt: Date!
         return movie
@@ -185,10 +185,10 @@ class MovieManager: NSObject {
     
     func parseCharacter(data: JSON) -> Character {
         let character = Character()
-        character.name = data["characterName"].string!
-        character.id = data["id"].string!
+        character.name = data["characterName"].string
+        character.id = data["id"].string
         if data["characterImage"].string != nil {
-            character.image = data["characterImage"].string!
+            character.image = data["characterImage"].string
         }
         let characterStar = data["star"]
         let star = parseStar(data: characterStar)
@@ -198,19 +198,19 @@ class MovieManager: NSObject {
     
     func parseStar(data: JSON) -> Star {
         let star = Star()
-        star.name = data["name"].string!
-        star.id = data["id"].string!
+        star.name = data["name"].string
+        star.id = data["id"].string
         if data["image"].string != nil {
-            star.image = data["image"].string!
+            star.image = data["image"].string
         }
-        star.active = data["active"].bool!
+        star.active = data["active"].bool
         return star
     }
     
     func parseGenre(data: JSON) -> Genre {
         let genre = Genre()
-        genre.name = data["name"].string!
-        genre.id = data["id"].string!
+        genre.name = data["name"].string
+        genre.id = data["id"].string
         return genre
     }
 }

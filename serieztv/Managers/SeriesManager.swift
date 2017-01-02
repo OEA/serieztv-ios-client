@@ -152,7 +152,7 @@ class SeriesManager {
     
     func parseSeries(data: JSON) -> Series{
         let series: Series = Series()
-        series.name = data["name"].string!
+        series.name = data["name"].string
         var characterList = [Character]()
         let charactersJSON = data["characters"].arrayValue
         for char in charactersJSON {
@@ -179,17 +179,17 @@ class SeriesManager {
         }
         series.seasons = seasons
         
-        series.poster = data["poster"].string!
-        series.image = data["image"].string!
-        series.overview = data["overview"].string!
-        series.status = data["status"].string!
-        series.imdbScore = data["imdbScore"].double!
-        series.imdbRating = data["imdbRating"].double!
-        series.runtime = data["runtime"].double!
-        series.firstAir = data["firstAir"].string!
-        series.id = data["id"].string!
-        series.active = data["active"].bool!
-        series.imdbId = data["imdbID"].string!
+        series.poster = data["poster"].string
+        series.image = data["image"].string
+        series.overview = data["overview"].string
+        series.status = data["status"].string
+        series.imdbScore = data["imdbScore"].double
+        series.imdbRating = data["imdbRating"].double
+        series.runtime = data["runtime"].double
+        series.firstAir = data["firstAir"].string
+        series.id = data["id"].string
+        series.active = data["active"].bool
+        series.imdbId = data["imdbID"].string
         //                        var createdAt: Date!
         //                        var updatedAt: Date!
         return series
@@ -228,8 +228,8 @@ class SeriesManager {
     
     func parseSeason(data: JSON) -> Season {
         let season = Season()
-        season.name = data["name"].string!
-        season.airDate = data["airDate"].string!
+        season.name = data["name"].string
+        season.airDate = data["airDate"].string
         season.id = data["id"].string!
         season.poster = data["poster"].string!
         season.number = data["number"].int!

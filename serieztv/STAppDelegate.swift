@@ -114,6 +114,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         
                 SeriesManager.sharedInstance.findSeriesWith(id: "586a7c7b92ac9a1abc4bedec", completion: { (movie) in
                     print("Find Movie")
+                    print(movie)
                     print(movie.firstAir)
                     print(movie.characters[0].name)
                     print(movie.name)

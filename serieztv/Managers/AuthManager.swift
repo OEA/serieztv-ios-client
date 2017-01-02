@@ -45,7 +45,6 @@ class AuthManager {
         .responseJSON { response in
             if response.result.value != nil {
                 let json = JSON(response.result.value!)
-                print(json)
                 if ( json["error"].string == nil) {
                     let user: User = User()
                     user.username = json["username"].string!
@@ -55,7 +54,6 @@ class AuthManager {
                 } else {
                     errorCompletion?(json["error"].string!)
                 }
-                
             } else {
                 errorCompletion?("Api is temporarly down")
             }

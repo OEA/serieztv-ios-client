@@ -9,38 +9,24 @@
 import Foundation
 
 class Series: NSObject {
-    var name: String
-    var stars: [Star]
-    var genres: [Genre]
-    var overview: String
-    var status: String
-    var poster: String
-    var image: String
-    var imdbScore: Double
-    var imdbRating: Double
-    var runtime: Double
-    var firstAir: Date
-    var active: Bool
-    var createdAt: Date
-    var updatedAt: Date
-    var apiID: String
+    var name: String!
+    var characters: [Character]!
+    var genres: [Genre]!
+    var seasons: [Season]!
+    var overview: String!
+    var status: String!
+    var poster: String!
+    var image: String!
+    var imdbScore: Double!
+    var imdbRating: Double!
+    var imdbId: String!
+    var runtime: Double!
+    var firstAir: String!
+    var active: Bool!
+    var createdAt: String!
+    var updatedAt: String!
+    var id: String!
     
-    init(name: String, stars: [Star], genres: [Genre], overview: String, status: String, poster: String, image: String,
-         imdbScore: Double, imdbRating: Double, runtime: Double, firstAir: Date, active: Bool, createdAt: Date, updatedAt: Date, apiID: String) {
-        self.name = name
-        self.stars = stars
-        self.genres = genres
-        self.overview = overview
-        self.status = status
-        self.poster = poster
-        self.image = image
-        self.imdbScore = imdbScore
-        self.imdbRating = imdbRating
-        self.runtime = runtime
-        self.firstAir = firstAir
-        self.active = active
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-        self.apiID = apiID
+    override init() {
     }
 }

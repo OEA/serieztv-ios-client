@@ -16,6 +16,7 @@ class Star: NSObject {
     var updatedAt: String!
     var active: Bool!
     var apiID: String!
+    var id: String!
     
     override init() {
     }

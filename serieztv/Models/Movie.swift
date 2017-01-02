@@ -23,6 +23,8 @@ class Movie: NSObject {
     var createdAt: String!
     var updatedAt: String!
     var apiID: String!
+    var id: String!
+    var imdbId: String!
     
     override init() {
 

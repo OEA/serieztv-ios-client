@@ -13,6 +13,7 @@ class Genre: NSObject {
     var apiID: String!
     var createdAt: Date!
     var updatedAt: Date!
+    var id: String!
     
     override init() {
     }

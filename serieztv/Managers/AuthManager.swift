@@ -12,19 +12,19 @@ import SwiftyJSON
 
 class AuthManager {
     
-    var baseURL: String {
+    private var baseURL: String {
         get {
             return "http://localhost:3000/v1/auth"
         }
     }
     
-    var registerUrl: String {
+    private var registerUrl: String {
         get {
             return "\(baseURL)/register"
         }
     }
     
-    var loginUrl: String {
+    private var loginUrl: String {
         get {
             return "\(baseURL)/login"
         }
@@ -39,32 +39,49 @@ class AuthManager {
         return Static.instance
     }
     
-    func login(username: String, password: String, completion: ((_ user: User) -> ())?) {
+    func login(username: String, password: String, completion: ((_ user: User) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         
         Alamofire.request(self.loginUrl, method: .post, parameters: ["username": username, "password": password])
         .responseJSON { response in
             if response.result.value != nil {
-                
-                
                 let json = JSON(response.result.value!)
-                
-                let user: User = User()
-                user.username = json["username"].string
-                user.apiKey = json["apikey"].string
-                user.email = json["email"].string
-                user.id = json["userId"].numberValue
-                user.userId = json["_id"].string
-                self.loggedInUser = user
+                print(json)
+                if ( json["error"].string == nil) {
+                    let user: User = User()
+                    user.username = json["username"].string!
+                    user.email = json["email"].string!
+                    user.name = json["name"].string!
+                    completion?(user)
+                } else {
+                    errorCompletion?(json["error"].string!)
+                }
                 
             } else {
-                status(status: false, user: nil)
+                errorCompletion?("Api is temporarly down")
             }
         }
-        
-        
     }
     
-    func register(email: String, username: String, password: String, completion: (_ user: User) -> ()) {
-        
+    func register(email: String, username: String, password: String, name: String, completion: ((_ user: User) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        Alamofire.request(self.registerUrl, method: .post, parameters: ["username": username, "password": password, "name": name, "email": email])
+            .responseJSON { response in
+                if response.result.value != nil {
+                    let json = JSON(response.result.value!)
+                    print(json)
+                    if ( json["error"].string == nil) {
+                        let user: User = User()
+                        user.username = json["username"].string!
+                        user.email = json["email"].string!
+                        user.name = json["name"].string!
+                        user.password = json["password"].string!
+                        completion?(user)
+                    } else {
+                        errorCompletion?(json["error"].string!)
+                    }
+                    
+                } else {
+                    errorCompletion?("Api is temporarly down")
+                }
+        }
     }
 }

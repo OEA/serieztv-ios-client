@@ -113,16 +113,16 @@ class SeriesManager {
         
     }
     
-    func getRecentSeriesList(withLimit: String?, completion: ((_ seriesList: [Series]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
-        self.getSeriesFrom(url: self.recentUrl, withLimit: withLimit, completion: completion, errorCompletion: errorCompletion)
+    func getRecentSeriesList(withLimit: Int, completion: ((_ seriesList: [Series]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getSeriesFrom(url: self.recentUrl, withLimit: "\(withLimit)", completion: completion, errorCompletion: errorCompletion)
     }
     
     func getAllSeriesList(completion: ((_ seriesList: [Series]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         self.getSeriesFrom(url: self.listUrl, withLimit: nil, completion: completion, errorCompletion: errorCompletion)
     }
     
-    func getTopSeriesList(withLimit: String?, completion: ((_ seriesList: [Series]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
-        self.getSeriesFrom(url: self.topUrl, withLimit: withLimit, completion: completion, errorCompletion: errorCompletion)
+    func getTopSeriesList(withLimit: Int, completion: ((_ seriesList: [Series]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getSeriesFrom(url: self.topUrl, withLimit: "\(withLimit)", completion: completion, errorCompletion: errorCompletion)
     }
     
     

@@ -112,16 +112,16 @@ class MovieManager: NSObject {
         
     }
     
-    func getRecentMovies(withLimit: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
-        self.getMoviesFrom(url: self.recentUrl, withLimit: withLimit, completion: completion, errorCompletion: errorCompletion)
+    func getRecentMovies(withLimit: Int, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getMoviesFrom(url: self.recentUrl, withLimit: "\(withLimit)", completion: completion, errorCompletion: errorCompletion)
     }
     
     func getAllMovies(completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         self.getMoviesFrom(url: self.listUrl, withLimit: nil, completion: completion, errorCompletion: errorCompletion)
     }
     
-    func getTopMovies(withLimit: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
-        self.getMoviesFrom(url: self.topUrl, withLimit: withLimit, completion: completion, errorCompletion: errorCompletion)
+    func getTopMovies(withLimit: Int, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        self.getMoviesFrom(url: self.topUrl, withLimit: "\(withLimit)", completion: completion, errorCompletion: errorCompletion)
     }
     
     func getMoviesFrom(url: String, withLimit limit: String?, completion: ((_ movies: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {

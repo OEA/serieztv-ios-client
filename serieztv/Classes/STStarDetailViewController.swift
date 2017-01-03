@@ -28,6 +28,8 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
         return searchButton
     }()
     
+    var star: Star!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.collectionView)

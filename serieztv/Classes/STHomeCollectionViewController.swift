@@ -16,7 +16,7 @@ private let reuseIdentifier = "HomeCell"
 
 // PROTOCOL TO NAVIGATE DETAIL OF A MOVIE/SERIES FROM CELL COLLECTION VIEW
 protocol NavigateToDetailDelegate {
-    func goToDetail(vc: STDetailViewController)
+    func goToDetail(vc: UIViewController)
 }
 
 protocol NavigateToGenreDetailDelegate {
@@ -30,7 +30,8 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
     var series = [Series]()
     var topRatedSeries = [Series]()
     var genres = [Genre]()
-    internal func goToDetail(vc: STDetailViewController) {
+    var stars = [Star]()
+    internal func goToDetail(vc: UIViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -97,7 +98,10 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
             self.collectionView?.reloadData()
         }, errorCompletion: nil)
         
-        
+        StarManager.sharedInstance.getStarList(completion: { (stars) in
+            self.stars = stars
+            self.collectionView?.reloadData()
+        }, errorCompletion: nil)
     }
     
     func search() {
@@ -161,6 +165,8 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
             return cell
         } else {
             cell.detailCellViewIdentifier = "StarDetailCell"
+            cell.stars = self.stars
+            cell.isStarSelected = true
             cell.collectionView.reloadData()
             return cell
         }

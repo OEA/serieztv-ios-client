@@ -16,8 +16,10 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     var series = [Series]()
     var isSeriesSelected = false
     var isGenresSelected = false
+    var isStarSelected = false
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]
     var genres = [Genre]()
+    var stars = [Star]()
     var navDelegate: NavigateToDetailDelegate?
     var genreNavDelegate: NavigateToGenreDetailDelegate?
     
@@ -58,6 +60,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
                 return movies.count
             }
             
+        } else if detailCellViewIdentifier == "StarDetailCell" {
+            return stars.count
         }
         return 10
     }
@@ -98,7 +102,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         } else if self.detailCellViewIdentifier == "StarDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailCell", for: indexPath) as! STStarCollectionViewCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
-            cell.starImageView.image = UIImage(named: "hoc")
+            cell.starImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(stars[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+            cell.nameLabel.text = stars[indexPath.row].name
             return cell
         } else {
             return UICollectionViewCell()
@@ -121,12 +126,17 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = STDetailViewController()
         let genreDetailViewController = STGenreTableViewController()
+        let starDetailViewController = STStarDetailViewController()
+        
         if isSeriesSelected {
             detailViewController.series = self.series[indexPath.row]
             self.navDelegate?.goToDetail(vc: detailViewController)
         } else if isGenresSelected {
             genreDetailViewController.genre = self.genres[indexPath.row]
             self.genreNavDelegate?.goToGenreDetail(vc: genreDetailViewController)
+        } else if isStarSelected {
+            starDetailViewController.star = self.stars[indexPath.row]
+            self.navDelegate?.goToDetail(vc: starDetailViewController)
         } else {
             detailViewController.movie = self.movies[indexPath.row]
             self.navDelegate?.goToDetail(vc: detailViewController)

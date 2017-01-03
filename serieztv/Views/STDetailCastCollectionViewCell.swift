@@ -12,7 +12,7 @@ import UIKit
 
 class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var navDelegate: NavigateToCrewDetailDelegate?
+    var navDelegate: NavigateToSeasonsDetailDelegate?
     var starDetailDelegate: NavigateToStarDetailDelegate?
     
     var characters = [Character]()
@@ -50,6 +50,22 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         return bottomCastSeperator
     }()
     
+    let seasonsButton: UIButton = {
+        let seasonsButton = UIButton()
+        seasonsButton.setTitle("Seasons", for: .normal)
+        seasonsButton.setTitleColor(UIColor.white, for: .normal)
+        seasonsButton.backgroundColor = UIColor.clear
+        seasonsButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        seasonsButton.titleLabel?.textAlignment = .left
+        return seasonsButton
+    }()
+    
+    let bottomSeasonSeperator: UILabel = {
+        let bottomSeasonSeperator = UILabel()
+        bottomSeasonSeperator.backgroundColor = UIColor.darkGray
+        return bottomSeasonSeperator
+    }()
+    
    
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +75,8 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         self.addSubview(castCollectionView)
         self.addSubview(bottomTitleSeperator)
         self.addSubview(bottomCastSeperator)
+        self.addSubview(seasonsButton)
+        self.addSubview(bottomSeasonSeperator)
         
         self.topTitleSeperator.snp.makeConstraints { (make) in
             make.height.equalTo(0.5)
@@ -91,7 +109,22 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
             make.trailing.equalTo(0)
             make.top.equalTo(castCollectionView.snp.bottom).offset(3)
         }
+        
+        self.seasonsButton.snp.makeConstraints { (make) in
+            make.height.equalTo(25)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.top.equalTo(self.bottomCastSeperator.snp.bottom).offset(3)
+        }
+        
+        self.bottomSeasonSeperator.snp.makeConstraints { (make) in
+            make.height.equalTo(0.5)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.top.equalTo(self.snp.bottom).offset(-0.5)
+        }
        
+        seasonsButton.addTarget(self, action:#selector(STDetailCastCollectionViewCell.navigateToSeasons), for: .touchUpInside)
   
         castCollectionView.backgroundColor = UIColor.clear
         self.castCollectionView.delegate = self
@@ -103,9 +136,9 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         fatalError("init(coder:) has not been implemented")
     }
     
-    func navigateToCrew() {
-        let crewListVC: STCrewListTableViewController = STCrewListTableViewController()
-        navDelegate?.navigateToCrew(vc: crewListVC)
+    func navigateToSeasons() {
+        let seasonsVC: STSeasonViewController = STSeasonViewController()
+        navDelegate?.navigateToSeasons(vc: seasonsVC)
         
     }
     

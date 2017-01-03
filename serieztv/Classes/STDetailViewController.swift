@@ -9,15 +9,15 @@
 import UIKit
 
 // PROTOCOL TO NAVIGATE DETAIL OF CREW FROM CELL COLLECTION VIEW
-protocol NavigateToCrewDetailDelegate {
-    func navigateToCrew(vc: STCrewListTableViewController)
+protocol NavigateToSeasonsDetailDelegate {
+    func navigateToSeasons(vc: STSeasonViewController)
 }
 // PROTOCOL TO NAVIGATE DETAIL OF A STAR FROM CELL COLLECTION VIEW
 protocol NavigateToStarDetailDelegate {
     func navigateToStar(vc: STStarDetailViewController)
 }
 
-class STDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToCrewDetailDelegate, NavigateToStarDetailDelegate {
+class STDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToSeasonsDetailDelegate, NavigateToStarDetailDelegate {
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -161,15 +161,14 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
             return CGSize(width: self.view.frame.width, height: 160)
         }
         else if indexPath.row == 2 {
-            print("cell dis hayt: \(self.view.frame.height/2)")
             return CGSize(width: self.view.frame.width, height: 225)
         }
         return CGSize(width: self.view.frame.width, height: self.view.frame.height/2)
         
     }
     
-    internal func navigateToCrew(vc: STCrewListTableViewController) {
-        
+    internal func navigateToSeasons(vc: STSeasonViewController) {
+        vc.title = self.series?.name
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

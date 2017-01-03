@@ -17,6 +17,13 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
         return seasonView
     }()
     
+    let backButton: UIButton = {
+        let searchButton = UIButton(type: .custom)
+        searchButton.setImage(UIImage(named: "icnBack"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        return searchButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(seasonView)
@@ -28,7 +35,16 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
         self.seasonView.tableView.register(STSeasonTableViewCell.self, forCellReuseIdentifier: "SeasonCell")
         seasonView.tableView.delegate = self
         seasonView.tableView.dataSource = self
+        
+        backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         // Do any additional setup after loading the view.
+    }
+    
+    func navigateBack() {
+        let navController = self.navigationController
+        _ = navController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {

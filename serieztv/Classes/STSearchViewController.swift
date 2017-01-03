@@ -27,6 +27,7 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     var genreList = [Genre]()
     var seriesList = [Series]()
     var movieList = [Movie]()
+    var starList = [Star]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +85,7 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
             self.tableView.separatorStyle = .singleLine
             self.tableView.tableFooterView?.isHidden = false
         }
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,8 +93,10 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
             return genreList.count
         } else if section == 1 {
             return seriesList.count
-        } else {
+        } else if section == 2 {
             return movieList.count
+        } else {
+            return starList.count
         }
     }
     
@@ -102,8 +105,10 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
             return "Genres"
         } else if section == 1 {
             return "Series"
-        } else {
+        } else if section == 2 {
             return "Movies"
+        } else {
+            return "Stars"
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -137,6 +142,10 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
                         genres += "\(genre.name!) "
                     }
                     cell.detailLabel.text = genres
+                } else if indexPath.section == 3 {
+                    cell.titleLabel.text = self.starList[indexPath.row].name
+                    cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(self.starList[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+                    cell.detailLabel.text = ""
                 }
                 
                 return cell
@@ -165,9 +174,12 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
             let detailViewController = STDetailViewController()
             detailViewController.series = self.seriesList[indexPath.row]
             self.navigationController?.pushViewController(detailViewController, animated: true)
-        } else {
+        } else if indexPath.section == 2 {
             let detailViewController = STDetailViewController()
             detailViewController.movie = self.movieList[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        } else {
+            let detailViewController = STStarDetailViewController()
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
@@ -185,10 +197,11 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count >= 3 {
             let query = searchText
-            SearchManager.sharedInstance.query(query: query, completion: { (genres, movies, series) in
+            SearchManager.sharedInstance.query(query: query, completion: { (genres, movies, series, stars) in
                 self.genreList = genres
                 self.seriesList = series
                 self.movieList = movies
+                self.starList = stars
                 self.tableView.reloadData()
             }, errorCompletion: nil)
             self.isAvailable = true

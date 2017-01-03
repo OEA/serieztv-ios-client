@@ -27,7 +27,7 @@ class SearchManager {
         return Static.instance
     }
     
-    func query(query: String, completion: ((_ genreList: [Genre], _ movieList: [Movie], _ seriesList: [Series]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+    func query(query: String, completion: ((_ genreList: [Genre], _ movieList: [Movie], _ seriesList: [Series], _ starList: [Star]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         var url: String = "\(self.searchUrl)?query=\(query)"
         Alamofire.request(url, method: .get, parameters: nil)
             .responseJSON { response in
@@ -40,9 +40,11 @@ class SearchManager {
                             var genreList = [Genre]()
                             var seriesList = [Series]()
                             var movieList = [Movie]()
+                            var starList = [Star]()
                             let moviesArray = json["movies"].arrayValue
                             let seriesArray = json["series"].arrayValue
                             let genresArray = json["genres"].arrayValue
+                            let starsArray = json["stars"].arrayValue
                             for data in moviesArray {
                                 let movie: Movie = MovieManager.sharedInstance.parseMovie(data: data)
                                 movieList.append(movie)
@@ -55,7 +57,11 @@ class SearchManager {
                                 let series: Genre = GenreManager.sharedInstance.parseGenre(data: data)
                                 genreList.append(series)
                             }
-                            completion?(genreList, movieList, seriesList)
+                            for data in starsArray {
+                                let star: Star = SeriesManager.sharedInstance.parseStar(data: data)
+                                starList.append(star)
+                            }
+                            completion?(genreList, movieList, seriesList, starList)
                         }
                     } else {
                         errorCompletion?(json["error"].string!)

@@ -40,7 +40,7 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         // Do any additional setup after loading the view.
-        self.seasonView.
+        
     }
     
     func navigateBack() {

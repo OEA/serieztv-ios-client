@@ -84,7 +84,7 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
-            return CGSize(width: self.view.frame.width, height: 500)
+            return CGSize(width: self.view.frame.width, height: 255)
         } else {
             return CGSize(width: self.view.frame.width, height: 300)
         }

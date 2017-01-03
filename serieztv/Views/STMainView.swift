@@ -47,36 +47,7 @@ class STMainView: UIView {
         return registerButton
     }()
     
-    let connectionOptionsLabel: UILabel = {
-        let connectionOptionsLabel = UILabel()
-        connectionOptionsLabel.text = "or connect with.."
-        connectionOptionsLabel.textColor = UIColor.white
-        connectionOptionsLabel.textAlignment = NSTextAlignment.center
-        connectionOptionsLabel.adjustsFontSizeToFitWidth = true
-        return connectionOptionsLabel
-    }()
-    
-    let connectWithFacebookButton: UIButton = {
-        let connectWithFacebookButton = UIButton()
-        connectWithFacebookButton.setTitle("Facebook", for: .normal)
-        connectWithFacebookButton.setTitleColor(UIColor.white, for: .normal)
-        return connectWithFacebookButton
-    }()
-    
-    let connectWithTwitterButton: UIButton = {
-        let connectWithTwitterButton = UIButton()
-        connectWithTwitterButton.setTitle("Twitter", for: .normal)
-        connectWithTwitterButton.setTitleColor(UIColor.white, for: .normal)
-        return connectWithTwitterButton
-    }()
-    
-    let connectWithGoogleButton: UIButton = {
-        let connectWithGoogleButton = UIButton()
-        connectWithGoogleButton.setTitle("Google+", for: .normal)
-        connectWithGoogleButton.setTitleColor(UIColor.white, for: .normal)
-        return connectWithGoogleButton
-    }()
-
+   
     override init (frame : CGRect) {
         super.init(frame : frame)
         self.backgroundColor = UIColor.black
@@ -96,10 +67,6 @@ class STMainView: UIView {
         self.addSubview(logo)
         self.addSubview(loginButton)
         self.addSubview(registerButton)
-        self.addSubview(connectionOptionsLabel)
-        self.addSubview(connectWithFacebookButton)
-        self.addSubview(connectWithTwitterButton)
-        self.addSubview(connectWithGoogleButton)
         
         backgroundImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top)
@@ -126,31 +93,6 @@ class STMainView: UIView {
             make.leading.equalTo(20)
             make.trailing.equalTo(-20)
             make.height.equalTo(50)
-        }
-        
-        connectionOptionsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.registerButton.snp.bottom).offset(30)
-            make.leading.equalTo(50)
-            make.height.equalTo(20)
-            make.trailing.equalTo(-50)
-        }
-        
-        connectWithFacebookButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(-30)
-            make.leading.equalTo(20)
-            make.height.equalTo(20)
-        }
-        
-        connectWithTwitterButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(-30)
-            make.centerX.equalTo(self)
-            make.height.equalTo(20)
-        }
-        
-        connectWithGoogleButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(-30)
-            make.trailing.equalTo(-20)
-            make.height.equalTo(20)
         }
     }
     

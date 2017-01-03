@@ -17,6 +17,8 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let titles = ["About SeriezTV", "Share SeriezTV", "Give Feedback", "Change Password", "Logout"]
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(profileView)
@@ -32,6 +34,12 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             make.trailing.equalTo(0)
             make.bottom.equalTo(0)
         }
+        
+        let userDefaults = UserDefaults.standard
+        let username = userDefaults.string(forKey: "username")
+        let email = userDefaults.string(forKey: "email")
+        self.profileView.emailLabel.text = email
+        self.profileView.usernameLabel.text = username
         self.profileView.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         // Do any additional setup after loading the view.
     }

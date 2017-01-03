@@ -62,7 +62,7 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             let changePasswordVC = STChangePasswordViewController()
             self.navigationController?.pushViewController(changePasswordVC, animated: true)
         } else if (indexPath.row == 4) {
-            self.present(STMainViewController(), animated: true, completion: nil)
+            self.view.window?.rootViewController = UINavigationController(rootViewController: STMainViewController())
         }
     }
     

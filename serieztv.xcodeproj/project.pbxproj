@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */; };
+		17697C871E1C1C8600B128EB /* StarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C861E1C1C8600B128EB /* StarManager.swift */; };
+		17697C891E1C1CAC00B128EB /* GenreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C881E1C1CAC00B128EB /* GenreManager.swift */; };
 		760325BF1DFD7B300015113D /* STMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325BE1DFD7B300015113D /* STMainView.swift */; };
 		760325C11DFD7B460015113D /* STMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C01DFD7B460015113D /* STMainViewController.swift */; };
 		760325C41DFDD3D20015113D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C31DFDD3D20015113D /* User.swift */; };
@@ -81,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17697C861E1C1C8600B128EB /* StarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarManager.swift; sourceTree = "<group>"; };
+		17697C881E1C1CAC00B128EB /* GenreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreManager.swift; sourceTree = "<group>"; };
 		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		760325BE1DFD7B300015113D /* STMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainView.swift; sourceTree = "<group>"; };
 		760325C01DFD7B460015113D /* STMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				76ACC1D51E0289AC00E21D19 /* AuthManager.swift */,
 				766F1FDC1E1A7084000918B8 /* MovieManager.swift */,
 				7614FBD21E1A976200800744 /* SeriesManager.swift */,
+				17697C861E1C1C8600B128EB /* StarManager.swift */,
+				17697C881E1C1CAC00B128EB /* GenreManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -514,12 +520,14 @@
 				761F073B1E168BA100862BAC /* STStarCollectionViewCell.swift in Sources */,
 				766F1FDD1E1A7084000918B8 /* MovieManager.swift in Sources */,
 				760325BF1DFD7B300015113D /* STMainView.swift in Sources */,
+				17697C891E1C1CAC00B128EB /* GenreManager.swift in Sources */,
 				760325D01DFDD4290015113D /* Star.swift in Sources */,
 				76C55BED1E192C6D00EC0706 /* STStarDetailViewController.swift in Sources */,
 				76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */,
 				761F07371E165EF700862BAC /* STDetailInformationCollectionViewCell.swift in Sources */,
 				760325CA1DFDD3F50015113D /* Season.swift in Sources */,
 				760325C61DFDD3DB0015113D /* Movie.swift in Sources */,
+				17697C871E1C1C8600B128EB /* StarManager.swift in Sources */,
 				760325D61DFDD4530015113D /* Comment.swift in Sources */,
 				7614FBD31E1A976200800744 /* SeriesManager.swift in Sources */,
 				7625FACF1E1822E8000FEFCC /* STChangePasswordView.swift in Sources */,

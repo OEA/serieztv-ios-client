@@ -16,7 +16,7 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     var series = [Series]()
     var isSeriesSelected = false
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]
-    let genres = ["Action", "Drama", "Romantic", "Fantastic", "Sports", "Science Fiction", "Horror", "Thriller", "Adventure", "Crime", "History", "War", "Western", "Musical", "Animation"]
+    var genres = [Genre]()
     var navDelegate: NavigateToDetailDelegate?
     
     lazy var collectionView: UICollectionView = {
@@ -72,11 +72,13 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
                 cell.nameLabel.text = series[indexPath.row].name
                 cell.image.image = UIImage(named: "twd")
                 cell.rateLabel.text = "\(series[indexPath.row].imdbRating!)"
+                cell.detailLabel.text = series[indexPath.row].status!
                 cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
             } else {
                 cell.nameLabel.text = movies[indexPath.row].name
                 cell.image.image = UIImage(named: "twd")
                 cell.rateLabel.text = "\(movies[indexPath.row].imdbRating!)"
+                cell.detailLabel.text = movies[indexPath.row].status!
                 cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(movies[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
             }
             
@@ -85,7 +87,7 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         } else if self.detailCellViewIdentifier == "GenreDetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreDetailCell", for: indexPath) as! STGenreCollectionViewCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
-            cell.nameLabel.text = self.genres[indexPath.row]
+            cell.nameLabel.text = self.genres[indexPath.row].name
             cell.genreViewFirstLetterLabel.text = "\((cell.nameLabel.text?.characters.first)!)"
             let random: Int = Int(arc4random_uniform(UInt32(cell.colorArray.count)))
             cell.genreView.backgroundColor = cell.colorArray[random]
@@ -116,7 +118,11 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = STDetailViewController()
-        detailViewController.imageName = "twd"
+        if isSeriesSelected {
+            detailViewController.series = self.series[indexPath.row]
+        } else {
+            detailViewController.movie = self.movies[indexPath.row]
+        }
         self.navDelegate?.goToDetail(vc: detailViewController)
         print("SELECTED")
     

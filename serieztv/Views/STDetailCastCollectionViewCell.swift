@@ -15,6 +15,8 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     var navDelegate: NavigateToCrewDetailDelegate?
     var starDetailDelegate: NavigateToStarDetailDelegate?
     
+    var characters = [Character]()
+    
     let topTitleSeperator: UILabel = {
         let topSeperator = UILabel()
         topSeperator.backgroundColor = UIColor.darkGray
@@ -48,22 +50,7 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         return bottomCastSeperator
     }()
     
-    let crewButton: UIButton = {
-        let crewButton = UIButton()
-        crewButton.setTitle("Crew", for: .normal)
-        crewButton.setTitleColor(UIColor.white, for: .normal)
-        crewButton.backgroundColor = UIColor.clear
-        crewButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        crewButton.titleLabel?.textAlignment = .left
-        return crewButton
-    }()
-    
-    let bottomCrewSeperator: UILabel = {
-        let bottomCrewSeperator = UILabel()
-        bottomCrewSeperator.backgroundColor = UIColor.darkGray
-        return bottomCrewSeperator
-    }()
-    
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
@@ -72,8 +59,6 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         self.addSubview(castCollectionView)
         self.addSubview(bottomTitleSeperator)
         self.addSubview(bottomCastSeperator)
-        self.addSubview(crewButton)
-        self.addSubview(bottomCrewSeperator)
         
         self.topTitleSeperator.snp.makeConstraints { (make) in
             make.height.equalTo(0.5)
@@ -106,23 +91,9 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
             make.trailing.equalTo(0)
             make.top.equalTo(castCollectionView.snp.bottom).offset(3)
         }
-        
-        self.crewButton.snp.makeConstraints { (make) in
-            make.height.equalTo(25)
-            make.leading.equalTo(0)
-            make.trailing.equalTo(0)
-            make.top.equalTo(self.bottomCastSeperator.snp.bottom).offset(3)
-        }
-        
-        self.bottomCrewSeperator.snp.makeConstraints { (make) in
-            make.height.equalTo(0.5)
-            make.leading.equalTo(0)
-            make.trailing.equalTo(0)
-            make.top.equalTo(self.snp.bottom).offset(-0.5)
-        }
+       
   
         castCollectionView.backgroundColor = UIColor.clear
-        crewButton.addTarget(self, action:#selector(STDetailCastCollectionViewCell.navigateToCrew), for: .touchUpInside)
         self.castCollectionView.delegate = self
         self.castCollectionView.dataSource = self
         self.castCollectionView.register(STStarCollectionViewCell.self, forCellWithReuseIdentifier: "CastCollectionCell")
@@ -144,7 +115,7 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.characters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -153,8 +124,9 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionCell", for: indexPath) as! STStarCollectionViewCell
-        cell.characterLabel.text = "Character"
-        cell.starImageView.image = UIImage(named: "twd")
+        cell.characterLabel.text = self.characters[indexPath.row].name
+        cell.nameLabel.text = self.characters[indexPath.row].star.name
+        cell.starImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(self.characters[indexPath.row].star.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
         return cell
     }
     

@@ -29,16 +29,10 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
     let overviewText: UILabel = {
         let overviewText = UILabel()
         overviewText.text = "Overview of the detail"
-        overviewText.numberOfLines = 0
+        overviewText.numberOfLines = 6
         overviewText.textColor = UIColor.white
         overviewText.font = UIFont.systemFont(ofSize: 14)
         return overviewText
-    }()
-    
-    let overviewSeperator: UILabel = {
-        let overviewSeperator = UILabel()
-        overviewSeperator.backgroundColor = UIColor.darkGray
-        return overviewSeperator
     }()
     
     let rateStarImageView: UIImageView = {
@@ -86,7 +80,6 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         self.addSubview(detailImageView)
         self.addSubview(overviewText)
         self.addSubview(rateLabel)
-        self.addSubview(overviewSeperator)
         self.addSubview(imageViewSeperator)
         self.addSubview(rateStarImageView)
         self.addSubview(rateScaleLabel)
@@ -103,7 +96,7 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         self.overviewText.snp.makeConstraints { (make) in
             make.leading.equalTo(self.detailImageView.snp.trailing).offset(10)
             make.trailing.equalTo(-10)
-            make.top.equalTo(self.detailImageView.snp.top).offset(10)
+            make.top.equalTo(self.detailImageView.snp.top)
         }
 
         self.imageViewSeperator.snp.makeConstraints { (make) in
@@ -111,13 +104,6 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
             make.leading.equalTo(0)
             make.trailing.equalTo(0)
             make.top.equalTo(self.detailImageView.snp.bottom).offset(6)
-        }
-        
-        self.overviewSeperator.snp.makeConstraints { (make) in
-            make.height.equalTo(0.25)
-            make.leading.equalTo(self.detailImageView.snp.trailing).offset(10)
-            make.trailing.equalTo(0)
-            make.top.equalTo(self.overviewText.snp.bottom).offset(15)
         }
         
         self.rateStarImageView.snp.makeConstraints { (make) in

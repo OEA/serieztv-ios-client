@@ -25,6 +25,7 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
     var topRatedMovies = [Movie]()
     var series = [Series]()
     var topRatedSeries = [Series]()
+    var genres = [Genre]()
     internal func goToDetail(vc: STDetailViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -80,6 +81,11 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         
         SeriesManager.sharedInstance.getTopSeriesList(withLimit: 20, completion: { (series) in
             self.topRatedSeries = series
+            self.collectionView?.reloadData()
+        }, errorCompletion: nil)
+        
+        GenreManager.sharedInstance.getGenreList(withLimit: 20, completion: { (genres) in
+            self.genres = genres
             self.collectionView?.reloadData()
         }, errorCompletion: nil)
     }
@@ -138,6 +144,7 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
             return cell
         } else  if indexPath.item == 4 {
             cell.detailCellViewIdentifier = "GenreDetailCell"
+            cell.genres = self.genres
             cell.collectionView.reloadData()
             return cell
         } else {

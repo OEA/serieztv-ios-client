@@ -24,7 +24,8 @@ class STStarCollectionViewCell: UICollectionViewCell {
         name.text = "Star"
         name.textColor = UIColor.white
         name.textAlignment = NSTextAlignment.center
-        name.font = UIFont.boldSystemFont(ofSize: 14)
+        name.lineBreakMode = .byTruncatingTail
+        name.font = UIFont.boldSystemFont(ofSize: 12)
         return name
     }()
     
@@ -32,7 +33,8 @@ class STStarCollectionViewCell: UICollectionViewCell {
         let name = UILabel()
         name.textColor = UIColor.lightGray
         name.textAlignment = NSTextAlignment.center
-        name.font = UIFont.boldSystemFont(ofSize: 12)
+        name.font = UIFont.boldSystemFont(ofSize: 10)
+        name.lineBreakMode = .byTruncatingTail
         return name
     }()
     
@@ -52,11 +54,13 @@ class STStarCollectionViewCell: UICollectionViewCell {
         self.nameLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.top.equalTo(self.starImageView.snp.bottom).offset(6)
+            make.leading.trailing.equalTo(0)
         }
         
         self.characterLabel.snp.makeConstraints { (make) in
             make.centerX.equalTo(self)
             make.top.equalTo(self.nameLabel.snp.bottom).offset(2)
+            make.leading.trailing.equalTo(0)
         }
     }
     

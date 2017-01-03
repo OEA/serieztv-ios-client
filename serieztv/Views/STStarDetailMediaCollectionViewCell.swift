@@ -135,7 +135,6 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = STDetailViewController()
-        vc.imageName = "sq"
         self.mediaDetailDelegate?.navigateToMedia(vc: vc)
     }
     

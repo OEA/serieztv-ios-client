@@ -33,7 +33,8 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         return searchButton
     }()
     
-    var imageName: String!
+    var movie: Movie?
+    var series: Series?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,12 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        self.title = "The Walking Dead"
+        
+        if movie != nil {
+            self.title = movie!.name
+        } else {
+            self.title = series!.name
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -79,18 +85,72 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailHeaderCell", for: indexPath) as! STTopDetailCollectionViewCell
-            cell.posterImageView.image = UIImage(named: imageName)
+            cell.posterImageView.image = UIImage(named: "twd")
+            if movie != nil {
+                cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.nameLabel.text = movie!.name
+                let strDate = movie!.airDate
+                cell.yearLabel.text = self.getYear(strDate: strDate!)
+                cell.typeLabel.text = "Movie"
+                cell.timeLabel.text = "| \(Int(movie!.runtime!)) mins"
+                var genres = ""
+                for genre in movie!.genres! {
+                    genres += "\(genre.name!) "
+                }
+                cell.genresLabel.text = "| \(genres)"
+                
+            } else {
+                cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.nameLabel.text = series!.name
+                let strDate = series!.firstAir
+                cell.yearLabel.text = self.getYear(strDate: strDate!)
+                cell.typeLabel.text = "TV Series"
+                cell.timeLabel.text = "| \(Int(series!.runtime!)) mins"
+                var genres = ""
+                for genre in series!.genres! {
+                    genres += "\(genre.name!) "
+                }
+                cell.genresLabel.text = "| \(genres)"
+                
+            }
             return cell
         } else if indexPath.row == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailInfoCell", for: indexPath) as! STDetailInformationCollectionViewCell
+            if movie != nil {
+                cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.overviewText.text = movie!.overview!
+                cell.rateLabel.text = "\(movie!.imdbRating!)"
+                cell.rateCountLabel.text = "\(Int(movie!.imdbScore!))"
+
+            } else {
+                cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.overviewText.text = series!.overview!
+                cell.rateLabel.text = "\(series!.imdbRating!)"
+                cell.rateCountLabel.text = "\(Int(series!.imdbScore!))"
+            }
             return cell
         } else if indexPath.row == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCastCell", for: indexPath) as! STDetailCastCollectionViewCell
+            if movie != nil {
+                cell.characters = movie!.characters
+            } else {
+                cell.characters = series!.characters
+            }
             cell.navDelegate = self
             cell.starDetailDelegate = self
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    private func getYear(strDate: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.date(from:strDate)
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date!)
+        return "\(year)"
     }
     
     

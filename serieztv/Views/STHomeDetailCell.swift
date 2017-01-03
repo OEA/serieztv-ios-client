@@ -15,6 +15,7 @@ class STHomeDetailCell: UICollectionViewCell {
     let image: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 5
+        image.image = UIImage(named: "twd")
         image.layer.masksToBounds = true
         return image
     }()

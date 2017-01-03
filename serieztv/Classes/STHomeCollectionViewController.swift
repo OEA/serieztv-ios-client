@@ -22,6 +22,9 @@ protocol NavigateToDetailDelegate {
 
 class STHomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NavigateToDetailDelegate {
     var movies = [Movie]()
+    var topRatedMovies = [Movie]()
+    var series = [Series]()
+    var topRatedSeries = [Series]()
     internal func goToDetail(vc: STDetailViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -59,6 +62,26 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         
         
         self.navigationItem.setRightBarButtonItems([navigationBarSearchItem], animated: true)
+        
+        MovieManager.sharedInstance.getTopMovies(withLimit: 20, completion: { (movies) in
+            self.movies = movies
+            self.collectionView?.reloadData()
+        }, errorCompletion: nil)
+        
+        MovieManager.sharedInstance.getRecentMovies(withLimit: 20, completion: { (movies) in
+            self.topRatedMovies = movies
+            self.collectionView?.reloadData()
+        }, errorCompletion: nil)
+        
+        SeriesManager.sharedInstance.getRecentSeriesList(withLimit: 20, completion: { (series) in
+            self.series = series
+            self.collectionView?.reloadData()
+        }, errorCompletion: nil)
+        
+        SeriesManager.sharedInstance.getTopSeriesList(withLimit: 20, completion: { (series) in
+            self.topRatedSeries = series
+            self.collectionView?.reloadData()
+        }, errorCompletion: nil)
     }
     
     func search() {
@@ -97,7 +120,20 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         
         if indexPath.item < 4 {
             cell.detailCellViewIdentifier = "DetailCell"
-            cell.movies = self.movies
+            
+            if indexPath.item == 0 {
+                cell.isSeriesSelected = false
+                cell.movies = self.movies
+            } else if indexPath.item == 1 {
+                cell.isSeriesSelected = true
+                cell.series = self.series
+            } else if indexPath.item == 2 {
+                cell.isSeriesSelected = false
+                cell.movies = self.movies
+            } else if indexPath.item == 3 {
+                cell.isSeriesSelected = true
+                cell.series = self.topRatedSeries
+            }
             cell.collectionView.reloadData()
             return cell
         } else  if indexPath.item == 4 {

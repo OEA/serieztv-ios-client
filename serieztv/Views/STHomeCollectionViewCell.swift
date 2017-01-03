@@ -13,6 +13,8 @@ import SDWebImage
 
 class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var movies = [Movie]()
+    var series = [Series]()
+    var isSeriesSelected = false
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]
     let genres = ["Action", "Drama", "Romantic", "Fantastic", "Sports", "Science Fiction", "Horror", "Thriller", "Adventure", "Crime", "History", "War", "Western", "Musical", "Animation"]
     var navDelegate: NavigateToDetailDelegate?
@@ -48,7 +50,12 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         if detailCellViewIdentifier == "GenreDetailCell" {
             return genres.count
         } else if detailCellViewIdentifier == "DetailCell" {
-            return movies.count
+            if isSeriesSelected {
+                return series.count
+            } else {
+                return movies.count
+            }
+            
         }
         return 10
     }
@@ -61,11 +68,18 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         if self.detailCellViewIdentifier == "DetailCell" {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as! STHomeDetailCell
             cell.contentView.backgroundColor = self.contentView.backgroundColor
-            cell.nameLabel.text = movies[indexPath.row].name
+            if isSeriesSelected {
+                cell.nameLabel.text = series[indexPath.row].name
+                cell.image.image = UIImage(named: "twd")
+                cell.rateLabel.text = "\(series[indexPath.row].imdbRating!)"
+                cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+            } else {
+                cell.nameLabel.text = movies[indexPath.row].name
+                cell.image.image = UIImage(named: "twd")
+                cell.rateLabel.text = "\(movies[indexPath.row].imdbRating!)"
+                cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(movies[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+            }
             
-            cell.rateLabel.text = "\(movies[indexPath.row].imdbRating!)"
-                
-//            cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92\(movies[indexPath.row].image!)")! as URL, placeholderImage:UIImage(named:"twd"))
         
             return cell
         } else if self.detailCellViewIdentifier == "GenreDetailCell" {

@@ -123,9 +123,9 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
         let genreDetailViewController = STGenreTableViewController()
         if isSeriesSelected {
             detailViewController.series = self.series[indexPath.row]
-            
             self.navDelegate?.goToDetail(vc: detailViewController)
         } else if isGenresSelected {
+            genreDetailViewController.genre = self.genres[indexPath.row]
             self.genreNavDelegate?.goToGenreDetail(vc: genreDetailViewController)
         } else {
             detailViewController.movie = self.movies[indexPath.row]

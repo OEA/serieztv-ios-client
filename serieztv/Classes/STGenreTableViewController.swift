@@ -17,10 +17,15 @@ class STGenreTableViewController: UITableViewController {
         return searchButton
     }()
     
+    var genre: Genre!
+    
+    var seriesList = [Series]()
+    var movieList = [Movie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Genre Name"
+        self.title = self.genre.name
 
         backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
         self.navigationController?.navigationBar.isTranslucent = false
@@ -29,6 +34,11 @@ class STGenreTableViewController: UITableViewController {
         
         self.tableView.register(STSearchResultTableViewCell.self, forCellReuseIdentifier: "GenreDetailCell")
         
+        GenreManager.sharedInstance.getGenreDetail(id: self.genre.id, completion: { (series, movies) in
+            self.seriesList = series
+            self.movieList = movies
+            self.tableView.reloadData()
+        }, errorCompletion: nil)
 
     }
 
@@ -46,20 +56,50 @@ class STGenreTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        
+        if section == 0 {
+            return seriesList.count
+        } else {
+            return movieList.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Series"
+        } else {
+            return "Movies"
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GenreDetailCell", for: indexPath) as! STSearchResultTableViewCell
-        cell.titleLabel.text = "Result name"
-        cell.detailLabel.text = "Result details"
-        cell.cellImageView.image = UIImage(named: "twd")
+        
+        if indexPath.section == 0 {
+            cell.titleLabel.text = self.seriesList[indexPath.row].name
+            var genres = ""
+            for genre in seriesList[indexPath.row].genres! {
+                genres += "\(genre.name!) "
+            }
+            cell.detailLabel.text = genres
+            cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.seriesList[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+        } else {
+            cell.titleLabel.text = self.movieList[indexPath.row].name
+            cell.detailLabel.text = "Result details"
+            cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.movieList[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+            var genres = ""
+            for genre in movieList[indexPath.row].genres! {
+                genres += "\(genre.name!) "
+            }
+            cell.detailLabel.text = genres
+        }
+
  
 
         return cell
@@ -67,6 +107,19 @@ class STGenreTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section ==  0 {
+            //series
+            let detailViewController = STDetailViewController()
+            detailViewController.series = self.seriesList[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        } else {
+            let detailViewController = STDetailViewController()
+            detailViewController.movie = self.movieList[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
  
 

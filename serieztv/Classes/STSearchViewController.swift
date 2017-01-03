@@ -156,6 +156,10 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             //genre detail
+            let genreDetailViewController = STGenreTableViewController()
+            genreDetailViewController.genre = self.genreList[indexPath.row]
+            self.navigationController?.pushViewController(genreDetailViewController, animated: true)
+            
         } else if indexPath.section ==  1 {
             //series
             let detailViewController = STDetailViewController()

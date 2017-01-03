@@ -135,6 +135,7 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.characters = movie!.characters
             } else {
                 cell.characters = series!.characters
+                cell.seasons = series!.seasons
             }
             cell.navDelegate = self
             cell.starDetailDelegate = self

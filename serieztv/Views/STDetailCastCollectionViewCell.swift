@@ -16,6 +16,7 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     var starDetailDelegate: NavigateToStarDetailDelegate?
     
     var characters = [Character]()
+    var seasons = [Season]()
     
     let topTitleSeperator: UILabel = {
         let topSeperator = UILabel()
@@ -138,6 +139,7 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     
     func navigateToSeasons() {
         let seasonsVC: STSeasonViewController = STSeasonViewController()
+        seasonsVC.seasons = self.seasons
         navDelegate?.navigateToSeasons(vc: seasonsVC)
         
     }

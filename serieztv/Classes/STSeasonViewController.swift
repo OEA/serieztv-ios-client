@@ -10,7 +10,7 @@ import UIKit
 
 class STSeasonViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var seasons = ["Season 1", "Season 2", "Season 3"]
+    var seasons = [Season]()
     
     let seasonView: STSeasonView = {
         let seasonView = STSeasonView()
@@ -40,6 +40,7 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         // Do any additional setup after loading the view.
+        self.seasonView.
     }
     
     func navigateBack() {
@@ -54,8 +55,8 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SeasonCell", for: indexPath) as! STSeasonTableViewCell
-        cell.titleLabel.text = seasons[indexPath.row]
-        cell.numberLabel.text = "\(indexPath.row+1)"
+        cell.titleLabel.text = seasons[indexPath.row].name
+        cell.numberLabel.text = "\(seasons[indexPath.row].number!)"
         return cell
     }
     

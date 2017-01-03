@@ -46,10 +46,6 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
         self.setUpViews()
         self.mainView.loginButton.alpha = 0.0
         self.mainView.registerButton.alpha = 0.0
-        self.mainView.connectionOptionsLabel.alpha = 0.0
-        self.mainView.connectWithFacebookButton.alpha = 0.0
-        self.mainView.connectWithGoogleButton.alpha = 0.0
-        self.mainView.connectWithTwitterButton.alpha = 0.0
 
     }
     
@@ -74,10 +70,6 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
         }, completion: { (finished: Bool) -> Void in
             self.mainView.loginButton.alpha = 1.0
             self.mainView.registerButton.alpha = 1.0
-            self.mainView.connectionOptionsLabel.alpha = 1.0
-            self.mainView.connectWithFacebookButton.alpha = 1.0
-            self.mainView.connectWithGoogleButton.alpha = 1.0
-            self.mainView.connectWithTwitterButton.alpha = 1.0
         })
     }
     
@@ -101,13 +93,9 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
         }
         mainView.loginButton.addTarget(self, action:#selector(self.navigateToLogin), for: .touchUpInside)
         mainView.registerButton.addTarget(self, action:#selector(self.navigateToRegister), for: .touchUpInside)
-        mainView.connectWithFacebookButton.addTarget(self, action:#selector(self.connectWithFacebook), for: .touchUpInside)
-        mainView.connectWithTwitterButton.addTarget(self, action:#selector(self.connectWithTwitter), for: .touchUpInside)
-        mainView.connectWithGoogleButton.addTarget(self, action:#selector(self.connectWithGoogle), for: .touchUpInside)
     }
     
     func navigateToLogin() {
-        print("login")
         let loginVC: STLoginViewController = STLoginViewController()
         loginVC.imageIndex = self.imageIndex
         loginVC.delegate = self
@@ -116,7 +104,6 @@ class STMainViewController: UIViewController, MainViewBackgroundImageDelegate {
     }
     
     func navigateToRegister() {
-        print("register")
         let registerVC: STRegisterViewController = STRegisterViewController()
         registerVC.imageIndex = self.imageIndex
         registerVC.delegateMain = self

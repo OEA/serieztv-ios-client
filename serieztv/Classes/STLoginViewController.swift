@@ -87,17 +87,35 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     }
     
     func login() {
-        NSLog("%@", "login")
-        MovieManager.sharedInstance.getTopMovies(withLimit: nil, completion: { (movies) in
-            let vc = STHomeTabBarViewController()
-            vc.movies = movies
-            self.present(vc, animated: false, completion: nil)
-        }, errorCompletion: nil)
         
+        let username = self.loginView.usernameField.text
+        let password = self.loginView.passwordField.text
+        let vc = STHomeTabBarViewController()
+        
+        AuthManager.sharedInstance.login(username: username!, password: password!, completion: { (user) in
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(user.id, forKey: "id")
+            userDefaults.set(user.name, forKey: "name")
+            userDefaults.set(user.username, forKey: "username")
+            userDefaults.set(user.email, forKey: "email")
+            self.present(vc, animated: true, completion: nil)
+        }, errorCompletion: { (error) in
+            if error == "Could not create user" {
+                let alertController = UIAlertController(title: "Error", message: "Fill the blanks.", preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                alertController.addAction(doneAction)
+                self.present(alertController, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                alertController.addAction(doneAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+
+        })
     }
     
     func navigateToRegister() {
-        NSLog("%@", "register")
         let registerVC: STRegisterViewController = STRegisterViewController()
         registerVC.imageIndex = self.imageIndex
         registerVC.delegateLogin = self

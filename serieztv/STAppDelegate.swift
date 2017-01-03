@@ -17,8 +17,21 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let navController = UINavigationController(rootViewController: STMainViewController())
-        window?.rootViewController = navController
+        
+        
+        let userDefaults = UserDefaults.standard
+        let id = userDefaults.object(forKey: "id")
+        
+        if id != nil {
+            let tabbarController = STHomeTabBarViewController()
+            window?.rootViewController = tabbarController
+            
+        } else {
+            let navController = UINavigationController(rootViewController: STMainViewController())
+            window?.rootViewController = navController
+            
+        }
+        
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().barTintColor = UIColor.black
         return true

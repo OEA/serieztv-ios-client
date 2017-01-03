@@ -45,8 +45,10 @@ class AuthManager {
         .responseJSON { response in
             if response.result.value != nil {
                 let json = JSON(response.result.value!)
+                print(json)
                 if ( json["error"].string == nil) {
                     let user: User = User()
+                    user.id = json["_id"].string!
                     user.username = json["username"].string!
                     user.email = json["email"].string!
                     user.name = json["name"].string!
@@ -63,11 +65,13 @@ class AuthManager {
     func register(email: String, username: String, password: String, name: String, completion: ((_ user: User) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         Alamofire.request(self.registerUrl, method: .post, parameters: ["username": username, "password": password, "name": name, "email": email])
             .responseJSON { response in
+                
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     print(json)
                     if ( json["error"].string == nil) {
                         let user: User = User()
+                        user.id = json["_id"].string!
                         user.username = json["username"].string!
                         user.email = json["email"].string!
                         user.name = json["name"].string!

@@ -62,6 +62,13 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             let changePasswordVC = STChangePasswordViewController()
             self.navigationController?.pushViewController(changePasswordVC, animated: true)
         } else if (indexPath.row == 4) {
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.removeObject(forKey: "id")
+            userDefaults.removeObject(forKey: "name")
+            userDefaults.removeObject(forKey: "username")
+            userDefaults.removeObject(forKey: "email")
+            userDefaults.synchronize()
             self.view.window?.rootViewController = UINavigationController(rootViewController: STMainViewController())
         }
     }

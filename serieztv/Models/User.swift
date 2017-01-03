@@ -11,6 +11,7 @@ import Foundation
 class User: NSObject {
     var name: String!
     
+    var id: String!
     
     var username: String!
     

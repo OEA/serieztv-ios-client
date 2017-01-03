@@ -16,7 +16,7 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
     
     let detailImageView: UIImageView = {
         let detailImageView = UIImageView()
-        detailImageView.image = UIImage(named: "twd")
+        detailImageView.image = UIImage(named: "placeholder")
         return detailImageView
     }()
     

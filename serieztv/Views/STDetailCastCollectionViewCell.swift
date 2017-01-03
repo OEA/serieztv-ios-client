@@ -126,7 +126,7 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionCell", for: indexPath) as! STStarCollectionViewCell
         cell.characterLabel.text = self.characters[indexPath.row].name
         cell.nameLabel.text = self.characters[indexPath.row].star.name
-        cell.starImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(self.characters[indexPath.row].star.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+        cell.starImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(self.characters[indexPath.row].star.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
         return cell
     }
     

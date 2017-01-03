@@ -85,9 +85,9 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailHeaderCell", for: indexPath) as! STTopDetailCollectionViewCell
-            cell.posterImageView.image = UIImage(named: "twd")
+            cell.posterImageView.image = UIImage(named: "placeholder")
             if movie != nil {
-                cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.nameLabel.text = movie!.name
                 let strDate = movie!.airDate
                 cell.yearLabel.text = self.getYear(strDate: strDate!)
@@ -100,7 +100,7 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.genresLabel.text = "| \(genres)"
                 
             } else {
-                cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.nameLabel.text = series!.name
                 let strDate = series!.firstAir
                 cell.yearLabel.text = self.getYear(strDate: strDate!)
@@ -117,13 +117,13 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else if indexPath.row == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailInfoCell", for: indexPath) as! STDetailInformationCollectionViewCell
             if movie != nil {
-                cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.overviewText.text = movie!.overview!
                 cell.rateLabel.text = "\(movie!.imdbRating!)"
                 cell.rateCountLabel.text = "\(Int(movie!.imdbScore!))"
 
             } else {
-                cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+                cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.overviewText.text = series!.overview!
                 cell.rateLabel.text = "\(series!.imdbRating!)"
                 cell.rateCountLabel.text = "\(Int(series!.imdbScore!))"

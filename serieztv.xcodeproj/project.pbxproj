@@ -63,6 +63,9 @@
 		76DCD7E51E1C16EE004FE258 /* STSeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7E41E1C16EE004FE258 /* STSeasonView.swift */; };
 		76DCD7E71E1C189D004FE258 /* STSeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7E61E1C189D004FE258 /* STSeasonViewController.swift */; };
 		76DCD7EB1E1C1F2F004FE258 /* STSeasonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7EA1E1C1F2F004FE258 /* STSeasonTableViewCell.swift */; };
+		76DCD7ED1E1C2367004FE258 /* STEpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */; };
+		76DCD7EF1E1C276E004FE258 /* STEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7EE1E1C276E004FE258 /* STEpisodeTableViewCell.swift */; };
+		76DCD7F11E1C27BA004FE258 /* STEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +148,9 @@
 		76DCD7E41E1C16EE004FE258 /* STSeasonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STSeasonView.swift; sourceTree = "<group>"; };
 		76DCD7E61E1C189D004FE258 /* STSeasonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STSeasonViewController.swift; sourceTree = "<group>"; };
 		76DCD7EA1E1C1F2F004FE258 /* STSeasonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STSeasonTableViewCell.swift; sourceTree = "<group>"; };
+		76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEpisodesViewController.swift; sourceTree = "<group>"; };
+		76DCD7EE1E1C276E004FE258 /* STEpisodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEpisodesView.swift; sourceTree = "<group>"; };
 		909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.release.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.release.xcconfig"; sourceTree = "<group>"; };
 		EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +215,7 @@
 				7625FAD41E187824000FEFCC /* STCrewListTableViewController.swift */,
 				7625FAD61E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift */,
 				76DCD7E61E1C189D004FE258 /* STSeasonViewController.swift */,
+				76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -304,6 +311,8 @@
 				76C55BEF1E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift */,
 				76DCD7E41E1C16EE004FE258 /* STSeasonView.swift */,
 				76DCD7EA1E1C1F2F004FE258 /* STSeasonTableViewCell.swift */,
+				76DCD7EE1E1C276E004FE258 /* STEpisodeTableViewCell.swift */,
+				76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +523,7 @@
 				7625FAC91E17B520000FEFCC /* STSearchViewController.swift in Sources */,
 				76ACC1D61E0289AC00E21D19 /* AuthManager.swift in Sources */,
 				76B767771DEAFA7C0070E62F /* STLoginView.swift in Sources */,
+				76DCD7EF1E1C276E004FE258 /* STEpisodeTableViewCell.swift in Sources */,
 				762E923D1E12F43400916ADB /* STStarDetailTopViewCell.swift in Sources */,
 				760CE9C71E15A86500E7A2DC /* STGenreCollectionViewCell.swift in Sources */,
 				76DCD7E71E1C189D004FE258 /* STSeasonViewController.swift in Sources */,
@@ -542,7 +552,9 @@
 				7625FACD1E1822CE000FEFCC /* STAboutView.swift in Sources */,
 				760325D41DFDD44C0015113D /* Genre.swift in Sources */,
 				7625FACB1E17E52E000FEFCC /* STSearchResultTableViewCell.swift in Sources */,
+				76DCD7F11E1C27BA004FE258 /* STEpisodesView.swift in Sources */,
 				764BDF041E1410C80095B4F4 /* STProfileView.swift in Sources */,
+				76DCD7ED1E1C2367004FE258 /* STEpisodesViewController.swift in Sources */,
 				760325C41DFDD3D20015113D /* User.swift in Sources */,
 				7625FAC71E17A7C9000FEFCC /* STTopDetailCollectionViewCell.swift in Sources */,
 				762E923B1E12C8B700916ADB /* STDetailViewController.swift in Sources */,

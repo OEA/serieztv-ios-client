@@ -15,9 +15,11 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     var movies = [Movie]()
     var series = [Series]()
     var isSeriesSelected = false
+    var isGenresSelected = false
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]
     var genres = [Genre]()
     var navDelegate: NavigateToDetailDelegate?
+    var genreNavDelegate: NavigateToGenreDetailDelegate?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -118,13 +120,17 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = STDetailViewController()
+        let genreDetailViewController = STGenreTableViewController()
         if isSeriesSelected {
             detailViewController.series = self.series[indexPath.row]
+            
+            self.navDelegate?.goToDetail(vc: detailViewController)
+        } else if isGenresSelected {
+            self.genreNavDelegate?.goToGenreDetail(vc: genreDetailViewController)
         } else {
             detailViewController.movie = self.movies[indexPath.row]
+            self.navDelegate?.goToDetail(vc: detailViewController)
         }
-        self.navDelegate?.goToDetail(vc: detailViewController)
-        print("SELECTED")
     
     }
 

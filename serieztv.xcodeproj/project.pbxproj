@@ -66,6 +66,7 @@
 		76DCD7ED1E1C2367004FE258 /* STEpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */; };
 		76DCD7EF1E1C276E004FE258 /* STEpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7EE1E1C276E004FE258 /* STEpisodeTableViewCell.swift */; };
 		76DCD7F11E1C27BA004FE258 /* STEpisodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */; };
+		76DCD7F31E1C2F9F004FE258 /* STGenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DCD7F21E1C2F9F004FE258 /* STGenreTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEpisodesViewController.swift; sourceTree = "<group>"; };
 		76DCD7EE1E1C276E004FE258 /* STEpisodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEpisodesView.swift; sourceTree = "<group>"; };
+		76DCD7F21E1C2F9F004FE258 /* STGenreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STGenreTableViewController.swift; sourceTree = "<group>"; };
 		909AE87FC9A7F35C9FE80BC5 /* Pods-serieztv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.release.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.release.xcconfig"; sourceTree = "<group>"; };
 		EA721A8A58AABA4EC000C2A7 /* Pods-serieztv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serieztv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serieztv/Pods-serieztv.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +218,7 @@
 				7625FAD61E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift */,
 				76DCD7E61E1C189D004FE258 /* STSeasonViewController.swift */,
 				76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */,
+				76DCD7F21E1C2F9F004FE258 /* STGenreTableViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				760325CA1DFDD3F50015113D /* Season.swift in Sources */,
 				760325C61DFDD3DB0015113D /* Movie.swift in Sources */,
 				17697C871E1C1C8600B128EB /* StarManager.swift in Sources */,
+				76DCD7F31E1C2F9F004FE258 /* STGenreTableViewController.swift in Sources */,
 				760325D61DFDD4530015113D /* Comment.swift in Sources */,
 				7614FBD31E1A976200800744 /* SeriesManager.swift in Sources */,
 				7625FACF1E1822E8000FEFCC /* STChangePasswordView.swift in Sources */,

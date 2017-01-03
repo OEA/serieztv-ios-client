@@ -19,14 +19,22 @@ protocol NavigateToDetailDelegate {
     func goToDetail(vc: STDetailViewController)
 }
 
+protocol NavigateToGenreDetailDelegate {
+    func goToGenreDetail(vc: STGenreTableViewController)
+}
 
-class STHomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NavigateToDetailDelegate {
+
+class STHomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, NavigateToDetailDelegate, NavigateToGenreDetailDelegate {
     var movies = [Movie]()
     var topRatedMovies = [Movie]()
     var series = [Series]()
     var topRatedSeries = [Series]()
     var genres = [Genre]()
     internal func goToDetail(vc: STDetailViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    internal func goToGenreDetail(vc: STGenreTableViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -114,6 +122,7 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
 
         cell.titleLabel.text = self.titleArray[indexPath.item]
         cell.navDelegate = self
+        cell.genreNavDelegate = self
         
         if indexPath.item % 2 == 0 {
             cell.contentView.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
@@ -147,6 +156,7 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         } else  if indexPath.item == 4 {
             cell.detailCellViewIdentifier = "GenreDetailCell"
             cell.genres = self.genres
+            cell.isGenresSelected = true
             cell.collectionView.reloadData()
             return cell
         } else {

@@ -10,6 +10,7 @@
 		05EECA73F0B8CC8BC7AD583C /* Pods_serieztv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */; };
 		17697C871E1C1C8600B128EB /* StarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C861E1C1C8600B128EB /* StarManager.swift */; };
 		17697C891E1C1CAC00B128EB /* GenreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C881E1C1CAC00B128EB /* GenreManager.swift */; };
+		17697C8B1E1C2E9E00B128EB /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C8A1E1C2E9E00B128EB /* SearchManager.swift */; };
 		760325BF1DFD7B300015113D /* STMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325BE1DFD7B300015113D /* STMainView.swift */; };
 		760325C11DFD7B460015113D /* STMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C01DFD7B460015113D /* STMainViewController.swift */; };
 		760325C41DFDD3D20015113D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C31DFDD3D20015113D /* User.swift */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		17697C861E1C1C8600B128EB /* StarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarManager.swift; sourceTree = "<group>"; };
 		17697C881E1C1CAC00B128EB /* GenreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreManager.swift; sourceTree = "<group>"; };
+		17697C8A1E1C2E9E00B128EB /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		760325BE1DFD7B300015113D /* STMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainView.swift; sourceTree = "<group>"; };
 		760325C01DFD7B460015113D /* STMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				7614FBD21E1A976200800744 /* SeriesManager.swift */,
 				17697C861E1C1C8600B128EB /* StarManager.swift */,
 				17697C881E1C1CAC00B128EB /* GenreManager.swift */,
+				17697C8A1E1C2E9E00B128EB /* SearchManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				76DCD7EF1E1C276E004FE258 /* STEpisodeTableViewCell.swift in Sources */,
 				762E923D1E12F43400916ADB /* STStarDetailTopViewCell.swift in Sources */,
 				760CE9C71E15A86500E7A2DC /* STGenreCollectionViewCell.swift in Sources */,
+				17697C8B1E1C2E9E00B128EB /* SearchManager.swift in Sources */,
 				76DCD7E71E1C189D004FE258 /* STSeasonViewController.swift in Sources */,
 				761F073B1E168BA100862BAC /* STStarCollectionViewCell.swift in Sources */,
 				766F1FDD1E1A7084000918B8 /* MovieManager.swift in Sources */,

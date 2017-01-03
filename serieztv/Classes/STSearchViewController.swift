@@ -23,7 +23,11 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
         return backgroundImageView
     }()
     var isAvailable: Bool = false
-
+    
+    var genreList = [Genre]()
+    var seriesList = [Series]()
+    var movieList = [Movie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
@@ -74,25 +78,70 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
             self.backgroundImageView.alpha = 0.15
             self.tableView.separatorStyle = .none
             self.tableView.tableFooterView?.isHidden = true
+            return 0
         } else {
             self.backgroundImageView.alpha = 0
             self.tableView.separatorStyle = .singleLine
             self.tableView.tableFooterView?.isHidden = false
         }
-        return 1
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if section == 0 {
+            return genreList.count
+        } else if section == 1 {
+            return seriesList.count
+        } else {
+            return movieList.count
+        }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Genres"
+        } else if section == 1 {
+            return "Series"
+        } else {
+            return "Movies"
+        }
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (isAvailable) {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! STSearchResultTableViewCell
-                    cell.titleLabel.text = "Result name"
+            
+            if indexPath.section == 0 {
+                let cell = UITableViewCell()
+                cell.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
+                cell.selectionStyle = .none
+                cell.textLabel?.textColor = UIColor.white
+                cell.textLabel?.text = self.genreList[indexPath.row].name
+                return cell
+            } else {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! STSearchResultTableViewCell
+                
+                if indexPath.section == 1 {
+                    cell.titleLabel.text = self.seriesList[indexPath.row].name
+                    var genres = ""
+                    for genre in seriesList[indexPath.row].genres! {
+                        genres += "\(genre.name!) "
+                    }
+                    cell.detailLabel.text = genres
+                    cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.seriesList[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+                } else if indexPath.section == 2 {
+                    cell.titleLabel.text = self.movieList[indexPath.row].name
                     cell.detailLabel.text = "Result details"
-                    cell.cellImageView.image = UIImage(named: "twd")
-                    return cell
+                    cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.movieList[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+                    var genres = ""
+                    for genre in movieList[indexPath.row].genres! {
+                        genres += "\(genre.name!) "
+                    }
+                    cell.detailLabel.text = genres
+                }
+                
+                return cell
+            }
+            
         }
 
         let defaultCell = UITableViewCell()
@@ -102,6 +151,21 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            //genre detail
+        } else if indexPath.section ==  1 {
+            //series
+            let detailViewController = STDetailViewController()
+            detailViewController.series = self.seriesList[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        } else {
+            let detailViewController = STDetailViewController()
+            detailViewController.movie = self.movieList[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -115,8 +179,17 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.characters.count > 0 {
+        if searchText.characters.count >= 3 {
+            let query = searchText
+            SearchManager.sharedInstance.query(query: query, completion: { (genres, movies, series) in
+                self.genreList = genres
+                self.seriesList = series
+                self.movieList = movies
+                self.tableView.reloadData()
+            }, errorCompletion: nil)
             self.isAvailable = true
+        } else {
+            self.isAvailable = false
             self.tableView.reloadData()
         }
     }

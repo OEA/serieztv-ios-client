@@ -55,6 +55,7 @@ class STRegisterView: UIView {
     
     let passwordField: UITextField = {
         let passwordField = STTextField(frame: CGRect.zero, placeholder: "Password", image: UIImage(named:"password")!)
+        passwordField.isSecureTextEntry = true
         passwordField.autocorrectionType = UITextAutocorrectionType.no
         passwordField.keyboardType = UIKeyboardType.default
         passwordField.returnKeyType = UIReturnKeyType.done

@@ -63,9 +63,11 @@ class MovieManager: NSObject {
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     if ( json["error"].string == nil) {
-                        let jsonMovie = json
-                        let movie: Movie = self.parseMovie(data: jsonMovie)
-                        completion?(movie)
+                        if json != nil {
+                            let jsonMovie = json
+                            let movie: Movie = self.parseMovie(data: jsonMovie)
+                            completion?(movie)
+                        }
                     } else {
                         errorCompletion?(json["error"].string!)
                     }
@@ -91,13 +93,15 @@ class MovieManager: NSObject {
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     if ( json["error"].string == nil) {
-                        var movieList = [Movie]()
-                        let jsonArray = json.arrayValue
-                        for data in jsonArray {
-                            let movie: Movie = self.parseMovie(data: data)
-                            movieList.append(movie)
+                        if json != nil {
+                            var movieList = [Movie]()
+                            let jsonArray = json.arrayValue
+                            for data in jsonArray {
+                                let movie: Movie = self.parseMovie(data: data)
+                                movieList.append(movie)
+                            }
+                            completion?(movieList)
                         }
-                        completion?(movieList)
                     } else {
                         errorCompletion?(json["error"].string!)
                     }
@@ -132,13 +136,15 @@ class MovieManager: NSObject {
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     if ( json["error"].string == nil) {
-                        var movieList = [Movie]()
-                        let jsonArray = json.arrayValue
-                        for data in jsonArray {
-                            let movie: Movie = self.parseMovie(data: data)
-                            movieList.append(movie)
+                        if json != nil {
+                            var movieList = [Movie]()
+                            let jsonArray = json.arrayValue
+                            for data in jsonArray {
+                                let movie: Movie = self.parseMovie(data: data)
+                                movieList.append(movie)
+                            }
+                            completion?(movieList)
                         }
-                        completion?(movieList)
                     } else {
                         errorCompletion?(json["error"].string!)
                     }

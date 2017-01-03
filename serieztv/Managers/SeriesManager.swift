@@ -64,9 +64,11 @@ class SeriesManager {
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     if ( json["error"].string == nil) {
-                        let jsonSeries = json
-                        let series: Series = self.parseSeries(data: jsonSeries)
-                        completion?(series)
+                        if json != nil {
+                            let jsonSeries = json
+                            let series: Series = self.parseSeries(data: jsonSeries)
+                            completion?(series)
+                        }
                     } else {
                         errorCompletion?(json["error"].string!)
                     }
@@ -92,13 +94,15 @@ class SeriesManager {
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     if ( json["error"].string == nil) {
-                        var seriesList = [Series]()
-                        let jsonArray = json.arrayValue
-                        for data in jsonArray {
-                            let series: Series = self.parseSeries(data: data)
-                            seriesList.append(series)
+                        if json != nil {
+                            var seriesList = [Series]()
+                            let jsonArray = json.arrayValue
+                            for data in jsonArray {
+                                let series: Series = self.parseSeries(data: data)
+                                seriesList.append(series)
+                            }
+                            completion?(seriesList)
                         }
-                        completion?(seriesList)
                     } else {
                         errorCompletion?(json["error"].string!)
                     }
@@ -134,13 +138,15 @@ class SeriesManager {
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
                     if ( json["error"].string == nil) {
-                        var seriesList = [Series]()
-                        let jsonArray = json.arrayValue
-                        for data in jsonArray {
-                            let series: Series = self.parseSeries(data: data)
-                            seriesList.append(series)
+                        if json != nil {
+                            var seriesList = [Series]()
+                            let jsonArray = json.arrayValue
+                            for data in jsonArray {
+                                let series: Series = self.parseSeries(data: data)
+                                seriesList.append(series)
+                            }
+                            completion?(seriesList)
                         }
-                        completion?(seriesList)
                     } else {
                         errorCompletion?(json["error"].string!)
                     }

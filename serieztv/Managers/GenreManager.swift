@@ -24,6 +24,12 @@ class GenreManager {
         }
     }
     
+    var detailUrl: String {
+        get {
+            return "\(baseURL)/detail/"
+        }
+    }
+    
     private init() {}
     
     class var sharedInstance: GenreManager {
@@ -37,6 +43,38 @@ class GenreManager {
         self.getGenresFrom(url: self.listUrl, withLimit: "\(withLimit)", completion: completion, errorCompletion: errorCompletion)
     }
     
+    func getGenreDetail(id: String, completion: ((_ seriesList: [Series], _ movieList: [Movie]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
+        let detailUrl = self.detailUrl + id
+        Alamofire.request(detailUrl, method: .get, parameters: nil)
+            .responseJSON { response in
+                if response.result.value != nil {
+                    let json = JSON(response.result.value!)
+                    
+                    if ( json["error"].string == nil) {
+                        if json != nil {
+                            
+                            var seriesList = [Series]()
+                            var movieList = [Movie]()
+                            let moviesArray = json["movies"].arrayValue
+                            let seriesArray = json["series"].arrayValue
+                            for data in moviesArray {
+                                let movie: Movie = MovieManager.sharedInstance.parseMovie(data: data)
+                                movieList.append(movie)
+                            }
+                            for data in seriesArray {
+                                let series: Series = SeriesManager.sharedInstance.parseSeries(data: data)
+                                seriesList.append(series)
+                            }
+                            completion?(seriesList, movieList)
+                        }
+                    } else {
+                        errorCompletion?(json["error"].string!)
+                    }
+                } else {
+                    errorCompletion?("Api is temporarly down")
+                }
+        }
+    }
     
     func getGenresFrom(url: String, withLimit limit: String?, completion: ((_ seriesList: [Genre]) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         var limitedUrl: String!
@@ -76,6 +114,8 @@ class GenreManager {
         genre.id = data["_id"].string
         return genre
     }
+    
+    
     
     
     

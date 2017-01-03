@@ -88,6 +88,8 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
             self.genres = genres
             self.collectionView?.reloadData()
         }, errorCompletion: nil)
+        
+        
     }
     
     func search() {

@@ -29,9 +29,7 @@ class STGenreTableViewController: UITableViewController {
         
         self.tableView.register(STSearchResultTableViewCell.self, forCellReuseIdentifier: "GenreDetailCell")
         
-        GenreManager.sharedInstance.getGenreDetail(id: <#T##String#>, completion: { (series, movies) in
-            
-        }, errorCompletion: nil)
+
     }
 
     override func didReceiveMemoryWarning() {

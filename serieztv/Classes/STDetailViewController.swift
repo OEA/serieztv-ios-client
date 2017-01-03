@@ -138,7 +138,18 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
             cell.navDelegate = self
             cell.starDetailDelegate = self
+            
+            if movie != nil {
+                cell.seasonsButton.isHidden = true
+                cell.bottomSeasonSeperator.isHidden = true
+            } else {
+                cell.seasonsButton.isHidden = false
+                cell.bottomSeasonSeperator.isHidden = false
+            }
+            
             return cell
+            
+            
         }
         return UICollectionViewCell()
     }

@@ -138,13 +138,15 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
             
             cell.nameLabel.text = self.series[indexPath.row].name
             cell.detailLabel.text = ""
-            cell.image.image = UIImage(named: "twd")
+            cell.rateLabel.text = "\(self.series[indexPath.row].imdbRating!)"
+            cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.series[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
             
         } else {
             
             cell.nameLabel.text = self.movies[indexPath.row].name
             cell.detailLabel.text = ""
-            cell.image.image = UIImage(named: "twd")
+            cell.image.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.movies[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"twd"))
+            cell.rateLabel.text = "\(self.movies[indexPath.row].imdbRating!)"
         }
         return cell
     }

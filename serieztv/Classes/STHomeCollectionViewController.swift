@@ -74,12 +74,12 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
         self.navigationItem.setRightBarButtonItems([navigationBarSearchItem], animated: true)
         
         MovieManager.sharedInstance.getTopMovies(withLimit: 20, completion: { (movies) in
-            self.movies = movies
+            self.topRatedMovies = movies
             self.collectionView?.reloadData()
         }, errorCompletion: nil)
         
         MovieManager.sharedInstance.getRecentMovies(withLimit: 20, completion: { (movies) in
-            self.topRatedMovies = movies
+            self.movies = movies
             self.collectionView?.reloadData()
         }, errorCompletion: nil)
         
@@ -150,7 +150,7 @@ class STHomeCollectionViewController: UICollectionViewController, UICollectionVi
                 cell.series = self.series
             } else if indexPath.item == 2 {
                 cell.isSeriesSelected = false
-                cell.movies = self.movies
+                cell.movies = self.topRatedMovies
             } else if indexPath.item == 3 {
                 cell.isSeriesSelected = true
                 cell.series = self.topRatedSeries

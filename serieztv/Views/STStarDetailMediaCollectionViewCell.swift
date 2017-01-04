@@ -15,6 +15,7 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
     var mediaDetailDelegate: NavigateToMediaDetailDelegate?
     var movies = [Movie]()
     var series = [Series]()
+    var isSeriesSelected = false
     let topTitleSeperator: UILabel = {
         let topSeperator = UILabel()
         topSeperator.backgroundColor = UIColor.darkGray
@@ -119,6 +120,12 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if isSeriesSelected {
+            return self.series.count
+        } else {
+            return self.movies.count
+        }
         return 10
     }
     

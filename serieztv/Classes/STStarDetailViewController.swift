@@ -30,6 +30,8 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
     }()
     
     var star: Star!
+    var movies = [Movie]()
+    var series = [Series]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,12 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
 
         collectionView.register(STStarDetailTopViewCell.self, forCellWithReuseIdentifier: "StarDetailInfoCell")
         collectionView.register(STStarDetailMediaCollectionViewCell.self, forCellWithReuseIdentifier: "StarDetailMediaCell")
+        
+        StarManager.sharedInstance.getStarDetail(id: star.id, completion: { (series, movies) in
+            self.series = series
+            self.movies = movies
+            self.collectionView.reloadData()
+        }, errorCompletion: nil)
     }
     
     func navigateBack() {
@@ -75,11 +83,16 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
         } else if indexPath.row == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailMediaCell", for: indexPath) as! STStarDetailMediaCollectionViewCell
             cell.titleLabel.text = "Movies"
+            cell.movies = movies
+            cell.mediaCollectionView.reloadData()
             cell.mediaDetailDelegate = self
             return cell
         } else if indexPath.row == 2 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailMediaCell", for: indexPath) as! STStarDetailMediaCollectionViewCell
             cell.titleLabel.text = "Series"
+            cell.series = series
+            cell.isSeriesSelected = true
+            cell.mediaCollectionView.reloadData()
             cell.mediaDetailDelegate = self
             return cell
         }

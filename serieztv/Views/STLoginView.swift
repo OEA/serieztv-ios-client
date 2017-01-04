@@ -83,7 +83,6 @@ class STLoginView: UIView {
         super.init(frame : frame)
         self.backgroundColor = UIColor.black
         setupLoginView()
-        self.backgroundImageView.image = UIImage(named: "hoc.jpg")
         self.backgroundImageView.alpha = 0.5
     }
     

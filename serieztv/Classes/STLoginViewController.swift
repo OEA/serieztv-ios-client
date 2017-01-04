@@ -39,7 +39,7 @@ class STLoginViewController: UIViewController, LoginViewBackgroundImageDelegate 
     }()
     
     var delegate: MainViewBackgroundImageDelegate?
-    let bgImages = [UIImage(named: "got.jpg"),UIImage(named: "twd.jpg"), UIImage(named: "sw"), UIImage(named: "avg.jpg"), UIImage(named: "hp"), UIImage(named: "bb"), UIImage(named: "hoc.jpg")]
+    let bgImages = [UIImage(named: "got.jpg"),UIImage(named: "twd.jpg"), UIImage(named: "sw"), UIImage(named: "avg.jpg"), UIImage(named: "hp"), UIImage(named: "bb"), UIImage(named: "sq.png")]
     var imageIndex: Int = 0
     var timer = Timer()
     

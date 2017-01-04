@@ -13,7 +13,6 @@ class STMainView: UIView {
     let backgroundImageView: UIImageView = {
         let backgroundImageView = UIImageView()
         backgroundImageView.contentMode = .scaleToFill
-        backgroundImageView.image = UIImage(named: "hoc.jpg")
         return backgroundImageView
     }()
     
@@ -52,7 +51,7 @@ class STMainView: UIView {
         super.init(frame : frame)
         self.backgroundColor = UIColor.black
         setupMainView()
-        self.backgroundImageView.image = UIImage(named: "hoc.jpg")
+        self.backgroundImageView.image = UIImage(named: "sq.jpg")
         let image = self.backgroundImageView.image?.resize(image: self.backgroundImageView.image!, to: CGSize(width: self.frame.width/2, height: self.frame.height/2))
         self.backgroundImageView.image = image
         self.backgroundImageView.alpha = 0.5

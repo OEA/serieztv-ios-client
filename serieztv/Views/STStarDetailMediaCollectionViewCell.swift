@@ -153,6 +153,14 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = STDetailViewController()
+        if isSeriesSelected {
+            
+            vc.series = self.series[indexPath.row]
+            
+        } else {
+            
+            vc.movie = self.movies[indexPath.row]
+        }
         self.mediaDetailDelegate?.navigateToMedia(vc: vc)
     }
     

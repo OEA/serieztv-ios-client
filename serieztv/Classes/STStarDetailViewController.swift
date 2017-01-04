@@ -57,6 +57,8 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
             self.movies = movies
             self.collectionView.reloadData()
         }, errorCompletion: nil)
+        
+        self.title = star!.name
     }
     
     func navigateBack() {

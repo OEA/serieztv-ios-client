@@ -69,35 +69,55 @@ class STRegisterViewController: UIViewController {
         registerView.backButton.addTarget(self, action:#selector(self.navigateBack), for: .touchUpInside)
     }
     
+    func isValidEmail(testStr:String) -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
     func register() {
+        
+        
         let username = self.registerView.usernameField.text
         let email = self.registerView.emailField.text
         let password = self.registerView.passwordField.text
-        let vc = STHomeTabBarViewController()
         
-        AuthManager.sharedInstance.register(email: email!, username: username!, password: password!, name: "tester", completion: { user in
+        if isValidEmail(testStr: email!) {
+            let vc = STHomeTabBarViewController()
             
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(user.id, forKey: "id")
-            userDefaults.set(user.name, forKey: "name")
-            userDefaults.set(user.username, forKey: "username")
-            userDefaults.set(user.email, forKey: "email")
-            self.present(vc, animated: false, completion: nil)
-        }, errorCompletion: { error in
-            
-            if error == "Could not create user" {
-                let alertController = UIAlertController(title: "Error", message: "Fill the blanks.", preferredStyle: .alert)
-                let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
-                alertController.addAction(doneAction)
-                self.present(alertController, animated: true, completion: nil)
-            } else {
-                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-                let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
-                alertController.addAction(doneAction)
-                self.present(alertController, animated: true, completion: nil)
-            }
-            
-        })
+            AuthManager.sharedInstance.register(email: email!, username: username!, password: password!, name: "tester", completion: { user in
+                
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(user.id, forKey: "id")
+                userDefaults.set(user.name, forKey: "name")
+                userDefaults.set(user.username, forKey: "username")
+                userDefaults.set(user.email, forKey: "email")
+                self.present(vc, animated: false, completion: nil)
+            }, errorCompletion: { error in
+                
+                if error == "Could not create user" {
+                    let alertController = UIAlertController(title: "Error", message: "Fill the blanks.", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                    alertController.addAction(doneAction)
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                    alertController.addAction(doneAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
+            })
+
+        } else {
+            let alertController = UIAlertController(title: "Error", message: "Please enter valid email.", preferredStyle: .alert)
+            let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+            alertController.addAction(doneAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
         
         
 

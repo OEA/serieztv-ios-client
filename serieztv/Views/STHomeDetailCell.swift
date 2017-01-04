@@ -23,7 +23,7 @@ class STHomeDetailCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let name = UILabel()
         name.text = "name"
-        name.numberOfLines = 0
+        name.numberOfLines = 2
         name.textColor = UIColor.white
         name.textAlignment = NSTextAlignment.center
         name.font = UIFont.boldSystemFont(ofSize: 14)

@@ -126,7 +126,6 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
         } else {
             return self.movies.count
         }
-        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -135,9 +134,18 @@ class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaDetailFromStarCell", for: indexPath) as! STHomeDetailCell
-        cell.nameLabel.text = "Movie"
-        cell.detailLabel.text = "Character Name"
-        cell.image.image = UIImage(named: "twd")
+        if isSeriesSelected {
+            
+            cell.nameLabel.text = self.series[indexPath.row].name
+            cell.detailLabel.text = ""
+            cell.image.image = UIImage(named: "twd")
+            
+        } else {
+            
+            cell.nameLabel.text = self.movies[indexPath.row].name
+            cell.detailLabel.text = ""
+            cell.image.image = UIImage(named: "twd")
+        }
         return cell
     }
     

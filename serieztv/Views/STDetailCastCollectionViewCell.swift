@@ -168,6 +168,7 @@ class STDetailCastCollectionViewCell: UICollectionViewCell, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected star")
         let vc = STStarDetailViewController()
+        vc.star = self.characters[indexPath.row].star
         self.starDetailDelegate?.navigateToStar(vc: vc)
     }
     

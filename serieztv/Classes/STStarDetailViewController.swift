@@ -14,6 +14,7 @@ protocol NavigateToMediaDetailDelegate {
 
 class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToMediaDetailDelegate {
     
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -67,7 +68,9 @@ class STStarDetailViewController: UIViewController, UICollectionViewDelegate, UI
         
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailInfoCell", for: indexPath) as! STStarDetailTopViewCell
-            cell.backgroundImage.image = UIImage(named: "got")
+            cell.nameLabel.text = self.star.name
+            cell.typeLabel.text = self.star.birthday
+            cell.backgroundImage.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(star.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
             return cell
         } else if indexPath.row == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StarDetailMediaCell", for: indexPath) as! STStarDetailMediaCollectionViewCell

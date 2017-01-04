@@ -13,7 +13,8 @@ import UIKit
 class STStarDetailMediaCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var mediaDetailDelegate: NavigateToMediaDetailDelegate?
-    
+    var movies = [Movie]()
+    var series = [Series]()
     let topTitleSeperator: UILabel = {
         let topSeperator = UILabel()
         topSeperator.backgroundColor = UIColor.darkGray

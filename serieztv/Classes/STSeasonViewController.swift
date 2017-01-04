@@ -41,6 +41,8 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         // Do any additional setup after loading the view.
         
+        self.seasonView.posterImageView.sd_setImage(with: NSURL(string: "http://image.tmdb.org/t/p/w300/\(seasons[0].poster!)")! as URL, placeholderImage:UIImage(named:"got"))
+        
     }
     
     func navigateBack() {
@@ -62,6 +64,8 @@ class STSeasonViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = STEpisodesViewController()
+        vc.episodes = self.seasons[indexPath.row].episodes
+        vc.season = self.seasons[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

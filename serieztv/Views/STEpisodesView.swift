@@ -26,6 +26,7 @@ class STEpisodesView: UIView {
     let overviewLabel: UILabel = {
         let overviewLabel = UILabel()
         overviewLabel.text = "overview"
+        overviewLabel.numberOfLines = 3
         overviewLabel.font = UIFont.boldSystemFont(ofSize: 14)
         overviewLabel.textColor = UIColor.white
         return overviewLabel

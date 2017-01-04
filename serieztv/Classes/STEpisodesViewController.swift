@@ -10,7 +10,8 @@ import UIKit
 
 class STEpisodesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var episodes = ["Episode 1", "Episode 2", "Episode 3", "Episode 4", "Episode 5", "Episode 6", "Episode 7", "Episode 8"]
+    var episodes = [Episode]()
+    var season: Season!
     
     let episodesView: STEpisodesView = {
         let episodesView = STEpisodesView()
@@ -27,7 +28,6 @@ class STEpisodesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Season X"
         self.view.addSubview(episodesView)
         
         episodesView.snp.makeConstraints { (make) in
@@ -40,6 +40,11 @@ class STEpisodesViewController: UIViewController, UITableViewDelegate, UITableVi
         backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        
+        episodesView.nameLabel.text = season.name
+        episodesView.overviewLabel.text = season.overview
+        self.title = "Season \(season.number!)"
+        self.episodesView.posterImageView.sd_setImage(with: NSURL(string: "http://image.tmdb.org/t/p/w300/\(season.poster!)")! as URL, placeholderImage:UIImage(named:"got"))
 
     }
     
@@ -69,8 +74,8 @@ class STEpisodesViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! STEpisodeTableViewCell
         
-        cell.numberLabel.text = "\(indexPath.row+1)"
-        cell.nameLabel.text = episodes[indexPath.row]
+        cell.numberLabel.text = "\(episodes[indexPath.row].number!)"
+        cell.nameLabel.text = episodes[indexPath.row].name
 
         return cell
     }

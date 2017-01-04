@@ -180,6 +180,7 @@ class STSearchViewController: UITableViewController, UISearchBarDelegate, UISear
             self.navigationController?.pushViewController(detailViewController, animated: true)
         } else {
             let detailViewController = STStarDetailViewController()
+            detailViewController.star = self.starList[indexPath.row]
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

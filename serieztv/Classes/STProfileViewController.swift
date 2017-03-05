@@ -15,8 +15,8 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         return profileView
     }()
     
-    let titles = ["About SeriezTV", "Share SeriezTV", "Give Feedback", "Change Password", "Logout"]
-    
+    let titles = ["About SeriezTV", "Watchlists", "Give Feedback", "Change Password", "Logout"]
+    var user: User = User()
     
     
     override func viewDidLoad() {
@@ -36,10 +36,11 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         let userDefaults = UserDefaults.standard
-        let username = userDefaults.string(forKey: "username")
-        let email = userDefaults.string(forKey: "email")
-        self.profileView.emailLabel.text = email
-        self.profileView.usernameLabel.text = username
+        user.username = userDefaults.string(forKey: "username")
+        user.id = userDefaults.string(forKey: "id")
+        user.email = userDefaults.string(forKey: "email")
+        self.profileView.emailLabel.text = user.email
+        self.profileView.usernameLabel.text = user.username
         self.profileView.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         // Do any additional setup after loading the view.
     }
@@ -63,7 +64,9 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             let aboutVC = STAboutViewController()
             self.navigationController?.pushViewController(aboutVC, animated: true)
         } else if (indexPath.row == 1) {
-            
+            let watchlistVC = STWatchlistTableViewController()
+            watchlistVC.user = self.user
+            self.navigationController?.pushViewController(watchlistVC, animated: true)
         } else if (indexPath.row == 2) {
             
         } else if (indexPath.row == 3) {

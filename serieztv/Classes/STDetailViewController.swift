@@ -26,6 +26,8 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         return collectionView
     }()
     
+    var user: User = User()
+    
     let backButton: UIButton = {
         let searchButton = UIButton(type: .custom)
         searchButton.setImage(UIImage(named: "icnBack"), for: .normal)
@@ -55,7 +57,10 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-        
+        let userDefaults = UserDefaults.standard
+        user.username = userDefaults.string(forKey: "username")
+        user.id = userDefaults.string(forKey: "id")
+        user.email = userDefaults.string(forKey: "email")
         if movie != nil {
             self.title = movie!.name
         } else {
@@ -121,6 +126,7 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.overviewText.text = movie!.overview!
                 cell.rateLabel.text = "\(movie!.imdbRating!)"
                 cell.rateCountLabel.text = "\(Int(movie!.imdbScore!))"
+                cell.addWatchlistButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
 
             } else {
                 cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
@@ -153,6 +159,21 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
             
         }
         return UICollectionViewCell()
+    }
+    
+    func addToList() {
+        let vc = STWatchlistTableViewController()
+        vc.isAdding = true
+        vc.user = self.user
+        if movie != nil {
+            vc.isMovie = true
+            vc.mediaId = (movie?.id)!
+        } else {
+            vc.isMovie = false
+            vc.mediaId = (series?.id)!
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     private func getYear(strDate: String) -> String {

@@ -11,6 +11,13 @@
 		17697C871E1C1C8600B128EB /* StarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C861E1C1C8600B128EB /* StarManager.swift */; };
 		17697C891E1C1CAC00B128EB /* GenreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C881E1C1CAC00B128EB /* GenreManager.swift */; };
 		17697C8B1E1C2E9E00B128EB /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17697C8A1E1C2E9E00B128EB /* SearchManager.swift */; };
+		7600812A1E5F48EC00BA6B77 /* ListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760081291E5F48EC00BA6B77 /* ListManager.swift */; };
+		7600812C1E5F48FB00BA6B77 /* RatingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7600812B1E5F48FB00BA6B77 /* RatingManager.swift */; };
+		7600812E1E636D7F00BA6B77 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7600812D1E636D7F00BA6B77 /* Rating.swift */; };
+		760081301E636D9C00BA6B77 /* Userlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7600812F1E636D9C00BA6B77 /* Userlist.swift */; };
+		760081321E647E4300BA6B77 /* STWatchlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760081311E647E4300BA6B77 /* STWatchlistTableViewController.swift */; };
+		760081341E64914800BA6B77 /* STWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760081331E64914800BA6B77 /* STWatchlistTableViewCell.swift */; };
+		760081361E64BCBB00BA6B77 /* STAddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760081351E64BCBB00BA6B77 /* STAddListView.swift */; };
 		760325BF1DFD7B300015113D /* STMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325BE1DFD7B300015113D /* STMainView.swift */; };
 		760325C11DFD7B460015113D /* STMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C01DFD7B460015113D /* STMainViewController.swift */; };
 		760325C41DFDD3D20015113D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760325C31DFDD3D20015113D /* User.swift */; };
@@ -92,6 +99,13 @@
 		17697C881E1C1CAC00B128EB /* GenreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreManager.swift; sourceTree = "<group>"; };
 		17697C8A1E1C2E9E00B128EB /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		66F01FC6BD41EFEC9AB72116 /* Pods_serieztv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serieztv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		760081291E5F48EC00BA6B77 /* ListManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListManager.swift; sourceTree = "<group>"; };
+		7600812B1E5F48FB00BA6B77 /* RatingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingManager.swift; sourceTree = "<group>"; };
+		7600812D1E636D7F00BA6B77 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		7600812F1E636D9C00BA6B77 /* Userlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Userlist.swift; sourceTree = "<group>"; };
+		760081311E647E4300BA6B77 /* STWatchlistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWatchlistTableViewController.swift; sourceTree = "<group>"; };
+		760081331E64914800BA6B77 /* STWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWatchlistTableViewCell.swift; sourceTree = "<group>"; };
+		760081351E64BCBB00BA6B77 /* STAddListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STAddListView.swift; sourceTree = "<group>"; };
 		760325BE1DFD7B300015113D /* STMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainView.swift; sourceTree = "<group>"; };
 		760325C01DFD7B460015113D /* STMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMainViewController.swift; sourceTree = "<group>"; };
 		760325C31DFDD3D20015113D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -198,6 +212,8 @@
 				760325D11DFDD4330015113D /* Character.swift */,
 				760325D31DFDD44C0015113D /* Genre.swift */,
 				760325D51DFDD4530015113D /* Comment.swift */,
+				7600812D1E636D7F00BA6B77 /* Rating.swift */,
+				7600812F1E636D9C00BA6B77 /* Userlist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,6 +237,7 @@
 				76DCD7E61E1C189D004FE258 /* STSeasonViewController.swift */,
 				76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */,
 				76DCD7F21E1C2F9F004FE258 /* STGenreTableViewController.swift */,
+				760081311E647E4300BA6B77 /* STWatchlistTableViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -234,6 +251,8 @@
 				17697C861E1C1C8600B128EB /* StarManager.swift */,
 				17697C881E1C1CAC00B128EB /* GenreManager.swift */,
 				17697C8A1E1C2E9E00B128EB /* SearchManager.swift */,
+				760081291E5F48EC00BA6B77 /* ListManager.swift */,
+				7600812B1E5F48FB00BA6B77 /* RatingManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -319,6 +338,8 @@
 				76DCD7EA1E1C1F2F004FE258 /* STSeasonTableViewCell.swift */,
 				76DCD7EE1E1C276E004FE258 /* STEpisodeTableViewCell.swift */,
 				76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */,
+				760081331E64914800BA6B77 /* STWatchlistTableViewCell.swift */,
+				760081351E64BCBB00BA6B77 /* STAddListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -538,6 +559,9 @@
 				766F1FDD1E1A7084000918B8 /* MovieManager.swift in Sources */,
 				760325BF1DFD7B300015113D /* STMainView.swift in Sources */,
 				17697C891E1C1CAC00B128EB /* GenreManager.swift in Sources */,
+				7600812A1E5F48EC00BA6B77 /* ListManager.swift in Sources */,
+				760081321E647E4300BA6B77 /* STWatchlistTableViewController.swift in Sources */,
+				7600812C1E5F48FB00BA6B77 /* RatingManager.swift in Sources */,
 				760325D01DFDD4290015113D /* Star.swift in Sources */,
 				76C55BED1E192C6D00EC0706 /* STStarDetailViewController.swift in Sources */,
 				76B7677B1DEAFCF00070E62F /* STRegisterViewController.swift in Sources */,
@@ -552,6 +576,7 @@
 				76DCD7E51E1C16EE004FE258 /* STSeasonView.swift in Sources */,
 				760325D21DFDD4330015113D /* Character.swift in Sources */,
 				7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */,
+				760081341E64914800BA6B77 /* STWatchlistTableViewCell.swift in Sources */,
 				76B767441DEAF56E0070E62F /* STAppDelegate.swift in Sources */,
 				762E92371E12B34500916ADB /* STHomeDetailCell.swift in Sources */,
 				760325CC1DFDD4030015113D /* Episode.swift in Sources */,
@@ -559,6 +584,7 @@
 				7625FAD11E182BBB000FEFCC /* STAboutViewController.swift in Sources */,
 				7625FACD1E1822CE000FEFCC /* STAboutView.swift in Sources */,
 				760325D41DFDD44C0015113D /* Genre.swift in Sources */,
+				760081361E64BCBB00BA6B77 /* STAddListView.swift in Sources */,
 				7625FACB1E17E52E000FEFCC /* STSearchResultTableViewCell.swift in Sources */,
 				76DCD7F11E1C27BA004FE258 /* STEpisodesView.swift in Sources */,
 				764BDF041E1410C80095B4F4 /* STProfileView.swift in Sources */,
@@ -571,12 +597,14 @@
 				7625FAD31E182F5C000FEFCC /* STChangePasswordViewController.swift in Sources */,
 				764BDF001E1402CA0095B4F4 /* STHomeTabBarViewController.swift in Sources */,
 				7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */,
+				760081301E636D9C00BA6B77 /* Userlist.swift in Sources */,
 				7625FAD51E187824000FEFCC /* STCrewListTableViewController.swift in Sources */,
 				760325CE1DFDD4200015113D /* Crew.swift in Sources */,
 				7625FAD91E187884000FEFCC /* STCrewDetailView.swift in Sources */,
 				761F07391E165F1000862BAC /* STDetailCastCollectionViewCell.swift in Sources */,
 				760CE9C91E15CC8200E7A2DC /* STProfileTableViewCell.swift in Sources */,
 				760325C81DFDD3E70015113D /* Series.swift in Sources */,
+				7600812E1E636D7F00BA6B77 /* Rating.swift in Sources */,
 				76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */,
 				76DCD7EB1E1C1F2F004FE258 /* STSeasonTableViewCell.swift in Sources */,
 				7625FAD71E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift in Sources */,

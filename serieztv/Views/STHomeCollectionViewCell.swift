@@ -23,7 +23,7 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     var navDelegate: NavigateToDetailDelegate?
     var genreNavDelegate: NavigateToGenreDetailDelegate?
     
-    lazy var collectionView: UICollectionView = {
+    var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0 , left: 0, bottom: 0, right: 0)
@@ -97,6 +97,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             cell.genreViewFirstLetterLabel.text = "\((cell.nameLabel.text?.characters.first)!)"
             let random: Int = Int(arc4random_uniform(UInt32(cell.colorArray.count)))
             cell.genreView.backgroundColor = cell.colorArray[random]
+            
+            
             return cell
 
         } else if self.detailCellViewIdentifier == "StarDetailCell" {
@@ -104,6 +106,8 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
             cell.contentView.backgroundColor = self.contentView.backgroundColor
             cell.starImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w300/\(stars[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
             cell.nameLabel.text = stars[indexPath.row].name
+            
+            
             return cell
         } else {
             return UICollectionViewCell()
@@ -172,6 +176,13 @@ class STHomeCollectionViewCell: UICollectionViewCell, UICollectionViewDelegate, 
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        isStarSelected = false
+        isSeriesSelected = false
+        isGenresSelected = false
     }
     
 }

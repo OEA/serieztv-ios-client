@@ -68,6 +68,14 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         return rateCountLabel
     }()
     
+    let addWatchlistButton: UIButton = {
+        let addWatchlistButton = UIButton()
+        addWatchlistButton.setTitle("Add To List", for: .normal)
+        addWatchlistButton.setTitleColor(UIColor.white, for: .normal)
+        addWatchlistButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        return addWatchlistButton
+    }()
+    
     let bottomSeperator: UILabel = {
         let imageViewSeperator = UILabel()
         imageViewSeperator.backgroundColor = UIColor.darkGray
@@ -85,6 +93,7 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         self.addSubview(rateScaleLabel)
         self.addSubview(rateCountLabel)
         self.addSubview(bottomSeperator)
+        self.addSubview(addWatchlistButton)
         
         self.detailImageView.snp.makeConstraints { (make) in
             make.leading.equalTo(10)
@@ -126,6 +135,11 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         self.rateCountLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.rateLabel.snp.bottom)
             make.centerX.equalTo(self.rateLabel).offset(5)
+        }
+        
+        self.addWatchlistButton.snp.makeConstraints { (make) in
+            make.leading.equalTo(200)
+            make.centerY.equalTo(rateStarImageView)
         }
         
         self.bottomSeperator.snp.makeConstraints { (make) in

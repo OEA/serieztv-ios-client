@@ -156,7 +156,13 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
                 }, errorCompletion: nil)
             }
         } else {
-            
+            ListManager.sharedInstance.getAllMedia(list: lists[indexPath.row], completion: { (movies, series) in
+                let vc = STWatchlistDetailTableViewController()
+                vc.seriesList = series
+                vc.movies = movies
+                vc.tableView.reloadData()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }, errorCompletion: nil)
         }
     }
     

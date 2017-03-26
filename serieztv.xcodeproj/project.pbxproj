@@ -54,6 +54,8 @@
 		764BDF041E1410C80095B4F4 /* STProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764BDF031E1410C80095B4F4 /* STProfileView.swift */; };
 		7659CB8E1E005628005D70EC /* STHomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */; };
 		7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */; };
+		765ED3671E815968004101A7 /* STWatchlistDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765ED3661E815968004101A7 /* STWatchlistDetailTableViewController.swift */; };
+		765ED3691E815C69004101A7 /* STWatchlistDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765ED3681E815C69004101A7 /* STWatchlistDetailTableViewCell.swift */; };
 		766F1FDD1E1A7084000918B8 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766F1FDC1E1A7084000918B8 /* MovieManager.swift */; };
 		76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76784B6D1DEE2BA4006E8E9D /* STTextField.swift */; };
 		76ACC1D61E0289AC00E21D19 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACC1D51E0289AC00E21D19 /* AuthManager.swift */; };
@@ -142,6 +144,8 @@
 		764BDF031E1410C80095B4F4 /* STProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STProfileView.swift; sourceTree = "<group>"; };
 		7659CB8D1E005628005D70EC /* STHomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewController.swift; sourceTree = "<group>"; };
 		7659CB8F1E00564E005D70EC /* STHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		765ED3661E815968004101A7 /* STWatchlistDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWatchlistDetailTableViewController.swift; sourceTree = "<group>"; };
+		765ED3681E815C69004101A7 /* STWatchlistDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWatchlistDetailTableViewCell.swift; sourceTree = "<group>"; };
 		766F1FDC1E1A7084000918B8 /* MovieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		76784B6D1DEE2BA4006E8E9D /* STTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STTextField.swift; sourceTree = "<group>"; };
 		76ACC1D51E0289AC00E21D19 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				76DCD7EC1E1C2367004FE258 /* STEpisodesViewController.swift */,
 				76DCD7F21E1C2F9F004FE258 /* STGenreTableViewController.swift */,
 				760081311E647E4300BA6B77 /* STWatchlistTableViewController.swift */,
+				765ED3661E815968004101A7 /* STWatchlistDetailTableViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				76DCD7F01E1C27BA004FE258 /* STEpisodesView.swift */,
 				760081331E64914800BA6B77 /* STWatchlistTableViewCell.swift */,
 				760081351E64BCBB00BA6B77 /* STAddListView.swift */,
+				765ED3681E815C69004101A7 /* STWatchlistDetailTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				17697C871E1C1C8600B128EB /* StarManager.swift in Sources */,
 				76DCD7F31E1C2F9F004FE258 /* STGenreTableViewController.swift in Sources */,
 				760325D61DFDD4530015113D /* Comment.swift in Sources */,
+				765ED3671E815968004101A7 /* STWatchlistDetailTableViewController.swift in Sources */,
 				7614FBD31E1A976200800744 /* SeriesManager.swift in Sources */,
 				7625FACF1E1822E8000FEFCC /* STChangePasswordView.swift in Sources */,
 				76DCD7E51E1C16EE004FE258 /* STSeasonView.swift in Sources */,
@@ -596,6 +603,7 @@
 				76C55BF01E19673D00EC0706 /* STStarDetailMediaCollectionViewCell.swift in Sources */,
 				7625FAD31E182F5C000FEFCC /* STChangePasswordViewController.swift in Sources */,
 				764BDF001E1402CA0095B4F4 /* STHomeTabBarViewController.swift in Sources */,
+				765ED3691E815C69004101A7 /* STWatchlistDetailTableViewCell.swift in Sources */,
 				7659CB901E00564E005D70EC /* STHomeCollectionViewCell.swift in Sources */,
 				760081301E636D9C00BA6B77 /* Userlist.swift in Sources */,
 				7625FAD51E187824000FEFCC /* STCrewListTableViewController.swift in Sources */,

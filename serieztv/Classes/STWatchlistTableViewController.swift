@@ -17,13 +17,21 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
     var mediaId: String!
     
     let tableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView()
+        tableView.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
         return tableView
     }()
     
     let searchButton: UIButton = {
         let searchButton = UIButton(type: .custom)
-        searchButton.setImage(UIImage(named: "Search"), for: .normal)
+        searchButton.setImage(UIImage(named: "plus"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        return searchButton
+    }()
+    
+    let backButton: UIButton = {
+        let searchButton = UIButton(type: .custom)
+        searchButton.setImage(UIImage(named: "icnBack"), for: .normal)
         searchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         return searchButton
     }()
@@ -36,13 +44,18 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(tableView)
+        self.view.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
         self.tableView.delegate = self
+        self.title = "Lists"
         self.tableView.dataSource = self
         self.tableView.register(STWatchlistTableViewCell.self, forCellReuseIdentifier: "watchlistCell")
-        self.tableView.backgroundColor = UIColor.white
         self.tableView.snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalTo(0)
         }
+        
+        backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         
         ListManager.sharedInstance.getUserlists(user: user, completion: { (userlists) in
             self.lists = userlists
@@ -74,6 +87,11 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
         addListView.alpha = 1.0
         tableView.alpha = 0.4
         
+    }
+    
+    func navigateBack() {
+        let navController = self.navigationController
+        _ = navController?.popViewController(animated: true)
     }
     
     func createNewList() {
@@ -118,7 +136,6 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
         if lists[indexPath.row].isPrivate! {
             cell.statusLabel.text = "Private"
             cell.setStatusButton.setOn(false, animated: true)
-            print(cell.setStatusButton.isOn)
         } else {
             cell.statusLabel.text = "Public"
             cell.setStatusButton.setOn(true, animated: true)
@@ -143,16 +160,24 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
         if isAdding {
             
             if isMovie! {
-        //         print(self.lists[indexPath.row].movies.count)
                 ListManager.sharedInstance.addMovie(list: lists[indexPath.row], movieId: mediaId, completion: { (userlist) in
-                    print(self.lists[indexPath.row].movies.count)
                     self.tableView.reloadData()
+                    let alertController = UIAlertController(title: "Added", message: "The movie is added.", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: .cancel, handler: { (action) in
+                        self.navigateBack()
+                    })
+                    alertController.addAction(doneAction)
+                    self.present(alertController, animated: true, completion: nil)
                 }, errorCompletion: nil)
             } else {
-          //       print(self.lists[indexPath.row].seriesList.count)
                 ListManager.sharedInstance.addSeries(list: lists[indexPath.row], seriesId: mediaId, completion: { (userlist) in
-                     print(self.lists[indexPath.row].seriesList.count)
                     self.tableView.reloadData()
+                    let alertController = UIAlertController(title: "Added", message: "The series is added.", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Done", style: UIAlertActionStyle.cancel, handler: { (action) in
+                        self.navigateBack()
+                    })
+                    alertController.addAction(doneAction)
+                    self.present(alertController, animated: true, completion: nil)
                 }, errorCompletion: nil)
             }
         } else {
@@ -160,6 +185,7 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
                 let vc = STWatchlistDetailTableViewController()
                 vc.seriesList = series
                 vc.movies = movies
+                vc.list = self.lists[indexPath.row]
                 vc.tableView.reloadData()
                 self.navigationController?.pushViewController(vc, animated: true)
             }, errorCompletion: nil)
@@ -170,49 +196,15 @@ class STWatchlistTableViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLayoutSubviews()
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            ListManager.sharedInstance.removeList(userlist: lists[indexPath.row], completion: { (userlist) in
+                self.lists.remove(at: indexPath.row)
+                tableView.reloadData()
+            }, errorCompletion: nil)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

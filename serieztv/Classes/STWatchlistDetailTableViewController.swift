@@ -21,10 +21,27 @@ class STWatchlistDetailTableViewController: UITableViewController {
         }
     }
 
+    var list: Userlist! {
+        didSet {
+            self.title = list.name
+        }
+    }
+    
+    let backButton: UIButton = {
+        let searchButton = UIButton(type: .custom)
+        searchButton.setImage(UIImage(named: "icnBack"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        return searchButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
+        self.tableView.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
         self.tableView.register(STSearchResultTableViewCell.self, forCellReuseIdentifier: "watchlistDetailCell")
-
+        backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,18 +72,34 @@ class STWatchlistDetailTableViewController: UITableViewController {
             return "Series"
         }
     }
+    
+    func navigateBack() {
+        let navController = self.navigationController
+        _ = navController?.popViewController(animated: true)
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistDetailCell", for: indexPath) as! STSearchResultTableViewCell
-        cell.titleLabel.text = movies[0].name
-        cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.movies[0].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
-        cell.detailLabel.text = movies[0].genres[0].name
-        
+        if indexPath.section == 0 {
+            cell.titleLabel.text = movies[indexPath.row].name
+            cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.movies[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+            cell.detailLabel.text = movies[indexPath.row].genres[0].name
+            
+        } else {
+            cell.titleLabel.text = seriesList[indexPath.row].name
+            cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.seriesList[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+            cell.detailLabel.text = seriesList[indexPath.row].genres[0].name
+            
+        }
+
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -75,18 +108,26 @@ class STWatchlistDetailTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
+    
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            if indexPath.section == 0 {
+                ListManager.sharedInstance.removeMovie(list: list, movieId: movies[indexPath.row].id, completion: { (userlist) in
+                    self.list = userlist
+                    self.movies = userlist.movies
+                    tableView.reloadData()
+                }, errorCompletion: nil)
+            } else {
+                ListManager.sharedInstance.removeSeries(list: list, seriesId: seriesList[indexPath.row].id, completion: { (userlist) in
+                    self.list = userlist
+                    self.seriesList = userlist.seriesList
+                    tableView.reloadData()
+                }, errorCompletion: nil)
+            }
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

@@ -9,6 +9,7 @@ target ‘serieztv’ do
   pod 'Alamofire', '~> 4.0'
   pod 'SDWebImage', '~>3.7'
   pod 'SwiftyJSON'
+  pod 'JTAppleCalendar', '~> 7.0'
   # Pods for hesapkitap
   
   post_install do |installer|

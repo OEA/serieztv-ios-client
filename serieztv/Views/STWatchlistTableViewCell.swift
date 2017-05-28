@@ -13,14 +13,14 @@ class STWatchlistTableViewCell: UITableViewCell {
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: 14)
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = UIColor.white
         return titleLabel
     }()
     
     let statusLabel: UILabel = {
         let statusLabel = UILabel()
         statusLabel.font = UIFont.italicSystemFont(ofSize: 10)
-        statusLabel.textColor = UIColor.black
+        statusLabel.textColor = UIColor.white
         return statusLabel
     }()
     
@@ -35,14 +35,14 @@ class STWatchlistTableViewCell: UITableViewCell {
         self.addSubview(titleLabel)
         self.addSubview(statusLabel)
         self.addSubview(setStatusButton)
-        
+        self.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
         titleLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(12)
             make.centerY.equalTo(self)
         }
         
         statusLabel.snp.makeConstraints { (make) in
-            make.centerX.equalTo(titleLabel)
+            make.leading.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(1)
         }
         

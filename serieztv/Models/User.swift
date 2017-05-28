@@ -19,6 +19,14 @@ class User: NSObject {
     
     var password: String!
     
+    var followers: [User]!
+    
+    var following: [User]!
+    
+    var followedMovies: [Movie]!
+    
+    var followedSeries: [Series]!
+    
 
     override init() {
     }

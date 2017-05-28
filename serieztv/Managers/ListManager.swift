@@ -282,8 +282,7 @@ class ListManager {
     }
     
     func removeList(userlist: Userlist, completion: ((_ list: Userlist) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
-        
-        Alamofire.request(self.removeListUrl, method: .post, parameters: ["id": userlist.id])
+        Alamofire.request(removeListUrl, method: .post, parameters: ["id": userlist.id])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
@@ -304,7 +303,7 @@ class ListManager {
     
     func removeMovie(list: Userlist, movieId: String, completion: ((_ list: Userlist) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         
-        Alamofire.request(self.removeMovieUrl, method: .post, parameters: ["id": list.id, "movieId": movieId])
+        Alamofire.request(removeMovieUrl, method: .post, parameters: ["id": list.id, "movieId": movieId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
@@ -328,7 +327,7 @@ class ListManager {
     
     func removeSeries(list: Userlist, seriesId: String, completion: ((_ list: Userlist) -> ())?, errorCompletion: ((_ error: String) -> ())?) {
         
-        Alamofire.request(self.removeSeriesUrl, method: .post, parameters: ["id": list.id, "seriesId": seriesId])
+        Alamofire.request(removeSeriesUrl, method: .post, parameters: ["id": list.id, "seriesId": seriesId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)

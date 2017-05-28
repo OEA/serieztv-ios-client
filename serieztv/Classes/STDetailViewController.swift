@@ -17,7 +17,7 @@ protocol NavigateToStarDetailDelegate {
     func navigateToStar(vc: STStarDetailViewController)
 }
 
-class STDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToSeasonsDetailDelegate, NavigateToStarDetailDelegate {
+class STDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, NavigateToSeasonsDetailDelegate, NavigateToStarDetailDelegate, RateViewDelegate {
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -49,6 +49,8 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        
         
         collectionView.register(STTopDetailCollectionViewCell.self, forCellWithReuseIdentifier: "DetailHeaderCell")
         collectionView.register(STDetailInformationCollectionViewCell.self, forCellWithReuseIdentifier: "DetailInfoCell")
@@ -91,7 +93,11 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailHeaderCell", for: indexPath) as! STTopDetailCollectionViewCell
             cell.posterImageView.image = UIImage(named: "placeholder")
+            cell.delegate = self
             if movie != nil {
+                RatingManager.sharedInstance.getRateOfMovieForUser(user: user, movie: movie!, completion: { (rating) in
+                        cell.ratingView.value = CGFloat(rating.rating)
+                }, errorCompletion: nil)
                 cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(movie!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.nameLabel.text = movie!.name
                 let strDate = movie!.airDate
@@ -105,6 +111,9 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.genresLabel.text = "| \(genres)"
                 
             } else {
+                RatingManager.sharedInstance.getRateOfSeriesForUser(user: user, series: series!, completion: { (rating) in
+                    cell.ratingView.value = CGFloat(rating.rating)
+                }, errorCompletion: nil)
                 cell.posterImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/backdrop/w780/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.nameLabel.text = series!.name
                 let strDate = series!.firstAir
@@ -127,12 +136,18 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.rateLabel.text = "\(movie!.imdbRating!)"
                 cell.rateCountLabel.text = "\(Int(movie!.imdbScore!))"
                 cell.addWatchlistButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
-
+                cell.addWatchlistTextButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
+                cell.followButton.addTarget(self, action: #selector(self.followMovie), for: .touchUpInside)
+                cell.followTextButton.addTarget(self, action: #selector(self.followSeries), for: .touchUpInside)
             } else {
                 cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.overviewText.text = series!.overview!
                 cell.rateLabel.text = "\(series!.imdbRating!)"
                 cell.rateCountLabel.text = "\(Int(series!.imdbScore!))"
+                cell.addWatchlistButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
+                cell.addWatchlistTextButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
+                cell.followButton.addTarget(self, action: #selector(self.followMovie), for: .touchUpInside)
+                cell.followTextButton.addTarget(self, action: #selector(self.followSeries), for: .touchUpInside)
             }
             return cell
         } else if indexPath.row == 2 {
@@ -176,6 +191,14 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     }
     
+    func followMovie() {
+        
+    }
+    
+    func followSeries() {
+        
+    }
+    
     private func getYear(strDate: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -207,5 +230,36 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     internal func navigateToStar(vc: STStarDetailViewController) {
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func rate(cell: STTopDetailCollectionViewCell, sender: SwiftyStarRatingView) {
+        var movieId: String? = nil
+        var seriesId: String? = nil
+        if movie != nil {
+            movieId = (movie?.id)!
+        } else {
+            seriesId = (series?.id)!
+        }
+        
+        RatingManager.sharedInstance.rate(user: self.user, movieId: movieId, seriesId: seriesId,
+                                          rating: Double(sender.value), completion: { (rate) in
+            cell.ratingView.value = CGFloat(rate.rating)
+        }, errorCompletion: nil)
+        
+    }
+    
+    func ratePressed(cell: STTopDetailCollectionViewCell) {
+        if cell.ratingView.alpha == 1.0 {
+            UIView.animate(withDuration: 1.0, animations: {
+                cell.ratingView.alpha = 0.0
+                cell.topView.alpha = 1.0
+            })
+        } else {
+            UIView.animate(withDuration: 1.0, animations: {
+                cell.ratingView.alpha = 1.0
+                cell.topView.alpha = 0.0
+            })
+            
+        }
     }
 }

@@ -37,7 +37,7 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
     
     let rateStarImageView: UIImageView = {
         let rateStarImageView = UIImageView()
-        rateStarImageView.image = UIImage(named: "starpic")
+        rateStarImageView.image = UIImage(named: "picstar")
         return rateStarImageView
     }()
     
@@ -70,10 +70,26 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
     
     let addWatchlistButton: UIButton = {
         let addWatchlistButton = UIButton()
-        addWatchlistButton.setTitle("Add To List", for: .normal)
-        addWatchlistButton.setTitleColor(UIColor.white, for: .normal)
-        addWatchlistButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        addWatchlistButton.setBackgroundImage(UIImage(named:"addw"), for: .normal)
         return addWatchlistButton
+    }()
+    
+    let addWatchlistTextButton: UIButton = {
+        let addWatchlistButton = UIButton()
+        addWatchlistButton.setTitle("Add To List", for: .normal)
+        return addWatchlistButton
+    }()
+    
+    let followButton: UIButton = {
+        let followButton = UIButton()
+        followButton.setBackgroundImage(UIImage(named:"heart"), for: .normal)
+        return followButton
+    }()
+    
+    let followTextButton: UIButton = {
+        let followButton = UIButton()
+        followButton.setTitle("Follow", for: .normal)
+        return followButton
     }()
     
     let bottomSeperator: UILabel = {
@@ -94,6 +110,9 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         self.addSubview(rateCountLabel)
         self.addSubview(bottomSeperator)
         self.addSubview(addWatchlistButton)
+        addSubview(followButton)
+        addSubview(followTextButton)
+        addSubview(addWatchlistTextButton)
         
         self.detailImageView.snp.makeConstraints { (make) in
             make.leading.equalTo(10)
@@ -138,7 +157,24 @@ class STDetailInformationCollectionViewCell: UICollectionViewCell {
         }
         
         self.addWatchlistButton.snp.makeConstraints { (make) in
-            make.leading.equalTo(200)
+            make.leading.equalTo(rateCountLabel.snp.trailing).offset(50)
+            make.width.height.equalTo(25)
+            make.centerY.equalTo(rateStarImageView)
+        }
+        
+        self.addWatchlistTextButton.snp.makeConstraints { (make) in
+            make.leading.equalTo(addWatchlistButton.snp.trailing).offset(3)
+            make.centerY.equalTo(rateStarImageView)
+        }
+        
+        self.followButton.snp.makeConstraints { (make) in
+            make.leading.equalTo(addWatchlistTextButton.snp.trailing).offset(20)
+            make.width.height.equalTo(25)
+            make.centerY.equalTo(rateStarImageView)
+        }
+        
+        self.followTextButton.snp.makeConstraints { (make) in
+            make.leading.equalTo(followButton.snp.trailing).offset(3)
             make.centerY.equalTo(rateStarImageView)
         }
         

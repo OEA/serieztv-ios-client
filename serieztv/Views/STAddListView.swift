@@ -11,7 +11,7 @@ import UIKit
 class STAddListView: UIView {
     
     let listNameField: STTextField = {
-        let listNameField = STTextField(frame: CGRect.zero, placeholder: "List Name", image: UIImage(named:"userfield")!)
+        let listNameField = STTextField(frame: CGRect.zero, placeholder: "List Name", image: UIImage(named:"plus")!)
         listNameField.autocorrectionType = UITextAutocorrectionType.no
         listNameField.keyboardType = UIKeyboardType.emailAddress
         listNameField.returnKeyType = UIReturnKeyType.continue
@@ -36,7 +36,7 @@ class STAddListView: UIView {
     
     let cancelButton: UIButton = {
         let cancelButton = UIButton()
-        cancelButton.setImage(UIImage(named:"icnBack"), for: .normal)
+        cancelButton.setImage(UIImage(named:"close"), for: .normal)
         return cancelButton
     }()
     
@@ -55,7 +55,7 @@ class STAddListView: UIView {
         self.addSubview(setStatusButton)
         self.addSubview(cancelButton)
         self.addSubview(doneButton)
-        self.backgroundColor = UIColor.blue
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.9)
 
         
     }
@@ -73,13 +73,13 @@ class STAddListView: UIView {
         }
         
         setStatusLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(65)
+            make.top.equalTo(self.listNameField.snp.bottom).offset(30)
             make.leading.equalTo(self.snp.leading).offset(10)
         }
         
         setStatusButton.snp.makeConstraints { (make) in
             make.leading.equalTo(setStatusLabel.snp.trailing).offset(10)
-            make.top.equalTo(self.snp.top).offset(65)
+            make.centerY.equalTo(setStatusLabel)
         }
         
         cancelButton.snp.makeConstraints { (make) in
@@ -88,10 +88,14 @@ class STAddListView: UIView {
         }
         
         doneButton.snp.makeConstraints { (make) in
-            make.leading.equalTo(self.snp.leading).offset(110)
+            make.centerX.equalTo(self)
             make.width.equalTo(60)
-            make.top.equalTo(self.snp.top).offset(100)
+            make.top.equalTo(self.setStatusButton.snp.bottom).offset(20)
             
         }
+        
+        layer.cornerRadius = 5.0
     }
+    
+
 }

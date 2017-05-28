@@ -12,13 +12,15 @@ class STProfileTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.textColor = UIColor.black
         return titleLabel
     }()
     
     let cellImageView: UIImageView = {
         let cellImageView = UIImageView()
+        
+        cellImageView.backgroundColor = .clear
         return cellImageView
     }()
     
@@ -30,10 +32,12 @@ class STProfileTableViewCell: UITableViewCell {
         cellImageView.snp.makeConstraints { (make) in
             make.centerY.equalTo(self)
             make.leading.equalTo(10)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.leading.equalTo(self.cellImageView.snp.trailing).offset(10)
+            make.leading.equalTo(self.cellImageView.snp.trailing).offset(20)
             make.centerY.equalTo(self)
         }
     }

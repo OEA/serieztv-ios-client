@@ -47,6 +47,7 @@
 		7625FAD51E187824000FEFCC /* STCrewListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625FAD41E187824000FEFCC /* STCrewListTableViewController.swift */; };
 		7625FAD71E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625FAD61E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift */; };
 		7625FAD91E187884000FEFCC /* STCrewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625FAD81E187884000FEFCC /* STCrewDetailView.swift */; };
+		762BE83F1EDB7D38001F22DB /* STFollowedMediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762BE83E1EDB7D38001F22DB /* STFollowedMediaTableViewController.swift */; };
 		762E92371E12B34500916ADB /* STHomeDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E92361E12B34500916ADB /* STHomeDetailCell.swift */; };
 		762E923B1E12C8B700916ADB /* STDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E923A1E12C8B700916ADB /* STDetailViewController.swift */; };
 		762E923D1E12F43400916ADB /* STStarDetailTopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762E923C1E12F43400916ADB /* STStarDetailTopViewCell.swift */; };
@@ -143,6 +144,7 @@
 		7625FAD41E187824000FEFCC /* STCrewListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCrewListTableViewController.swift; sourceTree = "<group>"; };
 		7625FAD61E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCrewCategoryDetailTableViewController.swift; sourceTree = "<group>"; };
 		7625FAD81E187884000FEFCC /* STCrewDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STCrewDetailView.swift; sourceTree = "<group>"; };
+		762BE83E1EDB7D38001F22DB /* STFollowedMediaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFollowedMediaTableViewController.swift; sourceTree = "<group>"; };
 		762E92361E12B34500916ADB /* STHomeDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHomeDetailCell.swift; sourceTree = "<group>"; };
 		762E923A1E12C8B700916ADB /* STDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STDetailViewController.swift; sourceTree = "<group>"; };
 		762E923C1E12F43400916ADB /* STStarDetailTopViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStarDetailTopViewCell.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				76D37F2F1EC2623C00D69288 /* STFollowDetailTableViewController.swift */,
 				76795CBC1ECB4FD700E5DB4E /* STSettingsTableViewController.swift */,
 				76795CBE1ECB501B00E5DB4E /* STCalendarViewController.swift */,
+				762BE83E1EDB7D38001F22DB /* STFollowedMediaTableViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				76784B6E1DEE2BA4006E8E9D /* STTextField.swift in Sources */,
 				76D37F301EC2623C00D69288 /* STFollowDetailTableViewController.swift in Sources */,
 				76DCD7EB1E1C1F2F004FE258 /* STSeasonTableViewCell.swift in Sources */,
+				762BE83F1EDB7D38001F22DB /* STFollowedMediaTableViewController.swift in Sources */,
 				7625FAD71E187854000FEFCC /* STCrewCategoryDetailTableViewController.swift in Sources */,
 				76B767751DEAFA6F0070E62F /* STLoginViewController.swift in Sources */,
 			);

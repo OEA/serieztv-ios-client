@@ -138,7 +138,7 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.addWatchlistButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
                 cell.addWatchlistTextButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
                 cell.followButton.addTarget(self, action: #selector(self.followMovie), for: .touchUpInside)
-                cell.followTextButton.addTarget(self, action: #selector(self.followSeries), for: .touchUpInside)
+                cell.followTextButton.addTarget(self, action: #selector(self.followMovie), for: .touchUpInside)
             } else {
                 cell.detailImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(series!.id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
                 cell.overviewText.text = series!.overview!
@@ -146,7 +146,7 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.rateCountLabel.text = "\(Int(series!.imdbScore!))"
                 cell.addWatchlistButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
                 cell.addWatchlistTextButton.addTarget(self, action: #selector(self.addToList), for: .touchUpInside)
-                cell.followButton.addTarget(self, action: #selector(self.followMovie), for: .touchUpInside)
+                cell.followButton.addTarget(self, action: #selector(self.followSeries), for: .touchUpInside)
                 cell.followTextButton.addTarget(self, action: #selector(self.followSeries), for: .touchUpInside)
             }
             return cell
@@ -192,11 +192,15 @@ class STDetailViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func followMovie() {
-        
+        AuthManager.sharedInstance.followMovie(userId: self.user.id, movieId: (movie?.id)!, completion: { (user) in
+           // self.user = user
+        }, errorCompletion: nil)
     }
     
     func followSeries() {
-        
+        AuthManager.sharedInstance.followSeries(userId: self.user.id, seriesId: (series?.id)!, completion: { (user) in
+           // self.user = user
+        }, errorCompletion: nil)
     }
     
     private func getYear(strDate: String) -> String {

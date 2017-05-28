@@ -216,7 +216,7 @@ class AuthManager {
     func followMovie(userId: String, movieId: String, completion: ((_ user: User) -> ())?,
                      errorCompletion: ((_ error: String) -> ())?) {
         
-        Alamofire.request(followUserUrl, method: .post, parameters: ["id": userId, "movieId": movieId])
+        Alamofire.request(followMovieUrl, method: .post, parameters: ["id": userId, "movieId": movieId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
@@ -250,7 +250,7 @@ class AuthManager {
     
     func followSeries(userId: String, seriesId: String, completion: ((_ user: User) -> ())?,
                       errorCompletion: ((_ error: String) -> ())?) {
-        Alamofire.request(followUserUrl, method: .post, parameters: ["id": userId, "seriesId": seriesId])
+        Alamofire.request(followSeriesUrl, method: .post, parameters: ["id": userId, "seriesId": seriesId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
@@ -284,7 +284,7 @@ class AuthManager {
     
     func unfollowUser(userId: String, followedId: String, completion: ((_ user: User) -> ())?,
                     errorCompletion: ((_ error: String) -> ())?) {
-        Alamofire.request(followUserUrl, method: .post, parameters: ["id": userId, "followedId": followedId])
+        Alamofire.request(unfollowUserUrl, method: .post, parameters: ["id": userId, "followedId": followedId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
@@ -318,7 +318,7 @@ class AuthManager {
     
     func unfollowMovie(userId: String, movieId: String, completion: ((_ user: User) -> ())?,
                      errorCompletion: ((_ error: String) -> ())?) {
-        Alamofire.request(followUserUrl, method: .post, parameters: ["id": userId, "movieId": movieId])
+        Alamofire.request(unfollowMovieUrl, method: .post, parameters: ["id": userId, "movieId": movieId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)
@@ -352,7 +352,7 @@ class AuthManager {
     
     func unfollowSeries(userId: String, seriesId: String, completion: ((_ user: User) -> ())?,
                       errorCompletion: ((_ error: String) -> ())?) {
-        Alamofire.request(followUserUrl, method: .post, parameters: ["id": userId, "seriesId": seriesId])
+        Alamofire.request(unfollowSeriesUrl, method: .post, parameters: ["id": userId, "seriesId": seriesId])
             .responseJSON { response in
                 if response.result.value != nil {
                     let json = JSON(response.result.value!)

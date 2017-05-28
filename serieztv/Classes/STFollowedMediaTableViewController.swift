@@ -1,18 +1,20 @@
 //
-//  STFollowDetailTableViewController.swift
+//  STFollowedMediaTableViewController.swift
 //  serieztv
 //
-//  Created by Goktug on 09/05/2017.
+//  Created by Goktug on 29/05/2017.
 //  Copyright © 2017 serieztv. All rights reserved.
 //
 
 import UIKit
 
-class STFollowDetailTableViewController: UITableViewController {
+class STFollowedMediaTableViewController: UITableViewController {
     
-    var followers: [User]!
-    var following: [User]!
-    var isFollowers: Bool!
+    var movies = [Movie]()
+    var series = [Series]()
+    var user: User!
+    
+    var isMovie: Bool!
     
     let backButton: UIButton = {
         let searchButton = UIButton(type: .custom)
@@ -23,72 +25,108 @@ class STFollowDetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
+         self.tableView.register(STSearchResultTableViewCell.self, forCellReuseIdentifier: "followedDetailCell")
         self.view.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
         self.tableView.tableFooterView = UIView()
         self.tableView.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
+         AuthManager.sharedInstance.getMovies(userId: user.id, completion: { (movies) in
+            self.movies = movies
+            self.tableView.reloadData()
+         }, errorCompletion: nil)
+        
+        AuthManager.sharedInstance.getSeries(userId: user.id, completion: { (series) in
+            self.series = series
+            self.tableView.reloadData()
+        }, errorCompletion: nil)
+        
+        backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        
+        if isMovie {
+            self.title = "Followed Movies"
+        } else {
+            self.title = "Followed Series"
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func navigateBack() {
         let navController = self.navigationController
         _ = navController?.popViewController(animated: true)
     }
-
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.isFollowers != nil && self.isFollowers == true {
-            return followers.count
+        // #warning Incomplete implementation, return the number of rows
+        if isMovie && movies.count > 0 {
+            return movies.count
+        } else if !isMovie && series.count > 0 {
+            return series.count
         }
-        return following.count
+        return 0
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        if self.isFollowers != nil && self.isFollowers == true {
-            cell.textLabel?.text = followers[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "followedDetailCell", for: indexPath) as! STSearchResultTableViewCell
+        if isMovie {
+            cell.titleLabel.text = movies[indexPath.row].name
+            cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.movies[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+            cell.detailLabel.text = movies[indexPath.row].genres[0].name
+            
         } else {
-            cell.textLabel?.text = following[indexPath.row].name
+            cell.titleLabel.text = series[indexPath.row].name
+            cell.cellImageView.sd_setImage(with: NSURL(string: "http://localhost:3000/images/poster/w92/\(self.series[indexPath.row].id!).jpg")! as URL, placeholderImage:UIImage(named:"placeholder"))
+            cell.detailLabel.text = series[indexPath.row].genres[0].name
+            
         }
-        cell.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1.0)
-        cell.textLabel?.textColor = .white
+        
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detail = STProfileViewController()
-        if isFollowers {
-            detail.user = followers[indexPath.row]
-            detail.isAnotherUser = true
+        let detailViewController = STDetailViewController()
+        
+        if isMovie {
+            detailViewController.movie = self.movies[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
         } else {
-            detail.user = following[indexPath.row]
-            detail.isAnotherUser = true
+            detailViewController.series = self.series[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
         }
-        self.navigationController?.pushViewController(detail, animated: true)
     }
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

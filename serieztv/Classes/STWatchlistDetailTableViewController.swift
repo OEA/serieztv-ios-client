@@ -42,6 +42,7 @@ class STWatchlistDetailTableViewController: UITableViewController {
         backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        self.tableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -125,6 +126,18 @@ class STWatchlistDetailTableViewController: UITableViewController {
                     tableView.reloadData()
                 }, errorCompletion: nil)
             }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = STDetailViewController()
+        
+        if indexPath.section == 0 {
+            detailViewController.movie = self.movies[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        } else {
+            detailViewController.series = self.seriesList[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
     

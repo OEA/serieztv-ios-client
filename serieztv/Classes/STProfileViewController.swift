@@ -14,6 +14,15 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         let profileView = STProfileView()
         return profileView
     }()
+    
+    let backButton: UIButton = {
+        let searchButton = UIButton(type: .custom)
+        searchButton.setImage(UIImage(named: "icnBack"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        return searchButton
+    }()
+    
+    var isAnotherUser = false
     let colorArray = [UIColor.red, UIColor.blue, UIColor.green, UIColor.brown, UIColor.yellow, UIColor.orange]
    // let titles = ["About SeriezTV", "Watchlists", "Give Feedback", "Change Password", "Logout"]
     let titles = ["About SeriezTV", "Watchlists", "Followed Movies", "Followed Series", "Change Password", "Logout"]
@@ -40,9 +49,16 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         let userDefaults = UserDefaults.standard
-        user.username = userDefaults.string(forKey: "username")
-        user.id = userDefaults.string(forKey: "id")
-        user.email = userDefaults.string(forKey: "email")
+        if !isAnotherUser {
+            user.username = userDefaults.string(forKey: "username")
+            user.id = userDefaults.string(forKey: "id")
+            user.email = userDefaults.string(forKey: "email")
+        } else {
+            backButton.addTarget(self, action: #selector(self.navigateBack), for: .touchUpInside)
+            self.navigationController?.navigationBar.isTranslucent = false
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        }
+
         self.profileView.emailLabel.text = user.email
         self.profileView.usernameLabel.text = user.username
         self.profileView.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -64,6 +80,11 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
 //
 //
         // Do any additional setup after loading the view.
+    }
+    
+    func navigateBack() {
+        let navController = self.navigationController
+        _ = navController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,9 +137,15 @@ class STProfileViewController: UIViewController, UITableViewDelegate, UITableVie
             watchlistVC.user = self.user
             self.navigationController?.pushViewController(watchlistVC, animated: true)
         } else if (indexPath.row == 2) {
-            
+            let followedVC = STFollowedMediaTableViewController()
+            followedVC.user = self.user
+            followedVC.isMovie = true
+            self.navigationController?.pushViewController(followedVC, animated: true)
         } else if (indexPath.row == 3) {
-
+            let followedVC = STFollowedMediaTableViewController()
+            followedVC.user = self.user
+            followedVC.isMovie = false
+            self.navigationController?.pushViewController(followedVC, animated: true)
         } else if (indexPath.row == 4) {
             let changePasswordVC = STChangePasswordViewController()
             self.navigationController?.pushViewController(changePasswordVC, animated: true)

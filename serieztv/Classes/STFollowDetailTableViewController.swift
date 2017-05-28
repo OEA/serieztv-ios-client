@@ -37,7 +37,7 @@ class STFollowDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFollowers {
+        if self.isFollowers != nil && self.isFollowers == true {
             return followers.count
         }
         return following.count
@@ -46,7 +46,7 @@ class STFollowDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        if isFollowers {
+        if self.isFollowers != nil && self.isFollowers == true {
             cell.textLabel?.text = followers[indexPath.row].name
         } else {
             cell.textLabel?.text = following[indexPath.row].name

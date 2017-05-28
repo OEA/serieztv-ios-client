@@ -177,8 +177,8 @@ class MovieManager: NSObject {
         movie.image = data["image"].string
         movie.overview = data["overview"].string
         movie.status = data["status"].string
-        movie.imdbScore = data["imdbScore"].double
-        movie.imdbRating = data["imdbRating"].double
+        movie.imdbScore = data["imdbRating"].double
+        movie.imdbRating = data["imdbScore"].double
         movie.runtime = data["runtime"].double
         movie.airDate = data["airDate"].string
         movie.apiID = data["apiID"].string

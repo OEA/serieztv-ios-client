@@ -189,8 +189,8 @@ class SeriesManager {
         series.image = data["image"].string
         series.overview = data["overview"].string
         series.status = data["status"].string
-        series.imdbScore = data["imdbScore"].double
-        series.imdbRating = data["imdbRating"].double
+        series.imdbScore = data["imdbRating"].double
+        series.imdbRating = data["imdbScore"].double
         series.runtime = data["runtime"].double
         series.firstAir = data["firstAir"].string
         series.id = data["id"].string
